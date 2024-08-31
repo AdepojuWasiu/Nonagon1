@@ -41,7 +41,7 @@ const Home = () => {
   ];
 
   const [levelIndex, setLevelIndex] = useState(6);
-  const [points, setPoints] = useState(31249365);
+  const [points, setPoints] = useState(61249365);
   const [clicks, setClicks] = useState([]);
 
   const { energy } = useEnergy();
@@ -150,8 +150,8 @@ const Home = () => {
                     key={click.id}
                     className="absolute text-[30px] font-bold text-blue-700"
                     style={{
-                      top: `${click.y - 25}px`,
-                      left: `${click.x - 15}px`,
+                      top: `${click.y - 5}px`,
+                      left: `${click.x - 5}px`,
                       animation: `float 1s ease forwards`,
                     }}
                     onAnimationEnd={() => handleAnimationEnd(click.id)}

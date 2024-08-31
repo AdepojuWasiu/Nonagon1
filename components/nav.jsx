@@ -9,7 +9,7 @@ import { FaWallet } from "react-icons/fa";
 const Navbar = () => {
   return (
     
-      <div className="fixed bottom-0 left-0 right-0 top-[160vw] bg-[#202020] grid grid-cols-4 justify-center justify-items-center items-center text-gray-400 font-bold ">
+      <div className="fixed bottom-0 left-0 right-0 h-[80px] bg-[#202020] grid grid-cols-4 justify-center justify-items-center items-center text-gray-400 font-bold ">
       <Link href="/">
         <div>
           <FaHome className=" w-[30px] h-[30px] ml-1.5" color="gray"/>
@@ -24,13 +24,13 @@ const Navbar = () => {
       </Link>
       <Link href="/earn">
         <div>
-          <FaCoins className=" w-[30px] h-[30px] ml-1.5" color="gray"/>
+          <FaCoins className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Earn</p>
         </div>
       </Link>
       <Link href="/">
         <div>
-          <FaWallet className=" w-[30px] h-[30px] ml-1.5" color="gray"/>
+          <FaWallet className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Wallet</p>
         </div>
       </Link>
