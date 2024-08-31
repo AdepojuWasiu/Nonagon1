@@ -13,9 +13,9 @@ export const metadata= {
 const RootLayout = ({children}) => {
   return (
       <html lang="en">
-          {/* <head>
+          <head>
           <Script src="https://telegram.org/js/telegram-web-app.js" strategy="beforeInteractive" />
-          </head> */}
+          </head>
         
           <body className="text-[#ffffff]">
             <EnergyProvider>
