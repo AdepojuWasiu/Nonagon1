@@ -24,12 +24,8 @@ function useTelegramInitData() {
         initData[key] = firstLayerInitData[key];
       }
     }
-             
+            
 
-
-    // Optional: Log the init data to check what's available
-    // console.log('Telegram Init Data:', initData);
-    alert(JSON.stringify(initData));
 
     setData(initData);
   }, []);
