@@ -117,7 +117,7 @@ const Home = () => {
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
       <div className="flex justify-between items-center mx-[15px]">
-        <div><h1 className="text-[20px] font-bold">Hi, {user}</h1></div>
+        <div><h1 className="text-[20px] font-bold">Hi, wasquo</h1></div>
         <div><h1 className="text-[20px] font-bold">Choose Exchange</h1></div>
       </div>
 
