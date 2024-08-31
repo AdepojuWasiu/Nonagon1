@@ -148,11 +148,11 @@ const Home = () => {
                 clicks.map((click) => (
                   <div
                     key={click.id}
-                    className="absolute text-[30px] font-bold text-blue-700"
+                    className="absolute text-[30px] font-bold text-[#fff]"
                     style={{
-                      top: `${click.y - 55}px`,
-                      left: `${click.x - 45}px`,
-                      animation: `float 1s ease forwards`,
+                      top: `${click.y - 60}px`,
+                      left: `${click.x - 50}px`,
+                      animation: `float 0.5s ease forwards`,
                     }}
                     onAnimationEnd={() => handleAnimationEnd(click.id)}
                   >
