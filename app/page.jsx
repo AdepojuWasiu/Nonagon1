@@ -45,10 +45,10 @@ const Home = () => {
   const [clicks, setClicks] = useState([]);
 
   const { energy } = useEnergy();
-  const initData = useTelegramInitData();
+  // const initData = useTelegramInitData();
 
-  const user = initData.user;
-  const start_param = initData.start_param;
+  // const user = initData.user;
+  // const start_param = initData.start_param;
 
 
 
