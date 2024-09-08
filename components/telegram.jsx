@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react';
 function useTelegramInitData() {
   const [data, setData] = useState({});
 
+
   useEffect(() => {
     const firstLayerInitData = Object.fromEntries(
       new URLSearchParams(window.Telegram.WebApp.initData)
@@ -24,8 +25,6 @@ function useTelegramInitData() {
         initData[key] = firstLayerInitData[key];
       }
     }
-      
-    alert(JSON.stringify(initData));
 
     setData(initData);
   }, []);
