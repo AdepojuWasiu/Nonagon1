@@ -6,6 +6,9 @@ import { IoIosArrowForward } from "react-icons/io";
 import {PiHandTapBold} from "react-icons/pi";
 import { FaRobot } from "react-icons/fa";
 import {BsFillLightningChargeFill} from "react-icons/bs"
+import { useEnergy } from "@/context/context";
+import {IoClose} from 'react-icons/io5';
+import { useRouter } from "next/navigation";
 
 
 import Image from "next/image";
@@ -13,11 +16,34 @@ import { useState } from "react";
 
 
 const Boost = () => {
-  const [points, setPoints] = useState(31249365);
+  const router = useRouter();
+   const [turboPullup, setTurboPullup] = useState(false);
+   const [energyPullup, setEnergyPullup] = useState(false);
+   const [multiTapPullup, setMultiTapPullup] = useState(false);
+   const [energyLimitPullup, setEnergyLimitPullup] = useState(false);
+   const [rechargingPullup, setRechargingPullup] = useState(false);
+
+
+  const { points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
+               energyLimitLevel, rechargingSpeedLevel, setEnergy, setAvailableEnergyRefill, setWelcomeTurbo,
+               setMultitapLevel, setEnergyLimitLevel,energyIncrease, setEnergyIncrease, setRechargingSpeedLevel,
+               energyLimit, setEnergyLimit } = useEnergy();
+        
+  const handleTurbo = () => {
+     setTapValue(prevValue => prevValue * 10);
+     setAvailabeTurbo(availableTurbo-1);
+     setWelcomeTurbo(true);
+     router.push('/');
+     
+     setTimeout(() => {
+       setTapValue(prevValue => prevValue/10);
+       setWelcomeTurbo(false);
+     },10000);   
+  };
 
 
   return (
-    <div className="p-4 pb-10">
+    <div className="p-4 pb-10 relative">
         <div className="flex justify-center items-center justify-items-center content-center mt-5">
         <h1 className="font-bold text-[15px]">Your Balance</h1>
         </div>
@@ -28,72 +54,176 @@ const Boost = () => {
       <div className="mt-6">
         <h1 className="text-[20px] font-bold">Free daily boosters</h1>
         <div className="grid grid-cols-2 gap-4 mt-4" >
-          <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
-            <div><p className="text-[17px] font-bold">Turbo</p><p>3/3 available</p></div>
-            <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
-          </div>
-          <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
-            <div><p className="text-[17px] font-bold">Full Battery</p><p>3/3 available</p></div>
-            <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
-          </div>
+          <button onClick={() => setTurboPullup(true)}>
+              <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
+                <div><p className="text-[17px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
+                <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
+              </div>
+          </button>
+          <button onClick={() => setEnergyPullup(true)}>
+              <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
+                <div><p className="text-[17px] font-bold">Full Battery</p><p>{availableEnergyRefill}/3 available</p></div>
+                <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
+              </div>
+          </button>
         </div>
       </div>
 
       <div className="mt-8">
          <h1 className="text-[20px] font-bold">Boosters</h1>
-         <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
-                 <div>
-                    <p className="text-[17px] font-bold">Multi tap</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-                        <p>400 000 <span className="text-gray-500">| Level 13</span></p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <IoMdBatteryCharging color="blue" className="w-[50px] h-[50px]" />
-                 <div>
-                    <p className="text-[17px] font-bold">Energy limit</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-                        <p>400 000 <span className="text-gray-500">| Level 13</span></p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <BsFillLightningChargeFill color="gold" className="w-[50px] h-[50px]" />
-                 <div>
-                    <p className="text-[17px] font-bold">Recharging speed</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-                        <p>400 000 <span className="text-gray-500">| Level 13</span></p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <FaRobot color="blue" className="w-[50px] h-[50px]" />
-                 <div>
-                    <p className="text-[17px] font-bold">Multi tap</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-                        <p>400 000 </p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
+         <button onClick={() => setMultiTapPullup(true)} className="w-full">
+              <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+                  <div className="flex gap-2">
+                      <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
+                      <div>
+                          <p className="text-[17px] font-bold">Multi tap</p>
+                          <div className="flex gap-2">
+                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <p>400 000 <span className="text-gray-500">| Level {multitapLevel}</span></p>
+                          </div>
+                      </div>
+                  </div>
+                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                </div>
+         </button>
+         <button onClick={() => setEnergyLimitPullup(true)} className="w-full">
+             <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+                 <div className="flex gap-2">
+                      <IoMdBatteryCharging color="blue" className="w-[50px] h-[50px]" />
+                      <div>
+                          <p className="text-[17px] font-bold">Energy limit</p>
+                          <div className="flex gap-2">
+                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <p>400 000 <span className="text-gray-500">| Level {energyLimitLevel}</span></p>
+                          </div>
+                      </div>
+                  </div>
+                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                </div>
+         </button>
+         <button className="w-full" onClick={() => setRechargingPullup(true)}>
+              <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+                  <div className="flex gap-2">
+                      <BsFillLightningChargeFill color="gold" className="w-[50px] h-[50px]" />
+                      <div>
+                          <p className="text-[17px] font-bold">Recharging speed</p>
+                          <div className="flex gap-2">
+                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <p>400 000 <span className="text-gray-500">| Level {rechargingSpeedLevel}</span></p>
+                          </div>
+                      </div>
+                  </div>
+                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                </div>
+         </button>
+         <button className="w-full">
+              <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+                  <div className="flex gap-2">
+                      <FaRobot color="blue" className="w-[50px] h-[50px]" />
+                      <div>
+                          <p className="text-[17px] font-bold">Offline Worker </p>
+                          <div className="flex gap-2">
+                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <p>400 000 </p>
+                          </div>
+                      </div>
+                  </div>
+                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                </div>
+         </button>
       </div>
+      {turboPullup && (
+                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
+                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
+                  <IoClose size={27} onClick ={() => setTurboPullup(false)} className="absolute right-2 top-2"/>
+                  <FaPaperPlane color="gold" className="w-[80px] h-[80px]" />
+                  <h1 className="text-[30px] mt-[30px]">Fly Plane</h1>
+                  <p className="text-[#ffffff6c]">Get 10x of tapping for 10seconds</p> 
+                  <div className="flex gap-2">
+                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <p className="text-[20px]">Free</p>
+                  </div>
+                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                                    onClick={ handleTurbo}>
+                    Get it!
+                  </button>
+                </div>
+               )}
+           {energyPullup && (
+                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
+                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
+                  <IoClose size={27} onClick ={() => setEnergyPullup(false)} className="absolute right-2 top-2"/>
+                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <h1 className="text-[30px] mt-[30px]">Full Energy</h1>
+                  <p className="text-[#ffffff6c]">Fill your energy to the max</p> 
+                  <div className="flex gap-2">
+                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <p className="text-[20px]">Free</p>
+                  </div>
+                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                                    onClick={ () => {setEnergy(energyLimit);setAvailableEnergyRefill(availableEnergyRefill-1); router.push('/')}}>
+                    Get it!
+                  </button>
+                </div>
+               )}
+
+          {multiTapPullup && (
+                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
+                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
+                  <IoClose size={27} onClick ={() => setMultiTapPullup(false)} className="absolute right-2 top-2"/>
+                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <h1 className="text-[30px] mt-[30px]">Multitap</h1>
+                  <p className="text-[#ffffff6c] px-3">Increase amount of TAP you can earn per one tap</p> 
+                  <p className="text-[#ffffff6c]">+1 per tap for each level.</p>
+                  <div className="flex gap-2">
+                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
+                  </div>
+                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                                    onClick={ () => {setPoints(points-5000*multitapLevel); setTapValue(tapValue+1); setMultitapLevel(multitapLevel+1); router.push('/')}}>
+                    Get it!
+                  </button>
+                </div>
+               )}
+
+           {energyLimitPullup && (
+                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
+                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
+                  <IoClose size={27} onClick ={() => setEnergyLimitPullup(false)} className="absolute right-2 top-2"/>
+                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <h1 className="text-[30px] mt-[30px]">Energy Limit</h1>
+                  <p className="text-[#ffffff6c]">Increase the limit of energy storage</p>
+                  <p className="text-[#ffffff6c]">+500 energy limit for each level.</p>
+                  <div className="flex gap-2">
+                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
+                  </div>
+                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                                    onClick={ () => {setPoints(points-5000*energyLimitLevel);setEnergyLimit(energyLimit+500);setEnergyLimitLevel(energyLimitLevel+1); router.push('/')}}>
+                    Get it!
+                  </button>
+                </div>
+               )}
+
+               
+           {rechargingPullup && (
+                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
+                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
+                  <IoClose size={27} onClick ={() => setRechargingPullup(false)} className="absolute right-2 top-2"/>
+                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <h1 className="text-[30px] mt-[30px]">Recharching Speed</h1>
+                  <p className="text-[#ffffff6c]">Increase your rechaeging speed</p>
+                  <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
+                  <div className="flex gap-2">
+                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
+                  </div>
+                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                                    onClick={ () => {setPoints(points-5000*rechargingSpeedLevel);setEnergyIncrease(energyIncrease+1);setRechargingSpeedLevel(rechargingSpeedLevel+1); router.push('/')}}>
+                    Get it!
+                  </button>
+                </div>
+               )}
     </div>
   )
 }

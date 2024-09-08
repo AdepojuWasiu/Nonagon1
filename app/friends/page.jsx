@@ -1,10 +1,14 @@
-
+'use client'
 import Image from "next/image";
 
 import { IoIosCopy } from "react-icons/io";
+import { useEnergy } from "@/context/context";
 
 
 const Friends = () => {
+        
+  const { username, referals } = useEnergy();
+     
   return (
     <div className="p-4">
       <div className="flex justify-center items-center justify-items-center mt-5 gap-6 self-center">
@@ -36,82 +40,31 @@ const Friends = () => {
         </div>
       </div>
 
-      <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-            <div className="flex gap-4">
-                 <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>A</p></div>
+      
+         {referals.map((referal) => (
+          <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>{referal.username[0]}</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">{referal.username}</p>
+                  <div className="flex gap-2">
+                      <p></p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
                  <div>
-                    <p className="text-[17px] font-bold">Afedia</p>
-                    <div className="flex gap-2">
-                        <p>Lagendary</p>
-                    </div>
+                    <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
                  </div>
-            </div>
-            <div className="flex mt-3">
-              <div>
-               <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-              </div>
-              <div>
-                <p>400 000 </p>
-              </div>
-            </div>
-        </div>
-        <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-            <div className="flex gap-4">
-                 <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>R</p></div>
                  <div>
-                    <p className="text-[17px] font-bold">Rapoet</p>
-                    <div className="flex gap-2">
-                        <p>Lagendary</p>
-                    </div>
-                 </div>
-            </div>
-            <div className="flex mt-3">
-              <div>
-               <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                    <p>{referal.point} </p>
+                </div>
               </div>
-              <div>
-                <p>400 000 000 </p>
-              </div>
-            </div>
-        </div>
-        <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-            <div className="flex gap-4">
-                 <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>V</p></div>
-                 <div>
-                    <p className="text-[17px] font-bold">Victor</p>
-                    <div className="flex gap-2">
-                        <p>Lagendary</p>
-                    </div>
-                 </div>
-            </div>
-            <div className="flex mt-3">
-              <div>
-               <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-              </div>
-              <div>
-                <p>300 000 </p>
-              </div>
-            </div>
-        </div>
-        <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-            <div className="flex gap-4">
-                 <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>A</p></div>
-                 <div>
-                    <p className="text-[17px] font-bold">Adepoju</p>
-                    <div className="flex gap-2">
-                        <p>Lagendary</p>
-                    </div>
-                 </div>
-            </div>
-            <div className="flex mt-3">
-              <div>
-               <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
-              </div>
-              <div>
-                <p>300 000 000 </p>
-              </div>
-            </div>
-        </div>
+           </div>
+
+         ))}
+        
+        
     </div>
   )
 }

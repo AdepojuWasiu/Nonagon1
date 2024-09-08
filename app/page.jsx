@@ -6,7 +6,6 @@
  import {BsFillLightningChargeFill} from "react-icons/bs"
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
-import useTelegramInitData from "@/components/telegram";
 
 
 
@@ -41,15 +40,9 @@ const Home = () => {
   ];
 
   const [levelIndex, setLevelIndex] = useState(6);
-  const [points, setPoints] = useState(61249365);
   const [clicks, setClicks] = useState([]);
 
-  const { energy } = useEnergy();
-  const initData = useTelegramInitData();
-
-  const user = initData.user;
-  // const start_param = initData.start_param;
-
+  const { username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo, energyLimit, energyIncrease } = useEnergy();
 
 
 
@@ -101,23 +94,41 @@ const Home = () => {
     }, 100);
   
     // Update the clicks state with all the new touch points
-    setClicks([...clicks, ...newClicks]);
-    setPoints(points + 11 * newClicks.length); // Adjust the count based on the number of touches
+    if(!welcomeTurbo){
+      if(energy>=tapValue) {
+        setClicks([...clicks, ...newClicks]);
+        setPoints(points + tapValue * newClicks.length); 
+        setEnergy(energy - tapValue * newClicks.length);
+     }
+    }else {
+      setClicks([...clicks, ...newClicks]);
+      setPoints(points + tapValue * newClicks.length);
+    }
+    
+    
   };
   
   const handleAnimationEnd = (id) => {
     setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
   };
 
-
-
-
+  useEffect(() => {
+    if(energy>0) {
+      const interval = setInterval(() => {
+        setEnergy((prevEnergy) => Math.min(prevEnergy + energyIncrease, energyLimit));
+      },3000); // Restore 10 energy points every second
+  
+      return () => clearInterval(interval); // Clear interval on component unmount
+    }
+    
+  }, [energy]);
+  
 
 
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
       <div className="flex justify-between items-center mx-[15px]">
-        <div><h1 className="text-[20px] font-bold">Hi, {user?.username}</h1></div>
+        <div><h1 className="text-[20px] font-bold">Hi,{username}</h1></div>
         <div><h1 className="text-[20px] font-bold">Choose Exchange</h1></div>
       </div>
 
@@ -156,7 +167,7 @@ const Home = () => {
                     }}
                     onAnimationEnd={() => handleAnimationEnd(click.id)}
                   >
-                    +11
+                    {+tapValue}
                   </div>
                 ))
               }
@@ -168,7 +179,7 @@ const Home = () => {
             <div><BsFillLightningChargeFill className="w-[30px] h-[30px]" color="#EE7600" /></div>
             <div className="flex mt-[4px]">
               <p>{energy}</p>
-              <p>/5000</p>
+              <p>/{energyLimit}</p>
             </div>
           </div>
           <Link href="/boost">

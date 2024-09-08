@@ -3,9 +3,10 @@ import { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import {PiHandTapBold} from "react-icons/pi";
 import Image from "next/image";
+import { useEnergy } from "@/context/context";
 
 const Earn = () => {
-  const [points, setPoints] = useState(31249365);
+  const { points } = useEnergy();
 
   return (
     <div className="p-4">
