@@ -28,16 +28,16 @@ export function EnergyProvider({ children }) {
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
 
-//   const initData = useTelegramInitData();
+  const initData = useTelegramInitData();
 
-//   const userId = initData.user?.id;
-//   const start_param = initData.start_param;
-//   const userName = initData.user?.username;
+  const userId = initData.user?.id;
+  const start_param = initData.start_param;
+  const userName = initData.user?.username;
 
   useEffect(() => {
-    setUserid('333');
-    setUsername('boy');
-    setRefCode('222');
+    setUserid(userId);
+    setUsername(userName);
+    setRefCode(start_param);
 }, []);  // Set state only once when the component mounts
 
 useEffect(() => {
@@ -83,7 +83,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, [userid, username, refCode]);  // This useEffect runs when the state variables are updated
+}, [userid, username]);  // This useEffect runs when the state variables are updated
 
 
  
