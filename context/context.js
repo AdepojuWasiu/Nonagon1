@@ -38,7 +38,7 @@ export function EnergyProvider({ children }) {
     setUserid(userId);
     setUsername(userName);
     setRefCode(start_param);
-}, []);  // Set state only once when the component mounts
+}, [userId, userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
     if (userid && username && refCode) {  // Only make the request when state variables are set
