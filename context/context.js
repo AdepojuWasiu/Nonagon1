@@ -35,9 +35,9 @@ export function EnergyProvider({ children }) {
   const userName = initData.user?.username;
 
   useEffect(() => {
-    setUserid(userId);
-    setUsername(userName);
-    setRefCode(start_param);
+    setUserid('111');
+    setUsername('gun');
+    setRefCode('222');
 }, [userId, userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
