@@ -35,13 +35,13 @@ export function EnergyProvider({ children }) {
   const userName = initData.user?.username;
 
   useEffect(() => {
-    setUserid('111');
-    setUsername('gun');
-    setRefCode('222');
+    setUserid(userId);
+    setUsername(userName);
+    setRefCode(start_param);
 }, [userId, userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
-    if (userid && username && refCode) {  // Only make the request when state variables are set
+    if (userid && username) {  // Only make the request when state variables are set
         const sendUser = async () => {
             try {
                 const response = await fetch("/api/users", {
