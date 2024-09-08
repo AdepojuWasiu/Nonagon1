@@ -1,24 +1,25 @@
-// 'use client'
-// import { useEffect, useState } from 'react';
+'use client';
+import { useEffect, useState } from 'react';
 
-// export function useTelegram() {
-//   const [tg, setTg] = useState(null);
+/**
+ * Hook to get the initial data from the Telegram Web Apps API, including any referral data.
+ * @example
+ * const { user, start_param } = useTelegramInitData();
+ * console.log(user.username, user.id, start_param);
+ */
+function useTelegram() {
+  const [data, setData] = useState({});
+  const [tg, setTg] = useState(null)
 
-//   useEffect(() => {
-//     // Make sure the Telegram Web Apps SDK is available
-//     if (window.Telegram && window.Telegram.WebApp) {
-//       const telegram = window.Telegram.WebApp;
-//       setTg(telegram); // Set the Telegram WebApp instance in state
-//     }
+  useEffect(() => {
+    const telegram = Object.fromEntries(
+      new URLSearchParams(window.Telegram.WebApp)
+    );
 
-//     // Optional: Clean up on unmount
-//     return () => {
-//       setTg(null); // Reset the state
-//     };
-//   }, []);
+    setTg(telegram)
+  }, []);
 
-//   return {
-//     tg, // The Telegram WebApp instance
-//     onClose: tg ? tg.close : () => console.log('Telegram instance is not ready'), // Safeguard for calling close
-//   };
-// }
+  return tg ;
+}
+
+export default useTelegram;

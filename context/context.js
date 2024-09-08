@@ -29,7 +29,8 @@ export function EnergyProvider({ children }) {
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
 
-  const {initData, tg} = useTelegramInitData();
+  const initData = useTelegramInitData();
+  const tg = useTelegram();
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
