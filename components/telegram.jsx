@@ -24,7 +24,8 @@ function useTelegramInitData() {
         initData[key] = firstLayerInitData[key];
       }
     }
-            
+      
+    console.log(initData)
 
 
     setData(initData);
