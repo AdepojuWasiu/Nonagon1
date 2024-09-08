@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
  */
 function useTelegramInitData() {
   const [data, setData] = useState({});
-  const [tg, setTg] = useState(nul)
+  const [tg, setTg] = useState(null)
 
   useEffect(() => {
     const firstLayerInitData = Object.fromEntries(
