@@ -4,7 +4,6 @@
 // context/EnergyContext.js
 import { createContext, useState, useContext, useEffect } from 'react';
 import useTelegramInitData from '@/components/telegram';
-import { useTelegram } from './useTelegram';
 
 const EnergyContext = createContext();
 
@@ -30,7 +29,7 @@ export function EnergyProvider({ children }) {
   const [energyIncrease, setEnergyIncrease] = useState(0);
 
   const initData = useTelegramInitData();
-  const tg = useTelegram();
+
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -101,38 +100,41 @@ useEffect(() => {
   // setGameLevel(gameLevel);
   // setExchange(exchange);
   // setReferals(referals);
-  useEffect(() => {
-        const updatePoint = async () => {
-            setPoints(points)
-            try {
-        
-            const response = await fetch(`/api/users/${userid}`, {
-            method:'PATCH',
-            body: JSON.stringify({
-                points: points
-            })
-            })
-            if(response.ok) {
-            return true
-        
-            }
-            
-            } catch (error) {
-            console.log(error)
-            
-            }
-        }
-       // Trigger API call when the user closes the web app
-       const handleAppClose = () => {
-        updatePoint();
-    };
 
-    tg.onEvent('web_app_close', handleAppClose);
 
-    return () => {
-        tg.offEvent('web_app_close', handleAppClose); // Clean up the event listener
-    };
-}, [tg,userid,points]);
+  
+//   useEffect(() => {
+//         const updatePoint = async () => {
+//             setPoints(points)
+//             try {
+        
+//             const response = await fetch(`/api/users/${userid}`, {
+//             method:'PATCH',
+//             body: JSON.stringify({
+//                 points: points
+//             })
+//             })
+//             if(response.ok) {
+//             return true
+        
+//             }
+            
+//             } catch (error) {
+//             console.log(error)
+            
+//             }
+//         }
+//        // Trigger API call when the user closes the web app
+//        const handleAppClose = () => {
+//         updatePoint();
+//     };
+
+//     tg.onEvent('web_app_close', handleAppClose);
+
+//     return () => {
+//         tg.offEvent('web_app_close', handleAppClose); // Clean up the event listener
+//     };
+// }, [tg,userid,points]);
 
 
   
