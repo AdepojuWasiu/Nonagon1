@@ -25,8 +25,7 @@ function useTelegramInitData() {
       }
     }
       
-    console.log(initData)
-
+    alert(JSON.stringify(initData));
 
     setData(initData);
   }, []);
