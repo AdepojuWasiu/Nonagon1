@@ -9,11 +9,14 @@ import { useEffect, useState } from 'react';
  */
 function useTelegramInitData() {
   const [data, setData] = useState({});
-
+  const [tg, setTg] = useState(nul)
 
   useEffect(() => {
     const firstLayerInitData = Object.fromEntries(
       new URLSearchParams(window.Telegram.WebApp.initData)
+    );
+    const telegram = Object.fromEntries(
+      new URLSearchParams(window.Telegram.WebApp)
     );
 
     const initData = {};
@@ -27,9 +30,10 @@ function useTelegramInitData() {
     }
 
     setData(initData);
+    setTg(telegram)
   }, []);
 
-  return data;
+  return {data, tg };
 }
 
 export default useTelegramInitData;
