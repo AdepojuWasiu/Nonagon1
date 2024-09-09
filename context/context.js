@@ -4,8 +4,10 @@
 // context/EnergyContext.js
 import { createContext, useState, useContext, useEffect } from 'react';
 import useTelegramInitData from '@/components/telegram';
+import { useTelegram } from '@/hooks/useTelegram';
 
 const EnergyContext = createContext();
+const { tg } = useTelegram();
 
 export function EnergyProvider({ children }) {
 
@@ -101,40 +103,11 @@ useEffect(() => {
   // setExchange(exchange);
   // setReferals(referals);
 
-
-  
-//   useEffect(() => {
-//         const updatePoint = async () => {
-//             setPoints(points)
-//             try {
-        
-//             const response = await fetch(`/api/users/${userid}`, {
-//             method:'PATCH',
-//             body: JSON.stringify({
-//                 points: points
-//             })
-//             })
-//             if(response.ok) {
-//             return true
-        
-//             }
-            
-//             } catch (error) {
-//             console.log(error)
-            
-//             }
-//         }
-//        // Trigger API call when the user closes the web app
-//        const handleAppClose = () => {
-//         updatePoint();
-//     };
-
-//     tg.onEvent('web_app_close', handleAppClose);
-
-//     return () => {
-//         tg.offEvent('web_app_close', handleAppClose); // Clean up the event listener
-//     };
-// }, [tg,userid,points]);
+  useEffect(() => {
+    if (tg) {
+      tg.ready(); // Signal that the app is ready to interact with Telegram
+    }
+  }, [tg]);
 
 
   
