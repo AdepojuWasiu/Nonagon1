@@ -2,24 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
-// Custom hook to initialize and access Telegram Web App instance
 export function useTelegram() {
-  const [tg, setTg] = useState(null); // Holds the Telegram WebApp instance
+  const [tg, setTg] = useState(null); // Initialize state for the Telegram WebApp object
 
   useEffect(() => {
-    // Check if the Telegram WebApp API is available in the browser
-    if (window.Telegram && window.Telegram.WebApp) {
+    // Ensure the code runs only on the client side
+    if (typeof window !== 'undefined' && window.Telegram && window.Telegram.WebApp) {
       const telegram = window.Telegram.WebApp;
-      setTg(telegram); // Set Telegram WebApp instance
+      setTg(telegram); // Set the Telegram WebApp instance
     }
 
-    // Optional cleanup when the component is unmounted
     return () => {
-      setTg(null);
+      setTg(null); // Cleanup if needed
     };
   }, []);
 
-  return {
-    tg, // Exposes the Telegram WebApp instance
-  };
+  return { tg };
 }
+
