@@ -130,7 +130,11 @@ const Home = () => {
       tg.ready();
       alert('READY');
        // Signal that the app is ready to interact with Telegram
+       tg.onEvent('close', () => {
+        console.log("The web app is about to close.");
+      });
     }
+
   }, [tg]);
   
 
