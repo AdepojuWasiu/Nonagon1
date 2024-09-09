@@ -1,12 +1,13 @@
 import User from "@/models/user";
 import { connectToDB } from "@/utils/database";
 
-export const PATCH = async (request,{params}) => {
-    const {points} = await request.json();
+
+export const POST = async (request) => {
+    const {points, userId} = await request.json();
 
     try {
         await connectToDB();
-        const existingUser = await User.findById(params.id);
+        const existingUser = await User.findOne({ userId });
         if(!existingUser) {
             return new Response("User not found", {status:404});
         }else{
@@ -23,4 +24,4 @@ export const PATCH = async (request,{params}) => {
         return new Response("Failed to update the user", {status:500});
            
     }
-}
+};

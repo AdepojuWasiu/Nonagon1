@@ -29,9 +29,10 @@ export function EnergyProvider({ children }) {
   const [welcomeTurbo, setWelcomeTurbo] = useState(false);
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
+  const [close, setClose] = useState(false)
 
   const initData = useTelegramInitData();
-
+  const { tg } = useTelegram();
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -102,6 +103,69 @@ useEffect(() => {
   // setGameLevel(gameLevel);
   // setExchange(exchange);
   // setReferals(referals);
+
+
+//  useEffect(() => {
+//     const updatePoint = async () => {
+//         try {
+//          const response = await fetch( "/api/users", {
+//            method:'PATCH',
+//            headers: {
+//             'Content-Type': 'application/json',
+//         },
+//            body: JSON.stringify({
+//              userId: userid,
+//              point: points
+//            })
+//          })
+//          if(response.ok) {
+//            return true
+     
+//          }
+         
+//         } catch (error) {
+//          console.log(error)
+         
+//         }
+//      }
+    
+//  }, []);
+
+//   useEffect(() => {
+//     if (tg) {
+//       tg.ready();
+//       alert('READY');
+//        // Signal that the app is ready to interact with Telegram
+//       tg.onEvent('close', () => {
+//         updatePoint();
+//       });
+//     }
+
+//   }, [tg]);
+
+useEffect(() => {
+    const updatePointWithBeacon = () => {
+      const url = "/api/users";
+      const data = JSON.stringify({
+        userId: userid,
+        point: points,
+      });
+  
+      navigator.sendBeacon(url, data);
+    };
+  
+    if (tg) {
+      tg.onEvent('close', () => {
+        updatePointWithBeacon();
+      });
+  
+      // Clean up the event listener
+      return () => {
+        tg.offEvent('close', () => {});
+      };
+    }
+  }, [tg, userid, points]);
+  
 
 
   

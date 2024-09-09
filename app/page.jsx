@@ -42,7 +42,6 @@ const Home = () => {
 
   const [levelIndex, setLevelIndex] = useState(6);
   const [clicks, setClicks] = useState([]);
-  const { tg } = useTelegram();
 
   const { username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo, energyLimit, energyIncrease } = useEnergy();
 
@@ -124,18 +123,6 @@ const Home = () => {
     }
     
   }, [energy]);
-
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-      alert('READY');
-       // Signal that the app is ready to interact with Telegram
-       tg.onEvent('close', () => {
-        console.log("The web app is about to close.");
-      });
-    }
-
-  }, [tg]);
   
 
 

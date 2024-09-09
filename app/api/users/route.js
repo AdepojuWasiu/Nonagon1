@@ -10,7 +10,7 @@ export const POST = async (request) => {
         await connectToDB();
 
         // Check if the user already exists using userId
-        let user = await User.findOne({ userId });
+        const user = await User.findOne({ userId });
 
         if (user) {
             // If user exists, return the user
