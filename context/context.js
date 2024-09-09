@@ -7,7 +7,7 @@ import useTelegramInitData from '@/components/telegram';
 import { useTelegram } from '@/hooks/useTelegram';
 
 const EnergyContext = createContext();
-const { tg } = useTelegram();
+
 
 export function EnergyProvider({ children }) {
 
@@ -102,12 +102,6 @@ useEffect(() => {
   // setGameLevel(gameLevel);
   // setExchange(exchange);
   // setReferals(referals);
-
-  useEffect(() => {
-    if (tg) {
-      tg.ready(); // Signal that the app is ready to interact with Telegram
-    }
-  }, [tg]);
 
 
   

@@ -6,6 +6,7 @@
  import {BsFillLightningChargeFill} from "react-icons/bs"
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
+import { useTelegram } from "@/hooks/useTelegram";
 
 
 
@@ -41,6 +42,7 @@ const Home = () => {
 
   const [levelIndex, setLevelIndex] = useState(6);
   const [clicks, setClicks] = useState([]);
+  const { tg } = useTelegram();
 
   const { username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo, energyLimit, energyIncrease } = useEnergy();
 
@@ -122,6 +124,12 @@ const Home = () => {
     }
     
   }, [energy]);
+
+  useEffect(() => {
+    if (tg) {
+      tg.ready(); // Signal that the app is ready to interact with Telegram
+    }
+  }, [tg]);
   
 
 
