@@ -3,7 +3,9 @@ import { connectToDB } from "@/utils/database";
 
 
 export const POST = async (request) => {
-    const {point, userId} = await request.json();
+    const data = await request.json();
+    const userId = data.userId
+    const point = data.point
 
     try {
         await connectToDB();
