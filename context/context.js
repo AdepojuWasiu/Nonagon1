@@ -131,40 +131,36 @@ useEffect(() => {
     
 //  }, []);
 
-//   useEffect(() => {
-//     if (tg) {
-//       tg.ready();
-//       alert('READY');
-//        // Signal that the app is ready to interact with Telegram
-//       tg.onEvent('close', () => {
-//         updatePoint();
-//       });
-//     }
 
-//   }, [tg]);
+  const updatePointWithBeacon = () => {
+    const url = "/api/update";
+    const data = JSON.stringify({
+      userId: userid,
+      point: points,
+    });
 
-useEffect(() => {
-    const updatePointWithBeacon = () => {
-      const url = "/api/update";
-      const data = JSON.stringify({
-        userId: userid,
-        point: points,
-      });
-  
-      navigator.sendBeacon(url, data);
-    };
-  
+    navigator.sendBeacon(url, data);
+  };
+
+  useEffect(() => {
     if (tg) {
-      tg.onEvent('close', () => {
-        updatePointWithBeacon();
-      });
-  
-      // Clean up the event listener
-      return () => {
-        tg.offEvent('close', () => {});
-      };
+      tg.ready();
+      alert('READY');
+       // Signal that the app is ready to interact with Telegram
+       if (tg) {
+        tg.onEvent('close', () => {
+          updatePointWithBeacon();
+        });
+    
+        // Clean up the event listener
+        return () => {
+          tg.offEvent('close', () => {});
+        };
+      }
     }
-  }, [tg, userid, points]);
+
+  }, [tg]);
+
   
 
 
