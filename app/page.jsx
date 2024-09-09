@@ -127,7 +127,9 @@ const Home = () => {
 
   useEffect(() => {
     if (tg) {
-      tg.ready(); // Signal that the app is ready to interact with Telegram
+      tg.ready();
+      alert(READY);
+       // Signal that the app is ready to interact with Telegram
     }
   }, [tg]);
   
