@@ -141,25 +141,31 @@ useEffect(() => {
 
     navigator.sendBeacon(url, data);
   };
+  
 
-  useEffect(() => {
-    if (tg) {
-      tg.ready();
-      alert('READY');
-       // Signal that the app is ready to interact with Telegram
-       if (tg) {
-        tg.onEvent('close', () => {
-          updatePointWithBeacon();
-        });
+    tg.onEvent('close', () => {
+    updatePointWithBeacon();
+  })
+
+
+  // useEffect(() => {
+  //   if (tg) {
+  //     tg.ready();
+  //     alert('READY');
+  //      // Signal that the app is ready to interact with Telegram
+  //      if (tg) {
+  //         const close = tg.onEvent('close', () => {
+  //         updatePointWithBeacon();
+  //       });
     
-        // Clean up the event listener
-        return () => {
-          tg.offEvent('close', () => {});
-        };
-      }
-    }
+  //       // Clean up the event listener
+  //       return () => {
+  //         tg.offEvent('close', () => {});
+  //       };
+  //     }
+  //   }
 
-  }, [tg]);
+  // }, [tg]);
 
   
 

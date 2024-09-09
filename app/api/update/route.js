@@ -3,7 +3,7 @@ import { connectToDB } from "@/utils/database";
 
 
 export const POST = async (request) => {
-    const {points, userId} = await request.json();
+    const {point, userId} = await request.json();
 
     try {
         await connectToDB();
@@ -12,7 +12,7 @@ export const POST = async (request) => {
             return new Response("User not found", {status:404});
         }else{
 
-            existingUser.point = points
+            existingUser.point = point
 
             await existingUser.save();
 
