@@ -32,7 +32,7 @@ export function EnergyProvider({ children }) {
   const [close, setClose] = useState(false)
 
   const initData = useTelegramInitData();
-  const { tg } = useTelegram();
+
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -40,9 +40,9 @@ export function EnergyProvider({ children }) {
 
   useEffect(() => {
     setUserid(userId);
-    setUsername(userName);
-    setRefCode(start_param);
-}, [userId, userName]);  // Set state only once when the component mounts
+    setUsername(start_param);
+    setRefCode(userName);
+}, []);  // Set state only once when the component mounts
 
 useEffect(() => {
     if (userid && username) {  // Only make the request when state variables are set
@@ -142,29 +142,6 @@ useEffect(() => {
   //   }
 
   // }, [tg]);
-
-useEffect(() => {
-    const updatePointWithBeacon = () => {
-      const url = "/api/update";
-      const data = JSON.stringify({
-        userId: userid,
-        point: points,
-      });
-  
-      navigator.sendBeacon(url, data);
-    };
-  
-    if (tg) {
-      tg.onEvent('close', () => {
-        updatePointWithBeacon();
-      });
-  
-      // Clean up the event listener
-      return () => {
-        tg.offEvent('close', () => {});
-      };
-    }
-  }, [tg, userid, points]);
   
 
 
@@ -175,7 +152,7 @@ useEffect(() => {
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals,
-                                     energyIncrease, setEnergyIncrease }}>
+                                     energyIncrease, setEnergyIncrease, close, setClose }}>
       {children}
     </EnergyContext.Provider>
   );

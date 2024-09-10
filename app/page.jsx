@@ -43,7 +43,10 @@ const Home = () => {
   const [levelIndex, setLevelIndex] = useState(6);
   const [clicks, setClicks] = useState([]);
 
-  const { username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo, energyLimit, energyIncrease } = useEnergy();
+  const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
+         close, setClose, energyLimit, energyIncrease } = useEnergy();
+  
+  const { tg } = useTelegram();
 
 
 
@@ -123,6 +126,31 @@ const Home = () => {
     }
     
   }, [energy]);
+
+  
+    const updatePointWithBeacon = () => {
+      const url = "/api/update";
+      const data = JSON.stringify({
+        userId: userid,
+        point: points,
+      });
+  
+      navigator.sendBeacon(url, data);
+      console.log('sent');
+    };
+
+    useEffect(() => {
+        if (tg) {
+          tg.onEvent('close', () => {
+            updatePointWithBeacon();
+          });
+      
+          // Clean up the event listener
+          return () => {
+            tg.offEvent('close', () => {});
+          };
+        }
+    }, []);
   
 
 
@@ -130,7 +158,7 @@ const Home = () => {
     <div className="mt-[20px] flex-col justify-center items-center background__home">
       <div className="flex justify-between items-center mx-[15px]">
         <div><h1 className="text-[20px] font-bold">Hi,{username}</h1></div>
-        <div><h1 className="text-[20px] font-bold">Choose Exchange</h1></div>
+        <div><h1 className="text-[20px] font-bold" onClick={() => {updatePointWithBeacon()}}>Choose Exchange</h1></div>
       </div>
 
          <div className="flex justify-center items-center font-bold mt-[20px]">
