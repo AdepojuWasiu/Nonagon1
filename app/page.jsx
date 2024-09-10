@@ -164,7 +164,7 @@ const Home = () => {
       return () => {
         // Cleanup the event listener when the component is unmounted
         if (tg) {
-          tg("close", handleCloseEvent);
+          tg.onEvent("close", handleCloseEvent);
         }
       };
     }, []);  
