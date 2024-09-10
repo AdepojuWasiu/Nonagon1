@@ -32,7 +32,7 @@ export function EnergyProvider({ children }) {
   const [close, setClose] = useState(false)
 
   const initData = useTelegramInitData();
-
+  // const { tg } = useTelegram();
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -40,9 +40,9 @@ export function EnergyProvider({ children }) {
 
   useEffect(() => {
     setUserid(userId);
-    setUsername(start_param);
-    setRefCode(userName);
-}, []);  // Set state only once when the component mounts
+    setUsername(userName);
+    setRefCode(start_param);
+}, [userId,userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
     if (userid && username) {  // Only make the request when state variables are set
@@ -142,6 +142,8 @@ useEffect(() => {
   //   }
 
   // }, [tg]);
+
+
   
 
 
