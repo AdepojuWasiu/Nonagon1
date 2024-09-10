@@ -46,7 +46,7 @@ const Home = () => {
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
   
-  const { tg } = useTelegram();
+  const { tg, onClose, offClose } = useTelegram();
 
 
 
@@ -138,36 +138,12 @@ const Home = () => {
       navigator.sendBeacon(url, data);
     };
 
-    // useEffect(() => {
-    //     if (tg) {
-    //       tg.onEvent('close', () => {
-    //         updatePointWithBeacon();
-    //       });
-      
-    //       // Clean up the event listener
-    //       return () => {
-    //         tg.offEvent('close', () => {});
-    //       };
-    //     }
-    // }, []); 
-
     useEffect(() => {
-      const handleCloseEvent = () => {
-        updatePointWithBeacon();
-      };
-    
-      // Add the close event listener from the Telegram Web App API
-      if (tg) {
-        tg.onEvent("close", handleCloseEvent);
-      }
-    
-      return () => {
-        // Cleanup the event listener when the component is unmounted
-        if (tg) {
-          tg.onEvent("close", handleCloseEvent);
+        if (onClose) {
+          updatePointWithBeacon();
         }
-      };
-    }, []);  
+    }, [onClose]); 
+  
 
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
