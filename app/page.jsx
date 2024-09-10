@@ -136,7 +136,6 @@ const Home = () => {
       });
   
       navigator.sendBeacon(url, data);
-      console.log('sent');
     };
 
     // useEffect(() => {
@@ -153,20 +152,22 @@ const Home = () => {
     // }, []); 
 
     useEffect(() => {
-      const handleBeforeUnload = () => {
+      const handleCloseEvent = () => {
         updatePointWithBeacon();
       };
     
-      // Listen for the close event
-      window.onbeforeunload = handleBeforeUnload;
+      // Add the close event listener from the Telegram Web App API
+      if (tg) {
+        tg.onEvent("close", handleCloseEvent);
+      }
     
       return () => {
         // Cleanup the event listener when the component is unmounted
-        window.onbeforeunload = null;
+        if (tg) {
+          tg("close", handleCloseEvent);
+        }
       };
-    }, []);
-
-   
+    }, []);  
 
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
