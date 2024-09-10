@@ -139,20 +139,34 @@ const Home = () => {
       console.log('sent');
     };
 
-    useEffect(() => {
-        if (tg) {
-          tg.onEvent('close', () => {
-            updatePointWithBeacon();
-          });
+    // useEffect(() => {
+    //     if (tg) {
+    //       tg.onEvent('close', () => {
+    //         updatePointWithBeacon();
+    //       });
       
-          // Clean up the event listener
-          return () => {
-            tg.offEvent('close', () => {});
-          };
-        }
-    }, []);
-  
+    //       // Clean up the event listener
+    //       return () => {
+    //         tg.offEvent('close', () => {});
+    //       };
+    //     }
+    // }, []); 
 
+    useEffect(() => {
+      const handleBeforeUnload = () => {
+        updatePointWithBeacon();
+      };
+    
+      // Listen for the close event
+      window.onbeforeunload = handleBeforeUnload;
+    
+      return () => {
+        // Cleanup the event listener when the component is unmounted
+        window.onbeforeunload = null;
+      };
+    }, []);
+
+   
 
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
