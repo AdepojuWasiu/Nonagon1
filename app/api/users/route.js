@@ -21,7 +21,14 @@ export const POST = async (request) => {
                 userId,
                 username,
                 refCode,
-                point: 5000     
+                point: 5000,
+                energy: 5000,
+                timestamp: Date.now(),
+                availableTurbo: 3,
+                availableEnergyRefill: 3,
+                multitapLeve: 1,
+                energyLimitLevel: 1,
+                RechargingSpeedLevel:1,
             });
     
             // Check if the referral code matches any user in the database
@@ -32,6 +39,9 @@ export const POST = async (request) => {
                 referrer.referals.push({
                     userid: userId,
                     username: username,
+                    point: 5000,
+                    
+
                 });
                 await referrer.save();
             }

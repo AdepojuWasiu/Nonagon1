@@ -15,14 +15,12 @@ const UserSchema = new Schema({
     },
     refCode: {
         type:String,
-        default: 'no',
     },
     point:{
         type:Number,
     },
     energy: {
         type:Number,
-        default: 2000,
     },
     timestamp: {
         type:Date,
@@ -30,31 +28,25 @@ const UserSchema = new Schema({
     },
     availableTurbo: {
         type:Number,
-        default: 3,
     },
     availableEnergyRefill: {
         type:Number,
-        default: 3,
     },
     multitapLevel: {
-        type:String,
-        default: '1',
+        type:Number
     },
     energyLimitLevel: {
-        type:String,
-        default: '1',
+        type:Number,
     },
     RechargingSpeedLevel: {
-        type:String,
-        default: '3',
+        type: Number,
+
     },
     gameLevel: {
-        type:String,
-        default: '1',
+        type:Number,
     },
     exchange: {
         type:String,
-        default: '',
     },
     referals: [
         {
@@ -66,8 +58,10 @@ const UserSchema = new Schema({
                 type:String
             },
             point: {
+                type:Number
+            },
+            gameLevel: {
                 type:Number,
-                default: 0,
             },
         },
     ],
