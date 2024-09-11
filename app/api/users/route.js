@@ -20,7 +20,8 @@ export const POST = async (request) => {
             user = await User.create({
                 userId,
                 username,
-                refCode
+                refCode,
+                point: 5000     
             });
     
             // Check if the referral code matches any user in the database
