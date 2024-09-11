@@ -64,7 +64,7 @@ useEffect(() => {
                     const data = await response.json();
                     console.log(data);
                     setUsername(data.username);
-                    setPoints(6000);
+                    setPoints(data.point);
                     setEnergy(data.energy);
                     setAvailabeTurbo(data.availableTurbo);
                     setAvailableEnergyRefill(data.availableEnergyRefill);
