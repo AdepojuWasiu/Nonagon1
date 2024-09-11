@@ -19,7 +19,6 @@ const UserSchema = new Schema({
     },
     point:{
         type:Number,
-        default:0,
     },
     energy: {
         type:Number,
