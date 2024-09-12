@@ -6,7 +6,8 @@
  import {BsFillLightningChargeFill} from "react-icons/bs"
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
-import { useTelegram } from "@/hooks/useTelegram";
+
+
 
 
 
@@ -138,11 +139,25 @@ const Home = () => {
       navigator.sendBeacon(url, data);
     };
 
+    // useEffect(() => {
+    //     if (onClose) {
+    //       updatePointWithBeacon();
+    //     }
+    // }, [onClose]);
+
     useEffect(() => {
-        if (onClose) {
-          updatePointWithBeacon();
-        }
-    }, [onClose]); 
+      const handleClose = () => {
+        updatePointWithBeacon(); // Your function to be called on close
+      };
+  
+      // Register the 'close' event listener
+      onClose(handleClose);
+  
+      // Cleanup: Remove the 'close' event listener when component unmounts or `onClose` changes
+      return () => {
+        offClose(handleClose);
+      };
+    }, [onClose, offClose]);
   
 
   return (
