@@ -154,18 +154,18 @@ useEffect(() => {
     navigator.sendBeacon(url, data);
   };
 
-  useEffect(() => {
-      if (onClose) {
-        updatePointWithBeacon();
-      }
-  }, []);
-
   // useEffect(() => {
-  //   if (onClose && !hasUpdatedRef.current) {
-  //     updatePointWithBeacon();
-  //     hasUpdatedRef.current = true;
-  //   }
-  // }, [onClose]);
+  //     if (onClose) {
+  //       updatePointWithBeacon();
+  //     }
+  // }, []);
+
+  useEffect(() => {
+    if (onClose && !hasUpdatedRef.current) {
+      updatePointWithBeacon();
+      hasUpdatedRef.current = true;
+    }
+  }, [onClose, !hasUpdatedRef.current]);
 
 
   
