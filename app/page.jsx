@@ -158,7 +158,7 @@ const Home = () => {
       return () => {
         offClose(handleClose);
       };
-    }, [onClose, offClose]);
+    }, [onClose]);
   
 
   return (
