@@ -48,7 +48,7 @@ const Home = () => {
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
   
-  const { tg, onClose, offClose } = useTelegram();
+  
 
 
 
@@ -129,36 +129,20 @@ const Home = () => {
     
   }, [energy]);
 
-  
-    const updatePointWithBeacon = () => {
-      const url = "/api/update";
-      const data = JSON.stringify({
-        userId: userid,
-        point: points,
-      });
-  
-      navigator.sendBeacon(url, data);
-    };
 
     // useEffect(() => {
-    //     if (onClose) {
-    //       updatePointWithBeacon();
-    //     }
+    //   const handleClose = () => {
+    //     updatePointWithBeacon(); // Your function to be called on close
+    //   };
+  
+    //   // Register the 'close' event listener
+    //   onClose(handleClose);
+  
+    //   // Cleanup: Remove the 'close' event listener when component unmounts or `onClose` changes
+    //   return () => {
+    //     offClose(handleClose);
+    //   };
     // }, [onClose]);
-
-    useEffect(() => {
-      const handleClose = () => {
-        updatePointWithBeacon(); // Your function to be called on close
-      };
-  
-      // Register the 'close' event listener
-      onClose(handleClose);
-  
-      // Cleanup: Remove the 'close' event listener when component unmounts or `onClose` changes
-      return () => {
-        offClose(handleClose);
-      };
-    }, [onClose]);
   
 
   return (

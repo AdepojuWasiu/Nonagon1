@@ -32,7 +32,7 @@ export function EnergyProvider({ children }) {
   const [close, setClose] = useState(false)
 
   const initData = useTelegramInitData();
-  // const { tg } = useTelegram();
+  const { tg, onClose, offClose } = useTelegram();
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -142,6 +142,22 @@ useEffect(() => {
   //   }
 
   // }, [tg]);
+
+  const updatePointWithBeacon = () => {
+    const url = "/api/update";
+    const data = JSON.stringify({
+      userId: userid,
+      point: points,
+    });
+
+    navigator.sendBeacon(url, data);
+  };
+
+  useEffect(() => {
+      if (onClose) {
+        updatePointWithBeacon();
+      }
+  }, [onClose]);
 
 
   
