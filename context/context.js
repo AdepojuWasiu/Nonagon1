@@ -178,7 +178,7 @@ useEffect(() => {
     return () => {
       offClose(handleClose);
     };
-  }, [onClose, offClose]);
+  }, [onClose]);
 
 
   
