@@ -143,21 +143,21 @@ useEffect(() => {
   // }, [tg]);
 
 
-  // const updatePointWithBeacon = () => {
-  //   const url = "/api/update";
-  //   const data = JSON.stringify({
-  //     userId: userid,
-  //     point: points,
-  //   });
+  const updatePointWithBeacon = () => {
+    const url = "/api/update";
+    const data = JSON.stringify({
+      userId: userid,
+      point: points,
+    });
 
-  //   navigator.sendBeacon(url, data);
-  // };
+    navigator.sendBeacon(url, data);
+  };
 
-  // useEffect(() => {
-  //     if (onClose) {
-  //       updatePointWithBeacon();
-  //     }
-  // }, [onClose]);
+  useEffect(() => {
+      if (onClose) {
+        updatePointWithBeacon();
+      }
+  }, [onClose]);
 
 
   

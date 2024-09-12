@@ -41,15 +41,11 @@ export function useTelegram() {
   }, []);
 
   const onClose = (callback) => {
-    if (tg) {
       tg.onEvent('close', callback); // Set up the close event listener
-    }
   };
 
   const offClose = (callback) => {
-    if (tg) {
       tg.offEvent('close', callback); // Clean up the close event listener
-    }
   };
 
   return { tg, onClose, offClose };
