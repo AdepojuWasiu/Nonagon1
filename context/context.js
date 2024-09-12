@@ -62,7 +62,6 @@ useEffect(() => {
 
                 if (response.ok) {
                     const data = await response.json();
-                    console.log(data);
                     setPoints(data.point);
                     setUsername(data.username);
                     setEnergy(data.energy);
@@ -143,21 +142,22 @@ useEffect(() => {
 
   // }, [tg]);
 
-  const updatePointWithBeacon = () => {
-    const url = "/api/update";
-    const data = JSON.stringify({
-      userId: userid,
-      point: points,
-    });
 
-    navigator.sendBeacon(url, data);
-  };
+  // const updatePointWithBeacon = () => {
+  //   const url = "/api/update";
+  //   const data = JSON.stringify({
+  //     userId: userid,
+  //     point: points,
+  //   });
 
-  useEffect(() => {
-      if (onClose) {
-        updatePointWithBeacon();
-      }
-  }, [onClose]);
+  //   navigator.sendBeacon(url, data);
+  // };
+
+  // useEffect(() => {
+  //     if (onClose) {
+  //       updatePointWithBeacon();
+  //     }
+  // }, [onClose]);
 
 
   
