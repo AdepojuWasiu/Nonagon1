@@ -154,9 +154,10 @@ useEffect(() => {
     navigator.sendBeacon(url, data);
   };
 
-  // useEffect(() => {
-  //       updatePointWithBeacon();
-  // }, [onClose]);
+  useEffect(() => {
+        updatePointWithBeacon();
+        offClose();
+  }, [onClose]);
 
   // useEffect(() => {
   //   if (onClose && !hasUpdatedRef.current) {
@@ -164,19 +165,6 @@ useEffect(() => {
   //     hasUpdatedRef.current = true;
   //   }
   // }, [onClose, !hasUpdatedRef.current]);
-
-  useEffect(() => {
-    // Callback function to run when Telegram WebApp close event is triggered
-    const handleClose = () => {
-      updatePointWithBeacon();
-    };
-
-  //   // Set up the event listener
-  //  onClose(handleClose);
-
-  //   // Cleanup the event listener on component unmount
-  //   offClose(handleClose);
-  }, [onClose]);
 
 
   
