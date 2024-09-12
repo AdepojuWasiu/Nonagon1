@@ -171,12 +171,12 @@ useEffect(() => {
       updatePointWithBeacon();
     };
 
-    // Set up the event listener
-   onClose(handleClose);
+  //   // Set up the event listener
+  //  onClose(handleClose);
 
-    // Cleanup the event listener on component unmount
-    offClose(handleClose);
-  }, [onClose, offClose]);
+  //   // Cleanup the event listener on component unmount
+  //   offClose(handleClose);
+  }, [onClose]);
 
 
   
