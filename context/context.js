@@ -63,8 +63,8 @@ useEffect(() => {
                 if (response.ok) {
                     const data = await response.json();
                     console.log(data);
-                    setUsername(data.username);
                     setPoints(data.point);
+                    setUsername(data.username);
                     setEnergy(data.energy);
                     setAvailabeTurbo(data.availableTurbo);
                     setAvailableEnergyRefill(data.availableEnergyRefill);
@@ -87,7 +87,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, [userId, userName]);  // This useEffect runs when the state variables are updated
+}, [userid, username]);  // This useEffect runs when the state variables are updated
 
 
 
