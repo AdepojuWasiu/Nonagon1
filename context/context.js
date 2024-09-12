@@ -172,13 +172,11 @@ useEffect(() => {
     };
 
     // Set up the event listener
-    onClose(handleClose);
+   onClose(handleClose);
 
     // Cleanup the event listener on component unmount
-    return () => {
-      offClose(handleClose);
-    };
-  }, [onClose]);
+    offClose(handleClose);
+  }, [onClose, offClose]);
 
 
   
