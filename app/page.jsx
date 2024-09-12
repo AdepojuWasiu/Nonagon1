@@ -6,6 +6,7 @@
  import {BsFillLightningChargeFill} from "react-icons/bs"
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
+import { useTelegram } from "@/hooks/useTelegram";
 
 
 
