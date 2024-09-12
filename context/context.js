@@ -87,7 +87,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, [userid, username]);  // This useEffect runs when the state variables are updated
+}, [userid]);  // This useEffect runs when the state variables are updated
 
 
 
