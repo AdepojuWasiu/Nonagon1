@@ -2,7 +2,7 @@
 
 
 // context/EnergyContext.js
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext, useEffect,useRef } from 'react';
 import useTelegramInitData from '@/components/telegram';
 import { useTelegram } from '@/hooks/useTelegram';
 
@@ -33,6 +33,7 @@ export function EnergyProvider({ children }) {
 
   const initData = useTelegramInitData();
   const { tg, onClose, offClose } = useTelegram();
+  const hasUpdatedRef = useRef(false);
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -153,10 +154,17 @@ useEffect(() => {
     navigator.sendBeacon(url, data);
   };
 
+  // useEffect(() => {
+  //     if (onClose) {
+  //       updatePointWithBeacon();
+  //     }
+  // }, [onClose]);
+
   useEffect(() => {
-      if (onClose) {
-        updatePointWithBeacon();
-      }
+    if (onClose && !hasUpdatedRef.current) {
+      updatePointWithBeacon();
+      hasUpdatedRef.current = true;
+    }
   }, [onClose]);
 
 
