@@ -29,7 +29,7 @@ export function EnergyProvider({ children }) {
   const [welcomeTurbo, setWelcomeTurbo] = useState(false);
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
-  const [onceClose, setOnceClose] = useState(true);
+  const [onceClose, setOnceClose] = useState(false);
   const [onceFetch, setOnceFetch] = useState(true);
 
   const initData = useTelegramInitData();
@@ -47,7 +47,7 @@ export function EnergyProvider({ children }) {
 }, [userId,userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
-    if (userid && username) {  // Only make the request when state variables are set
+    if (userid && username && onceFetch === true) {  // Only make the request when state variables are set
         const sendUser = async () => {
             try {
                 const response = await fetch("/api/users", {
@@ -78,6 +78,7 @@ useEffect(() => {
                     console.log(referals);
                     setEnergyLimit(5000);
                     setEnergyIncrease(1)
+                    setOnceClose(true)
 
                 } else {
                     console.log('Failed to save user:', response.statusText);
@@ -89,7 +90,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, [userid, username, onceFetch]);  // This useEffect runs when the state variables are updated
+}, [userid, username]);  // This useEffect runs when the state variables are updated
 
 
 
@@ -157,11 +158,11 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     if(onClose && onceClose){
+     if(onClose && onceClose === true){
       updatePointWithBeacon();
       setOnceClose(false);
      }
-  }, [onClose, onceClose]);
+  }, [onClose]);
 
   // useEffect(() => {
   //   if (onClose && !hasUpdatedRef.current) {
