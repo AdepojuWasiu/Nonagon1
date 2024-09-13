@@ -108,33 +108,35 @@ useEffect(() => {
   // setReferals(referals);
 
 
-//  useEffect(() => {
-//     const updatePoint = async () => {
-//         try {
-//          const response = await fetch( "/api/update", {
-//            method:'PATCH',
-//            headers: {
-//             'Content-Type': 'application/json',
-//         },
-//            body: JSON.stringify({
-//              userId: userid,
-//              point: points
-//            })
-//          })
-//          if(response.ok) {
-//            return true
+ useEffect(() => {
+    const updatePoint = async () => {
+        try {
+         const response = await fetch( "/api/update", {
+           method:'PATCH',
+           headers: {
+            'Content-Type': 'application/json',
+        },
+           body: JSON.stringify({
+             userId: userid,
+             point: points
+           })
+         })
+         if(response.ok) {
+           return true
      
-//          }
+         }
          
-//         } catch (error) {
-//          console.log(error)
+        } catch (error) {
+         console.log(error)
          
-//         }
-//      }
-//      if(onClose && onceClose) {
-//          updatePoint()
-//      }    
-//  }, [onClose]);
+        }
+     }
+     if(onceClose) {
+       if(onClose){
+        updatePoint()
+       }
+     }    
+ }, [onClose]);
 
   // useEffect(() => {
   //   if (tg) {
