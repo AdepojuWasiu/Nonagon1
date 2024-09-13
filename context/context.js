@@ -29,7 +29,7 @@ export function EnergyProvider({ children }) {
   const [welcomeTurbo, setWelcomeTurbo] = useState(false);
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
-  const [close, setClose] = useState(false)
+  const [onceClose, setOnceClose] = useState(true);
 
   const initData = useTelegramInitData();
   const { tg, onClose, offClose } = useTelegram();
@@ -156,8 +156,8 @@ useEffect(() => {
 
   useEffect(() => {
         updatePointWithBeacon();
-        offClose();
-  }, [onClose]);
+        setOnceClose(false);
+  }, [onClose, onceClose]);
 
   // useEffect(() => {
   //   if (onClose && !hasUpdatedRef.current) {
@@ -177,7 +177,7 @@ useEffect(() => {
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals,
-                                     energyIncrease, setEnergyIncrease, close, setClose }}>
+                                     energyIncrease, setEnergyIncrease }}>
       {children}
     </EnergyContext.Provider>
   );
