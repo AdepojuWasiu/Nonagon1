@@ -2,10 +2,10 @@ import User from "@/models/user";
 import { connectToDB } from "@/utils/database";
 
 
-export const POST = async (request) => {
-    const data = await request.json();
-    const userId = data.userId
-    const point = data.point
+export const PATCH = async (request) => {
+    const {userId, point}= await request.json();
+    // const userId = data.userId
+    // const point = data.point
 
     try {
         await connectToDB();

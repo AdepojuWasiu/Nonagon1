@@ -108,31 +108,33 @@ useEffect(() => {
   // setReferals(referals);
 
 
-//  useEffect(() => {
-//     const updatePoint = async () => {
-//         try {
-//          const response = await fetch( "/api/users", {
-//            method:'PATCH',
-//            headers: {
-//             'Content-Type': 'application/json',
-//         },
-//            body: JSON.stringify({
-//              userId: userid,
-//              point: points
-//            })
-//          })
-//          if(response.ok) {
-//            return true
+ useEffect(() => {
+    const updatePoint = async () => {
+        try {
+         const response = await fetch( "/api/update", {
+           method:'PATCH',
+           headers: {
+            'Content-Type': 'application/json',
+        },
+           body: JSON.stringify({
+             userId: userid,
+             point: points
+           })
+         })
+         if(response.ok) {
+           return true
      
-//          }
+         }
          
-//         } catch (error) {
-//          console.log(error)
+        } catch (error) {
+         console.log(error)
          
-//         }
-//      }
-    
-//  }, []);
+        }
+     }
+     if(onClose) {
+         updatePoint()
+     }    
+ }, [onClose]);
 
   // useEffect(() => {
   //   if (tg) {
@@ -147,29 +149,24 @@ useEffect(() => {
   // }, [tg]);
 
 
-  const updatePointWithBeacon =  () => {
-    const url = "/api/update";
-    const data = JSON.stringify({
-      userId: userid,
-      point: points,
-    });
+  // const updatePointWithBeacon =  () => {
+  //   const url = "/api/update";
+  //   const data = JSON.stringify({
+  //     userId: userid,
+  //     point: points,
+  //   });
 
-    navigator.sendBeacon(url, data);
-  };
-
-  useEffect(() => {
-     if(onClose && onceClose){
-      updatePointWithBeacon();
-      setOnceClose(false);
-     }
-  }, [onClose]);
+  //   navigator.sendBeacon(url, data);
+  // };
 
   // useEffect(() => {
-  //   if (onClose && !hasUpdatedRef.current) {
+  //    if(onClose && onceClose){
   //     updatePointWithBeacon();
-  //     hasUpdatedRef.current = true;
-  //   }
-  // }, [onClose, !hasUpdatedRef.current]);
+  //     setOnceClose(false);
+  //    }
+  // }, [onClose]);
+
+
 
 
   
