@@ -147,7 +147,7 @@ useEffect(() => {
   // }, [tg]);
 
 
-  const updatePointWithBeacon = () => {
+  const updatePointWithBeacon = async () => {
     const url = "/api/update";
     const data = JSON.stringify({
       userId: userid,
@@ -158,7 +158,7 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     if(onClose && onceClose === true){
+     if(onClose && onceClose){
       updatePointWithBeacon();
       setOnceClose(false);
      }
