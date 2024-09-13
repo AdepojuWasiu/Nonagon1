@@ -157,8 +157,10 @@ useEffect(() => {
   };
 
   useEffect(() => {
-        updatePointWithBeacon();
-        setOnceClose(false);
+     if(onClose && onceClose){
+      updatePointWithBeacon();
+      setOnceClose(false);
+     }
   }, [onClose, onceClose]);
 
   // useEffect(() => {
