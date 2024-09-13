@@ -47,7 +47,7 @@ export function EnergyProvider({ children }) {
 }, [userId,userName]);  // Set state only once when the component mounts
 
 useEffect(() => {
-    if (userid && username && onceFetch === true) {  // Only make the request when state variables are set
+    if (userid && username) {  // Only make the request when state variables are set
         const sendUser = async () => {
             try {
                 const response = await fetch("/api/users", {
