@@ -131,7 +131,7 @@ useEffect(() => {
          
         }
      }
-     if(onClose) {
+     if(onClose && onceClose) {
          updatePoint()
      }    
  }, [onClose]);
