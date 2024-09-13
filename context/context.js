@@ -147,7 +147,7 @@ useEffect(() => {
   // }, [tg]);
 
 
-  const updatePointWithBeacon = async () => {
+  const updatePointWithBeacon =  () => {
     const url = "/api/update";
     const data = JSON.stringify({
       userId: userid,
