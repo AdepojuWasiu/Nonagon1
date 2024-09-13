@@ -30,6 +30,7 @@ export function EnergyProvider({ children }) {
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceClose, setOnceClose] = useState(true);
+  const [onceFetch, setOnceFetch] = useState(true);
 
   const initData = useTelegramInitData();
   const { tg, onClose, offClose } = useTelegram();
@@ -63,6 +64,7 @@ useEffect(() => {
 
                 if (response.ok) {
                     const data = await response.json();
+                    setOnceFetch(false);
                     setPoints(data.point);
                     setUsername(data.username);
                     setEnergy(data.energy);
@@ -87,7 +89,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, [userid, username]);  // This useEffect runs when the state variables are updated
+}, [userid, username, onceFetch]);  // This useEffect runs when the state variables are updated
 
 
 
