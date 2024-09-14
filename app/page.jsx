@@ -166,7 +166,7 @@ const Home = () => {
         Telegram.WebApp.offEvent('close');
        };
        
-    }, []);
+    }, [points]);
   
 
   return (
