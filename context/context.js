@@ -152,9 +152,12 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     updatePointWithBeacon(); 
-     alert('hmmmmm')  
-  }, [points]);
+     tg.onEvent('close', () => {
+      updatePointWithBeacon();
+      tg.close();
+     });
+     
+  }, []);
 
   
 
