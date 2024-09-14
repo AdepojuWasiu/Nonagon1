@@ -146,53 +146,27 @@ const Home = () => {
     //   };
     // }, [onClose]);
 
-    // const updatePointWithBeacon =  () => {
-    //   const url = "/api/update";
-    //   const data = JSON.stringify({
-    //     userId: userid,
-    //     point: points,
-    //   });
-  
-    //   navigator.sendBeacon(url, data);
-    // };
-  
-    // useEffect(() => {
-    //    Telegram.WebApp.ready();
-    //    Telegram.WebApp.onEvent('close', () => {
-    //     updatePointWithBeacon();
-    //     Telegram.WebApp.close();
-    //    });
-    //    return () => {
-    //     Telegram.WebApp.offEvent('close');
-    //    };
-       
-    // }, []);
-
-    const updatePointWithBeacon = () => {
+    const updatePointWithBeacon =  () => {
       const url = "/api/update";
-      const data = new Blob([JSON.stringify({
+      const data = JSON.stringify({
         userId: userid,
         point: points,
-      })], { type: 'application/json' });
-      
+      });
+  
       navigator.sendBeacon(url, data);
     };
-    
+  
     useEffect(() => {
        Telegram.WebApp.ready();
        Telegram.WebApp.onEvent('close', () => {
         updatePointWithBeacon();
-        // Delay closing the web app to allow the beacon to send
-        setTimeout(() => {
-          Telegram.WebApp.close();
-        }, 100); // Adjust timeout as needed
+        Telegram.WebApp.close();
        });
-       
        return () => {
         Telegram.WebApp.offEvent('close');
        };
-    }, [points]);
-    
+       
+    }, []);
   
 
   return (
