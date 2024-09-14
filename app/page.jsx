@@ -157,14 +157,18 @@ const Home = () => {
     };
   
     useEffect(() => {
-       Telegram.WebApp.ready();
-       Telegram.WebApp.onEvent('close', () => {
-        updatePointWithBeacon();
-        Telegram.WebApp.close();
-       });
-       return () => {
-        Telegram.WebApp.offEvent('close');
-       };
+      if(tg) {
+        tg.ready();
+        tg.onEvent('close', () => {
+         updatePointWithBeacon();
+         tg.close();
+        });
+        return () => {
+         tg.offEvent('close');
+        };
+        
+      }
+      
        
     }, [points]);
   
