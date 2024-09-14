@@ -151,55 +151,25 @@ useEffect(() => {
   // }, [tg]);
 
 
-  // const updatePointWithBeacon =  () => {
-  //   const url = "/api/update";
-  //   const data = JSON.stringify({
-  //     userId: userid,
-  //     point: points,
-  //   });
+  const updatePointWithBeacon =  () => {
+    const url = "/api/update";
+    const data = JSON.stringify({
+      userId: userid,
+      point: points,
+    });
 
-  //   navigator.sendBeacon(url, data);
-  // };
-
-  // useEffect(() => {
-  //    if(onClose && onceClose){
-  //     updatePointWithBeacon();
-  //     setOnceClose(false);
-  //    }
-  // }, [onClose]);
+    navigator.sendBeacon(url, data);
+  };
 
   useEffect(() => {
+     if(onClose && onceClose){
+      updatePointWithBeacon();
+      setOnceClose(false);
+      alert('hmmm')
+     }
+  }, [onClose, onceClose]);
 
-    if (onClose) {
-      // Enable the closing confirmation in Telegram
-      tg.enableClosingConfirmation();
-
-      // Handle 'beforeunload' event if available
-      const handleBeforeUnload = (event) => {
-          const url = "/api/update";
-          const data = JSON.stringify({
-            userId: userid,
-            point: points,
-          });
-      
-          navigator.sendBeacon(url, data);
-
-        // Show confirmation dialog (may not work in all Telegram WebViews)
-        event.preventDefault();
-        event.returnValue = '';
-      };
-
-      // Add 'beforeunload' event listener
-      window.addEventListener('beforeunload', handleBeforeUnload);
-        // Disable closing confirmation when the component is unmounted
-        tg.disableClosingConfirmation();
-
-        // Remove the event listener
-        window.removeEventListener('beforeunload', handleBeforeUnload);
-    }
-  }, [onClose]);
-
-
+  
 
 
 
