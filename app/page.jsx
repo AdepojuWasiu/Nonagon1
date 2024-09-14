@@ -168,9 +168,9 @@ const Home = () => {
         };
         
       }
-      
+ 
        
-    }, [points]);
+    }, []);
   
 
   return (
