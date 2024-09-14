@@ -180,7 +180,6 @@ const Home = () => {
     
     useEffect(() => {
        Telegram.WebApp.ready();
-       alert('hmmm')
        Telegram.WebApp.onEvent('close', () => {
         updatePointWithBeacon();
         // Delay closing the web app to allow the beacon to send
@@ -192,7 +191,7 @@ const Home = () => {
        return () => {
         Telegram.WebApp.offEvent('close');
        };
-    }, []);
+    }, [points]);
     
   
 
