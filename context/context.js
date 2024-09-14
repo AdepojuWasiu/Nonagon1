@@ -150,11 +150,19 @@ useEffect(() => {
 
     navigator.sendBeacon(url, data);
   };
-   if(tg) {
-    tg.onEvent('close', updatePointWithBeacon);
-    alert('hmmm') // Set up the close event listener
-   }
-    
+
+  useEffect(() => {
+     window.addEventListener('unload', updatePointWithBeacon);
+     return () => {
+      window.removeEventListener('unload', updatePointWithBeacon);
+     };   
+  }, [userid, username]);
+
+  
+
+
+
+
   
 
 
