@@ -33,7 +33,7 @@ export function EnergyProvider({ children }) {
   const [onceFetch, setOnceFetch] = useState(true);
 
   const initData = useTelegramInitData();
-  const { tg, onClose, offClose } = useTelegram();
+  const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
   const hasUpdatedRef = useRef(false);
 
   const userId = initData.user?.id;
@@ -162,12 +162,12 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     if(onClose && onceClose){
+     if(onClose && enableCloseConfirmation && onceClose){
       updatePointWithBeacon();
       setOnceClose(false);
       alert('hmmm')
      }
-  }, [onClose, onceClose]);
+  }, [onClose, enableCloseConfirmation, onceClose]);
 
   
 
