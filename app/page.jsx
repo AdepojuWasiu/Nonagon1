@@ -47,6 +47,8 @@ const Home = () => {
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
+
+   const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
   
   
 
@@ -143,6 +145,24 @@ const Home = () => {
     //     offClose(handleClose);
     //   };
     // }, [onClose]);
+
+    const updatePointWithBeacon =  () => {
+      const url = "/api/update";
+      const data = JSON.stringify({
+        userId: userid,
+        point: points,
+      });
+  
+      navigator.sendBeacon(url, data);
+    };
+  
+    useEffect(() => {
+       tg.onEvent('close', () => {
+        updatePointWithBeacon();
+        tg.close();
+       });
+       
+    }, []);
   
 
   return (

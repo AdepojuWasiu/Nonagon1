@@ -141,23 +141,7 @@ useEffect(() => {
 
 
 
-  const updatePointWithBeacon =  () => {
-    const url = "/api/update";
-    const data = JSON.stringify({
-      userId: userid,
-      point: points,
-    });
 
-    navigator.sendBeacon(url, data);
-  };
-
-  useEffect(() => {
-     tg.onEvent('close', () => {
-      updatePointWithBeacon();
-      tg.close();
-     });
-     
-  }, []);
 
   
 
