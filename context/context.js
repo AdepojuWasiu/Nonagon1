@@ -151,18 +151,8 @@ useEffect(() => {
     navigator.sendBeacon(url, data);
   };
 
-  useEffect(() => {
-      if (tg) {
-        tg.onEvent('close', updatePointWithBeacon);
-        alert('hmmm') // Set up the close event listener
-      }
-  }, [tg]);
-
-  
-
-
-
-
+    tg.onEvent('close', updatePointWithBeacon);
+    alert('hmmm') // Set up the close event listener
   
 
 
