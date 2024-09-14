@@ -23,6 +23,7 @@
 
 'use client';
 
+// 
 import { useEffect, useState } from 'react';
 
 export function useTelegram() {
@@ -40,12 +41,27 @@ export function useTelegram() {
     };
   }, []);
 
+  // Listen to the browser's 'beforeunload' event for when the user is closing the app
   const onClose = (callback) => {
-      tg.onEvent('close', callback); // Set up the close event listener
+    const handleBeforeUnload = (e) => {
+      // Run the provided callback before the app is closed
+      callback();
+
+      // Chrome requires returnValue to be set for confirmation to be shown
+      e.preventDefault();
+      e.returnValue = ''; 
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload); // Cleanup on unmount
+    };
   };
 
+  // Use this to remove the event listener (if needed)
   const offClose = (callback) => {
-      tg.offEvent('close', callback); // Clean up the close event listener
+    window.removeEventListener('beforeunload', callback);
   };
 
   return { tg, onClose, offClose };

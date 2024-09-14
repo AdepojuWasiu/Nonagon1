@@ -202,6 +202,23 @@ useEffect(() => {
   //   }
   // }, [!tg]);
 
+  useEffect(() => {
+    const handleAppClose = () => {
+        const url = "/api/update";
+        const data = JSON.stringify({
+          userId: userid,
+          point: points,
+        });
+    
+        navigator.sendBeacon(url, data);
+    };
+  
+    const offClose = onClose(handleAppClose);
+  
+    // Cleanup when component unmounts
+    return () => offClose();
+  }, [onClose]);
+
 
 
 
