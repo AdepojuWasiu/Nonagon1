@@ -160,10 +160,10 @@ const Home = () => {
        Telegram.WebApp.ready();
        Telegram.WebApp.onEvent('close', () => {
         updatePointWithBeacon();
-        tg.close();
+        Telegram.WebApp.close();
        });
        return () => {
-          tg.offEvent('close');
+        Telegram.WebApp.offEvent('close');
        };
        
     }, []);
