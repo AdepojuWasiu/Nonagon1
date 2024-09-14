@@ -138,17 +138,7 @@ useEffect(() => {
 //      }    
 //  }, [onClose]);
 
-  // useEffect(() => {
-  //   if (tg) {
-  //     tg.ready();
-  //     alert('READY');
-  //      // Signal that the app is ready to interact with Telegram
-  //     tg.onEvent('close', () => {
-  //       updatePoint();
-  //     });
-  //   }
 
-  // }, [tg]);
 
 
   const updatePointWithBeacon =  () => {
@@ -162,12 +152,11 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     if(onClose){
-      updatePointWithBeacon();
-      setOnceClose(false);
-      alert('hmmm')
-     }
-  }, [onClose]);
+      if (tg) {
+        tg.onEvent('close', updatePointWithBeacon);
+        alert('hmmm') // Set up the close event listener
+      }
+  }, [tg]);
 
   
 
