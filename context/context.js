@@ -90,7 +90,7 @@ useEffect(() => {
 
         sendUser();
     }
-}, []);  // This useEffect runs when the state variables are updated
+}, [userid]);  // This useEffect runs when the state variables are updated
 
 
 
@@ -200,7 +200,7 @@ useEffect(() => {
         window.removeEventListener('beforeunload', handleBeforeUnload);
       };
     }
-  }, []);
+  }, [!tg]);
 
 
 
