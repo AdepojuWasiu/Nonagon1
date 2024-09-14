@@ -157,13 +157,14 @@ const Home = () => {
     };
   
     useEffect(() => {
-       tg.onEvent('close', () => {
+       Telegram.WebApp.ready();
+       Telegram.WebApp.onEvent('close', () => {
         updatePointWithBeacon();
         tg.close();
        });
        return () => {
           tg.offEvent('close');
-       }
+       };
        
     }, []);
   
