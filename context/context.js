@@ -152,11 +152,9 @@ useEffect(() => {
   };
 
   useEffect(() => {
-     window.addEventListener('unload', updatePointWithBeacon);
-     return () => {
-      window.removeEventListener('unload', updatePointWithBeacon);
-     };   
-  }, [userid, username]);
+     updatePointWithBeacon(); 
+     alert('hmmmmm')  
+  }, [points]);
 
   
 
