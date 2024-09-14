@@ -161,19 +161,19 @@ useEffect(() => {
     navigator.sendBeacon(url, data);
   };
 
-  // useEffect(() => {
-  //     updatePointWithBeacon();
-  // }, []);
-
   useEffect(() => {
-    // Call updatePointWithBeacon when the user tries to close the Telegram WebApp
-    const cleanupOnClose = onClose(updatePointWithBeacon);
-
-    // Cleanup the event listener when component unmounts
-    return () => {
-      if (cleanupOnClose) cleanupOnClose();
-    };
+      updatePointWithBeacon();
   }, [onClose]);
+
+  // useEffect(() => {
+  //   // Call updatePointWithBeacon when the user tries to close the Telegram WebApp
+  //   const cleanupOnClose = onClose(updatePointWithBeacon);
+
+  //   // Cleanup the event listener when component unmounts
+  //   return () => {
+  //     if (cleanupOnClose) cleanupOnClose();
+  //   };
+  // }, [onClose]);
   
 
 
