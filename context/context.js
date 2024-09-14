@@ -108,35 +108,35 @@ useEffect(() => {
   // setReferals(referals);
 
 
- useEffect(() => {
-    const updatePoint = async () => {
-        try {
-         const response = await fetch( "/api/update", {
-           method:'PATCH',
-           headers: {
-            'Content-Type': 'application/json',
-        },
-           body: JSON.stringify({
-             userId: userid,
-             point: points
-           })
-         })
-         if(response.ok) {
-           return true
+//  useEffect(() => {
+//     const updatePoint = async () => {
+//         try {
+//          const response = await fetch( "/api/update", {
+//            method:'PATCH',
+//            headers: {
+//             'Content-Type': 'application/json',
+//         },
+//            body: JSON.stringify({
+//              userId: userid,
+//              point: points
+//            })
+//          })
+//          if(response.ok) {
+//            return true
      
-         }
+//          }
          
-        } catch (error) {
-         console.log(error)
+//         } catch (error) {
+//          console.log(error)
          
-        }
-     }
-     if(onceClose) {
-       if(onClose){
-        updatePoint()
-       }
-     }    
- }, [onClose]);
+//         }
+//      }
+//      if(onceClose) {
+//        if(onClose){
+//         updatePoint()
+//        }
+//      }    
+//  }, [onClose]);
 
   // useEffect(() => {
   //   if (tg) {
@@ -167,6 +167,40 @@ useEffect(() => {
   //     setOnceClose(false);
   //    }
   // }, [onClose]);
+
+  useEffect(() => {
+
+    if (tg) {
+      // Enable the closing confirmation in Telegram
+      tg.enableClosingConfirmation();
+
+      // Handle 'beforeunload' event if available
+      const handleBeforeUnload = (event) => {
+          const url = "/api/update";
+          const data = JSON.stringify({
+            userId: userid,
+            point: points,
+          });
+      
+          navigator.sendBeacon(url, data);
+
+        // Show confirmation dialog (may not work in all Telegram WebViews)
+        event.preventDefault();
+        event.returnValue = '';
+      };
+
+      // Add 'beforeunload' event listener
+      window.addEventListener('beforeunload', handleBeforeUnload);
+
+      return () => {
+        // Disable closing confirmation when the component is unmounted
+        tg.disableClosingConfirmation();
+
+        // Remove the event listener
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+      };
+    }
+  }, []);
 
 
 
