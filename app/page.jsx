@@ -159,9 +159,10 @@ const Home = () => {
     useEffect(() => {
       if(tg) {
         tg.ready();
+        alert('hmmm')
         tg.onEvent('close', () => {
-         updatePointWithBeacon();
-         tg.close();
+           updatePointWithBeacon();
+           tg.close();
         });
         return () => {
          tg.offEvent('close');
@@ -170,7 +171,7 @@ const Home = () => {
       }
  
        
-    }, []);
+    }, [userid]);
   
 
   return (
