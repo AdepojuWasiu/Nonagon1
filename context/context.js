@@ -162,18 +162,13 @@ useEffect(() => {
   };
 
   useEffect(() => {
+     if(onClose){
       updatePointWithBeacon();
+      setOnceClose(false);
+      alert('hmmm')
+     }
   }, [onClose]);
 
-  // useEffect(() => {
-  //   // Call updatePointWithBeacon when the user tries to close the Telegram WebApp
-  //   const cleanupOnClose = onClose(updatePointWithBeacon);
-
-  //   // Cleanup the event listener when component unmounts
-  //   return () => {
-  //     if (cleanupOnClose) cleanupOnClose();
-  //   };
-  // }, [onClose]);
   
 
 
