@@ -161,6 +161,9 @@ const Home = () => {
         updatePointWithBeacon();
         tg.close();
        });
+       return () => {
+          tg.offEvent('close');
+       }
        
     }, []);
   
