@@ -157,10 +157,7 @@ const Home = () => {
     };
 
       window.addEventListener('unload',updatePointWithBeacon);
-
-      return () => {
-        window.removeEventListener('unload', updatePointWithBeacon);
-      }
+      
 
   
     // useEffect(() => {
