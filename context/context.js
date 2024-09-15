@@ -148,9 +148,17 @@ const updatePointWithBeacon = async () => {
   navigator.sendBeacon(url, data);
 };
 
+// useEffect(() => {
+//    updatePointWithBeacon();    
+// }, []);
+
 useEffect(() => {
-   updatePointWithBeacon();    
-}, [!userid]);
+  // Only run on unmount
+  return () => {
+    updatePointWithBeacon();
+  };
+}, []);
+
 
 
 
