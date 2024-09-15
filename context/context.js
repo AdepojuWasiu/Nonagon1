@@ -153,11 +153,15 @@ const updatePointWithBeacon = async () => {
 // }, []);
 
 useEffect(() => {
-  // Only run on unmount
+  // Perform the side effect (e.g., updating points with beacon)
+  updatePointWithBeacon();
+
+  // Return a cleanup function to be executed when the component unmounts
   return () => {
-    updatePointWithBeacon();
+    updatePointWithBeacon(); // Call the function when unmounting
   };
 }, []);
+
 
 
 
