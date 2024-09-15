@@ -150,7 +150,7 @@ const updatePointWithBeacon = async () => {
 
 useEffect(() => {
    updatePointWithBeacon();    
-}, []);
+}, [!userid]);
 
 
 
