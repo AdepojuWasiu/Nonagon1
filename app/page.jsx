@@ -146,7 +146,7 @@ const Home = () => {
     //   };
     // }, [onClose]);
 
-    const updatePointWithBeacon =  () => {
+    const updatePointWithBeacon = async () => {
       const url = "/api/update";
       const data = JSON.stringify({
         userId: userid,
@@ -155,23 +155,33 @@ const Home = () => {
   
       navigator.sendBeacon(url, data);
     };
-  
+
     useEffect(() => {
-      if(tg) {
-        tg.ready();
-        alert('hmmm')
-        tg.onEvent('close', () => {
-           updatePointWithBeacon();
-           tg.close();
-        });
-        return () => {
-         tg.offEvent('close');
-        };
+      window.addEventListener('unload',updatePointWithBeacon);
+
+      return () => {
+        window.removeEventListener('unload', updatePointWithBeacon);
+      };
+    }, []);
+
+
+  
+    // useEffect(() => {
+    //   if(tg) {
+    //     tg.ready();
+    //     alert('hmmm')
+    //     tg.onEvent('close', () => {
+    //        updatePointWithBeacon();
+    //        tg.close();
+    //     });
+    //     return () => {
+    //      tg.offEvent('close');
+    //     };
         
-      }
- 
-       
-    }, [userid]);
+    //   }      
+    // }, []);
+
+
   
 
   return (
