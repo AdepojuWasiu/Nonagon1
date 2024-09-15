@@ -156,14 +156,11 @@ const Home = () => {
       navigator.sendBeacon(url, data);
     };
 
-    useEffect(() => {
       window.addEventListener('unload',updatePointWithBeacon);
 
       return () => {
         window.removeEventListener('unload', updatePointWithBeacon);
-      };
-    }, []);
-
+      }
 
   
     // useEffect(() => {
