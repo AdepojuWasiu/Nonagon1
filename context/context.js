@@ -138,7 +138,19 @@ useEffect(() => {
 //      }    
 //  }, [onClose]);
 
+const updatePointWithBeacon = async () => {
+  const url = "/api/update";
+  const data = JSON.stringify({
+    userId: userid,
+    point: points,
+  });
 
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+   updatePointWithBeacon();    
+}, []);
 
 
 

@@ -146,34 +146,7 @@ const Home = () => {
     //   };
     // }, [onClose]);
 
-    const updatePointWithBeacon = async () => {
-      const url = "/api/update";
-      const data = JSON.stringify({
-        userId: userid,
-        point: points,
-      });
-  
-      navigator.sendBeacon(url, data);
-    };
-
-      window.addEventListener('unload',updatePointWithBeacon);
-      
-
-  
-    // useEffect(() => {
-    //   if(tg) {
-    //     tg.ready();
-    //     alert('hmmm')
-    //     tg.onEvent('close', () => {
-    //        updatePointWithBeacon();
-    //        tg.close();
-    //     });
-    //     return () => {
-    //      tg.offEvent('close');
-    //     };
-        
-    //   }      
-    // }, []);
+   
 
 
   
