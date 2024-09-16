@@ -34,7 +34,6 @@ export function EnergyProvider({ children }) {
 
   const initData = useTelegramInitData();
   const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
-  const hasUpdatedRef = useRef(false);
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -105,38 +104,7 @@ useEffect(() => {
   // setRechargingSpeedLevel(rechargingSpeedLevel);
   // setGameLevel(gameLevel);
   // setExchange(exchange);
-  // setReferals(referals);
-
-
-//  useEffect(() => {
-//     const updatePoint = async () => {
-//         try {
-//          const response = await fetch( "/api/update", {
-//            method:'PATCH',
-//            headers: {
-//             'Content-Type': 'application/json',
-//         },
-//            body: JSON.stringify({
-//              userId: userid,
-//              point: points
-//            })
-//          })
-//          if(response.ok) {
-//            return true
-     
-//          }
-         
-//         } catch (error) {
-//          console.log(error)
-         
-//         }
-//      }
-//      if(onceClose) {
-//        if(onClose){
-//         updatePoint()
-//        }
-//      }    
-//  }, [onClose]);
+  // setReferals(referals);   
 
 const updatePointWithBeacon = async () => {
   const url = "/api/update";
@@ -147,10 +115,6 @@ const updatePointWithBeacon = async () => {
 
   navigator.sendBeacon(url, data);
 };
-
-// useEffect(() => {
-//    updatePointWithBeacon();    
-// }, []);
 
 useEffect(() => {
   updatePointWithBeacon();

@@ -24,22 +24,43 @@ const Boost = () => {
    const [rechargingPullup, setRechargingPullup] = useState(false);
 
 
-  const { points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
+  const { userid, points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
                energyLimitLevel, rechargingSpeedLevel, setEnergy, setAvailableEnergyRefill, setWelcomeTurbo,
                setMultitapLevel, setEnergyLimitLevel,energyIncrease, setEnergyIncrease, setRechargingSpeedLevel,
                energyLimit, setEnergyLimit } = useEnergy();
+  
+
+
+      const updateAvailableTurbo = async (e) => {
+       e.preventDefault();
+       setAvailabeTurbo(availableTurbo-1);
+
+       try {
+      
+        const response = await fetch("api/update/turbo", {
+          method:'PATCH',
+          body: JSON.stringify({
+            userId: userid,
+            availableTurbo: availableTurbo
+          })
+        })
+        if(response.ok) {
+          setTapValue(prevValue => prevValue * 10);
+          setAvailabeTurbo(availableTurbo-1);
+          setWelcomeTurbo(true);
+          router.push('/');
+          
+          setTimeout(() => {
+            setTapValue(prevValue => prevValue/10);
+            setWelcomeTurbo(false);
+          },10000);
+        }
         
-  const handleTurbo = () => {
-     setTapValue(prevValue => prevValue * 10);
-     setAvailabeTurbo(availableTurbo-1);
-     setWelcomeTurbo(true);
-     router.push('/');
-     
-     setTimeout(() => {
-       setTapValue(prevValue => prevValue/10);
-       setWelcomeTurbo(false);
-     },10000);   
-  };
+       } catch (error) {
+        console.log(error)
+       }
+    };     
+  
 
 
   return (
@@ -144,7 +165,7 @@ const Boost = () => {
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ handleTurbo}>
+                                    onClick={updateAvailableTurbo}>
                     Get it!
                   </button>
                 </div>
