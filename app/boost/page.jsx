@@ -43,12 +43,11 @@ const Boost = () => {
           method:'PATCH',
           body: JSON.stringify({
             userId: userid,
-            availableTurbo: 5
+            availableTurbo: updatedTurbo
           })
         })
         if(response.ok) {
           setTapValue(prevValue => prevValue * 10);
-          setAvailabeTurbo(availableTurbo-1);
           setWelcomeTurbo(true);
           router.push('/');
           
