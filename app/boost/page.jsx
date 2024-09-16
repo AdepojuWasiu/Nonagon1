@@ -33,7 +33,7 @@ const Boost = () => {
 
       const updateAvailableTurbo = async (e) => {
        e.preventDefault();
-       setAvailabeTurbo(availableTurbo-1);
+       setAvailabeTurbo(prevavailableTurbo => prevavailableTurbo - 1);
 
        try {
       
@@ -41,7 +41,7 @@ const Boost = () => {
           method:'PATCH',
           body: JSON.stringify({
             userId: userid,
-            availableTurbo: 2
+            availableTurbo: availableTurbo
           })
         })
         if(response.ok) {
