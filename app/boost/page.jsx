@@ -41,7 +41,7 @@ const Boost = () => {
           method:'PATCH',
           body: JSON.stringify({
             userId: userid,
-            availableTurbo: availableTurbo
+            availableTurbo: 2
           })
         })
         if(response.ok) {
