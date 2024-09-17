@@ -176,8 +176,8 @@ const insufficientEnergyLimit = points < 5000*energyLimitLevel;
 const insufficientRecharging = points < 5000*rechargingSpeedLevel;
 
 
-const noTurbo = availableTurbo = 0
-const noRefill = availableEnergyRefill = 0 
+const noTurbo = availableTurbo == 0
+const noRefill = availableEnergyRefill == 0 
 
 
   return (
