@@ -103,7 +103,7 @@ const Home = () => {
   
     // Update the clicks state with all the new touch points
     if(!welcomeTurbo){
-      if(energy>=tapValue) {
+      if(energy>tapValue) {
         setClicks([...clicks, ...newClicks]);
         setPoints(points + tapValue * newClicks.length); 
         setEnergy(energy - tapValue * newClicks.length);

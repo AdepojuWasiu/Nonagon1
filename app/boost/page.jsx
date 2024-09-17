@@ -171,6 +171,10 @@ const Boost = () => {
   }
 };
 
+insufficientMultitap = points < 5000*multitapLevel
+insufficientEnergyLimit = points < 5000*energyLimitLevel
+insufficientRecharging = points < 5000*rechargingSpeedLevel
+
 
   
 
@@ -313,8 +317,8 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={updateMultitap}>
-                    Get it!
+                                    onClick={updateMultitap} disabled = {insufficientMultitap}>
+                    {insufficientMultitap ? "Insufficient Coin!": "Get it!"}
                   </button>
                 </div>
                )}
@@ -332,8 +336,8 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={updateEnergyLimit}>
-                    Get it!
+                                    onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit}>
+                    {insufficientEnergyLimit ? "Insufficient Coin!": "Get it!"}
                   </button>
                 </div>
                )}
@@ -352,8 +356,8 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ updateRecharging}>
-                    Get it!
+                                    onClick={ updateRecharging} disabled = {insufficientRecharging}>
+                    {insufficientRecharging ? "Insufficient Coin!": "Get it!"}
                   </button>
                 </div>
                )}
