@@ -316,7 +316,7 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel
                         <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
                         <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
                   </div>
-                  <button className="bg-[#ffbf00af] p-4 px-[70px] text-[20px] rounded-md"
+                  <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateMultitap} disabled = {insufficientMultitap}>
                     {insufficientMultitap ? "Insufficient Coin!": "Get it!"}
                   </button>
@@ -335,7 +335,7 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel
                         <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
                         <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
                   </div>
-                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                  <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit}>
                     {insufficientEnergyLimit ? "Insufficient Coin!": "Get it!"}
                   </button>
@@ -355,7 +355,7 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel
                         <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
                         <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
-                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                  <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={ updateRecharging} disabled = {insufficientRecharging}>
                     {insufficientRecharging ? "Insufficient Coin!": "Get it!"}
                   </button>
