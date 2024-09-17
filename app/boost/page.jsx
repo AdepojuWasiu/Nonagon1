@@ -89,8 +89,8 @@ const Boost = () => {
    
    const updateMultitap = async (e) => {
     e.preventDefault();
-    const updatedMultitap = setMultitapLevel(multitapLevel+1);
-    const updatedTapValue = setTapValue(tapValue+1); // Calculate the new value
+    const updatedMultitap = multitapLevel+1;
+    const updatedTapValue = tapValue+1; // Calculate the new value
 
     setTapValue(updatedTapValue); 
     setMultitapLevel(updatedMultitap);
