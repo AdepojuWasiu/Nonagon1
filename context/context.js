@@ -29,7 +29,6 @@ export function EnergyProvider({ children }) {
   const [welcomeTurbo, setWelcomeTurbo] = useState(false);
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
-  const [onceClose, setOnceClose] = useState(false);
   const [onceFetch, setOnceFetch] = useState(true);
 
   const initData = useTelegramInitData();
@@ -69,15 +68,13 @@ useEffect(() => {
                     setEnergy(data.energy);
                     setAvailabeTurbo(data.availableTurbo);
                     setAvailableEnergyRefill(data.availableEnergyRefill);
-                    setMultitapLevel(1);
-                    setEnergyLimitLevel(1);
-                    setRechargingSpeedLevel(1);
+                    setMultitapLevel(data.multitapLevel);
+                    setEnergyLimitLevel(data.energyLimitLevel);
+                    setRechargingSpeedLevel(data.rechargingSpeedLevel);
                     setReferals(data.referals);
-                    setTapValue(1);
-                    console.log(referals);
-                    setEnergyLimit(5000);
-                    setEnergyIncrease(1)
-                    setOnceClose(true)
+                    setTapValue(data.tapValue);
+                    setEnergyLimit(data.energyLimit);
+                    setEnergyIncrease(data.energyIncrease)
 
                 } else {
                     console.log('Failed to save user:', response.statusText);
@@ -120,20 +117,6 @@ useEffect(() => {
   updatePointWithBeacon();
 }, [points]);
 
-
-
-
-
-
-  
-
-
-
-
-  
-
-
-  
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,

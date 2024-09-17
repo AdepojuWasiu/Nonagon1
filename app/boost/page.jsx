@@ -60,7 +60,118 @@ const Boost = () => {
        } catch (error) {
         console.log(error)
        }
-    };     
+    };
+
+    const updateAvailableEnergyRefill = async (e) => {
+      e.preventDefault();
+      const updatedEnergyRefill =  availableEnergyRefill - 1; 
+
+      setAvailableEnergyRefill(updatedEnergyRefill); 
+
+      try {
+     
+       const response = await fetch("api/update/energyrefill", {
+         method:'PATCH',
+         body: JSON.stringify({
+           userId: userid,
+           availableEnergyRefill: updatedEnergyRefill
+         })
+       })
+       if(response.ok) {
+         setEnergy(energyLimit);
+         router.push('/'); 
+       }
+         
+      } catch (error) {
+       console.log(error)
+      }
+   };
+   
+   const updateMultitap = async (e) => {
+    e.preventDefault();
+    const updatedMultitap = setMultitapLevel(multitapLevel+1);
+    const updatedTapValue = setTapValue(tapValue+1); // Calculate the new value
+
+    setTapValue(updatedTapValue); 
+    setMultitapLevel(updatedMultitap);
+
+    try {
+   
+     const response = await fetch("api/update/multitap", {
+       method:'PATCH',
+       body: JSON.stringify({
+         userId: userid,
+         multitapLevel: updateMultitap,
+         tapValue: updatedTapValue
+       })
+     })
+     if(response.ok) {
+       setPoints(points-5000*multitapLevel); 
+       router.push('/')
+     }
+     
+    } catch (error) {
+     console.log(error)
+    }
+ };
+
+ const updateEnergyLimit = async (e) => {
+  e.preventDefault();
+  const updatedEnergyLimit =  energyLimit+500; 
+  const updatedEnergyLimitLevel = energyLimitLevel+1; // Calculate the new value
+
+  setEnergyLimit(updatedEnergyLimit);
+  setEnergyLimitLevel(updatedEnergyLimitLevel);
+
+  try {
+ 
+   const response = await fetch("api/update/energyLimit", {
+     method:'PATCH',
+     body: JSON.stringify({
+       userId: userid,
+       energyLimit: updateEnergyLimit,
+       energyLimitLevel: updatedEnergyLimitLevel
+     })
+   })
+   if(response.ok) {
+    setPoints(points-5000*energyLimitLevel); 
+    router.push('/');
+   }
+   
+  } catch (error) {
+   console.log(error)
+  }
+};
+
+ const updateRecharging = async (e) => {
+  e.preventDefault();
+  const updatedEnergyIncrease =  energyIncrease+1; 
+  const updatedRechargingSpeedLevel = rechargingSpeedLevel+1; // Calculate the new value
+  
+  setEnergyIncrease(updatedEnergyIncrease);
+  setRechargingSpeedLevel(updatedRechargingSpeedLevel);
+
+  try {
+ 
+   const response = await fetch("api/update/rechargingSpeed", {
+     method:'PATCH',
+     body: JSON.stringify({
+       userId: userid,
+       energyIncrease: updatedEnergyIncrease,
+       rechargingSpeedLevel: updatedRechargingSpeedLevel
+     })
+   })
+   if(response.ok) {
+     setPoints(points-5000*rechargingSpeedLevel);
+     router.push('/');
+   }
+   
+  } catch (error) {
+   console.log(error)
+  }
+};
+
+
   
 
 
@@ -183,7 +294,7 @@ const Boost = () => {
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ () => {setEnergy(energyLimit);setAvailableEnergyRefill(availableEnergyRefill-1); router.push('/')}}>
+                                    onClick={updateAvailableEnergyRefill}>
                     Get it!
                   </button>
                 </div>
@@ -202,7 +313,7 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ () => {setPoints(points-5000*multitapLevel); setTapValue(tapValue+1); setMultitapLevel(multitapLevel+1); router.push('/')}}>
+                                    onClick={updateMultitap}>
                     Get it!
                   </button>
                 </div>
@@ -221,7 +332,7 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ () => {setPoints(points-5000*energyLimitLevel);setEnergyLimit(energyLimit+500);setEnergyLimitLevel(energyLimitLevel+1); router.push('/')}}>
+                                    onClick={updateEnergyLimit}>
                     Get it!
                   </button>
                 </div>
@@ -241,7 +352,7 @@ const Boost = () => {
                         <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={ () => {setPoints(points-5000*rechargingSpeedLevel);setEnergyIncrease(energyIncrease+1);setRechargingSpeedLevel(rechargingSpeedLevel+1); router.push('/')}}>
+                                    onClick={ updateRecharging}>
                     Get it!
                   </button>
                 </div>

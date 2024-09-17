@@ -22,13 +22,16 @@ export const POST = async (request) => {
                 username,
                 refCode,
                 point: 5000,
-                energy: 5000,
+                energy: 1000,
                 timestamp: Date.now(),
                 availableTurbo: 3,
                 availableEnergyRefill: 3,
-                multitapLeve: 1,
+                multitapLevel: 1,
                 energyLimitLevel: 1,
                 RechargingSpeedLevel:1,
+                tapValue: 1,
+                energyLimit: 1000,
+                energyIncrease: 1,
             });
     
             // Check if the referral code matches any user in the database

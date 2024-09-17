@@ -19,12 +19,26 @@ const UserSchema = new Schema({
     point:{
         type:Number,
     },
+    lastPointsUpdatedTime: {
+        type: Date,
+    },
     energy: {
         type:Number,
     },
+    lastEnergyUpdatedTime: {
+        type: Date,
+    },
+    tapValue: {
+        type: Number,
+    },
+    energyLimit: {
+        type: Number,
+    },
+    energyIncrease: {
+        type: Number,
+    },
     timestamp: {
         type:Date,
-        default:Date.now()
     },
     availableTurbo: {
         type:Number,
