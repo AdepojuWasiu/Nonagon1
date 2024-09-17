@@ -101,7 +101,7 @@ const Boost = () => {
        method:'PATCH',
        body: JSON.stringify({
          userId: userid,
-         multitapLevel: updateMultitap,
+         multitapLevel: updatedMultitap,
          tapValue: updatedTapValue
        })
      })
