@@ -132,25 +132,6 @@ const Home = () => {
   }, [energy]);
 
 
-    // useEffect(() => {
-    //   const handleClose = () => {
-    //     updatePointWithBeacon(); // Your function to be called on close
-    //   };
-  
-    //   // Register the 'close' event listener
-    //   onClose(handleClose);
-  
-    //   // Cleanup: Remove the 'close' event listener when component unmounts or `onClose` changes
-    //   return () => {
-    //     offClose(handleClose);
-    //   };
-    // }, [onClose]);
-
-   
-
-
-  
-
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
       <div className="flex justify-between items-center mx-[15px]">

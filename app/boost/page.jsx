@@ -171,12 +171,13 @@ const Boost = () => {
   }
 };
 
-const insufficientMultitap = points < 5000*multitapLevel
-const insufficientEnergyLimit = points < 5000*energyLimitLevel
-const insufficientRecharging = points < 5000*rechargingSpeedLevel
+const insufficientMultitap = points < 5000*multitapLevel;
+const insufficientEnergyLimit = points < 5000*energyLimitLevel;
+const insufficientRecharging = points < 5000*rechargingSpeedLevel;
 
 
-  
+const noTurbo = availableTurbo = 0
+const noRefill = availableEnergyRefill = 0 
 
 
   return (
@@ -191,13 +192,13 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel
       <div className="mt-6">
         <h1 className="text-[20px] font-bold">Free daily boosters</h1>
         <div className="grid grid-cols-2 gap-4 mt-4" >
-          <button onClick={() => setTurboPullup(true)}>
+          <button onClick={() => setTurboPullup(true)} disabled = {noTurbo}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
                 <div><p className="text-[17px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
                 <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
               </div>
           </button>
-          <button onClick={() => setEnergyPullup(true)}>
+          <button onClick={() => setEnergyPullup(true)} disabled = {noRefill}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
                 <div><p className="text-[17px] font-bold">Full Battery</p><p>{availableEnergyRefill}/3 available</p></div>
                 <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
