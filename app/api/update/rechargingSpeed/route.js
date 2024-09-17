@@ -14,7 +14,7 @@ export const PATCH = async (request) => {
         }else{
 
             existingUser.energyIncrease = energyIncrease;
-            existingUser.rechargingSpeedLevel = rechargingSpeedLevel;
+            existingUser.RechargingSpeedLevel = rechargingSpeedLevel;
             await existingUser.save();
             return new Response(true, {status:200})
         }
