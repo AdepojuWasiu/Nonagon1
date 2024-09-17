@@ -70,7 +70,7 @@ useEffect(() => {
                     setAvailableEnergyRefill(data.availableEnergyRefill);
                     setMultitapLevel(data.multitapLevel);
                     setEnergyLimitLevel(data.energyLimitLevel);
-                    setRechargingSpeedLevel(data.RechargingSpeedLevel);
+                    setRechargingSpeedLevel(data.rechargingSpeedLevel);
                     setReferals(data.referals);
                     setTapValue(data.tapValue);
                     setEnergyLimit(data.energyLimit);

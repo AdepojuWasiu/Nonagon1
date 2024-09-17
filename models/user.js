@@ -52,7 +52,7 @@ const UserSchema = new Schema({
     energyLimitLevel: {
         type:Number,
     },
-    RechargingSpeedLevel: {
+    rechargingSpeedLevel: {
         type: Number,
 
     },
