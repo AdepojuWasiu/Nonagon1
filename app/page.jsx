@@ -125,7 +125,6 @@ const Home = () => {
       const interval = setInterval(() => {
         setEnergy((prevEnergy) => Math.min(prevEnergy + energyIncrease, energyLimit));
       },3000); // Restore 10 energy points every second
-  
       return () => clearInterval(interval); // Clear interval on component unmount
     }
     

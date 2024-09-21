@@ -32,7 +32,6 @@ export function EnergyProvider({ children }) {
   const [onceFetch, setOnceFetch] = useState(true);
 
   const initData = useTelegramInitData();
-  const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
@@ -65,7 +64,6 @@ useEffect(() => {
                     setOnceFetch(false);
                     setPoints(data.point);
                     setUsername(data.username);
-                    setEnergy(data.energy);
                     setAvailabeTurbo(data.availableTurbo);
                     setAvailableEnergyRefill(data.availableEnergyRefill);
                     setMultitapLevel(data.multitapLevel);
@@ -75,8 +73,18 @@ useEffect(() => {
                     setTapValue(data.tapValue);
                     setEnergyLimit(data.energyLimit);
                     setEnergyIncrease(data.energyIncrease);
-                  
-
+                    
+                    const timeLogin = Date.now();
+                    const lastEnergyTime = data.lastEnergyUpdatedTime;
+                    const timeDifferent = timeLogin - lastEnergyTime;
+                    const addEnergy = energyIncrease * timeDifferent;
+                    const newEnergy = data.energy + addEnergy;
+                    if(newEnergy >= energyLimit) {
+                      setEnergy(energyLimit);
+                    } else {
+                      setEnergy(newEnergy);
+                    }
+                    
                 } else {
                     console.log('Failed to save user:', response.statusText);
                 }
