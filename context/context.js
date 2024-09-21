@@ -117,6 +117,22 @@ useEffect(() => {
   updatePointWithBeacon();
 }, [points]);
 
+const updateEnergyWithBeacon = async () => {
+  const url = "/api/energy";
+  const data = JSON.stringify({
+    userId: userid,
+    point: energy,
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateEnergyWithBeacon();
+  const interval = setInterval(updateEnergyWithBeacon, 60000);
+  return () => clearInterval(interval);
+}, []);
+
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
