@@ -6,6 +6,7 @@ export const POST = async (request) => {
     const data = await request.json();
     const userId = data.userId
     const point = data.point
+    const lastPointsUpdatedTime = data.lastPointsUpdatedTime
 
     try {
         await connectToDB();
@@ -15,6 +16,7 @@ export const POST = async (request) => {
         }else{
 
             existingUser.point = point
+            existingUser.lastPointsUpdatedTime = lastPointsUpdatedTime
 
             await existingUser.save();
 

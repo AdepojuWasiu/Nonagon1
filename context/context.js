@@ -74,7 +74,8 @@ useEffect(() => {
                     setReferals(data.referals);
                     setTapValue(data.tapValue);
                     setEnergyLimit(data.energyLimit);
-                    setEnergyIncrease(data.energyIncrease)
+                    setEnergyIncrease(data.energyIncrease);
+                  
 
                 } else {
                     console.log('Failed to save user:', response.statusText);
@@ -108,6 +109,7 @@ const updatePointWithBeacon = async () => {
   const data = JSON.stringify({
     userId: userid,
     point: points,
+    lastPointsUpdatedTime: Date.now()
   });
 
   navigator.sendBeacon(url, data);
@@ -122,6 +124,7 @@ const updateEnergyWithBeacon = async () => {
   const data = JSON.stringify({
     userId: userid,
     energy: energy,
+    lastEnergyUpdatedTime: Date.now()
   });
 
   navigator.sendBeacon(url, data);

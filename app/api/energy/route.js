@@ -6,6 +6,7 @@ export const POST = async (request) => {
     const data = await request.json();
     const userId = data.userId
     const energy = data.energy
+    const lastEnergyUpdatedTime = data.lastEnergyUpdatedTime
 
     try {
         await connectToDB();
@@ -15,6 +16,7 @@ export const POST = async (request) => {
         }else{
 
             existingUser.energy = energy;
+            existingUser.lastEnergyUpdatedTime = lastEnergyUpdatedTime;
 
             await existingUser.save();
 
