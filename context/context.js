@@ -129,9 +129,7 @@ const updateEnergyWithBeacon = async () => {
 
 useEffect(() => {
   updateEnergyWithBeacon();
-  const interval = setInterval(updateEnergyWithBeacon, 60000);
-  return () => clearInterval(interval);
-}, []);
+}, [energy]);
 
 
   return (
