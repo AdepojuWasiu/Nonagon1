@@ -121,7 +121,7 @@ const updateEnergyWithBeacon = async () => {
   const url = "/api/energy";
   const data = JSON.stringify({
     userId: userid,
-    point: energy,
+    energy: energy,
   });
 
   navigator.sendBeacon(url, data);
