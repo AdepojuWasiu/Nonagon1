@@ -75,7 +75,7 @@ useEffect(() => {
                     setEnergyIncrease(data.energyIncrease);
                     
                     const timeLogin = Date.now();
-                    const lastEnergyTime =  data.lastEnergyUpdatedTime;
+                    const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
                     const timeDifferent =  timeLogin - lastEnergyTime;
                     const addEnergy =  data.energyIncrease * timeDifferent;
                     const newEnergy =  data.energy + addEnergy;
