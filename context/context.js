@@ -80,11 +80,11 @@ useEffect(() => {
                     const timeSeconds = timeDifferent/1000
                     const addEnergy =  data.energyIncrease * timeSeconds;
                     const newEnergy =  data.energy + addEnergy;
-                    alert(timeSeconds)
+                    const roundEnergy = Math.round(newEnergy);
                     if(newEnergy >= data.energyLimit) {
                       setEnergy(data.energyLimit);
                     } else {
-                      setEnergy(newEnergy);
+                      setEnergy(roundEnergy);
                     }
                     
                 } else {
