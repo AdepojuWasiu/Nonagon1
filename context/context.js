@@ -77,7 +77,8 @@ useEffect(() => {
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
                     const timeDifferent =  timeLogin - lastEnergyTime;
-                    const addEnergy =  data.energyIncrease * timeDifferent;
+                    const timeSeconds = timeDifferent/1000
+                    const addEnergy =  data.energyIncrease * timeSeconds;
                     const newEnergy =  data.energy + addEnergy;
                     alert(timeDifferent)
                     if(newEnergy >= data.energyLimit) {
