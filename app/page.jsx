@@ -47,7 +47,7 @@ const Home = () => {
 
   const [status, setStatus] = useState('start');
   const [count, setCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 10 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 5 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
@@ -140,6 +140,10 @@ const Home = () => {
         setCount((prevCount) => prevCount + 1);
         setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
       }, 1000);
+      if(timeLeft === 0) {
+        setCount((prevCount) => {prevCount + 0});
+        setStatus('claim'); 
+      }
       return () => clearInterval(interval);
     } 
   }, [status]);
