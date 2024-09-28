@@ -134,17 +134,17 @@ const Home = () => {
     
   }, [energy]);
 
-  useEffect(() => {
-    if (status === 'farming') {
-      interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1);
-        setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
-      }, 1000);
-    } else if (status === 'claim' || status === 'start') {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === 'farming') {
+  //     interval = setInterval(() => {
+  //       setCount((prevCount) => prevCount + 1);
+  //       setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
+  //     }, 1000);
+  //   } else if (status === 'claim' || status === 'start') {
+  //     clearInterval(interval);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [status]);
 
   const handleStart = () => {
     setStatus('farming');
