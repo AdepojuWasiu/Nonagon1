@@ -231,7 +231,7 @@ const Home = () => {
           
         </div>
         <div>
-          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null}>
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px]">
             {status === 'start' && 'Start'}
             {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
             {status === 'claim' && 'Claim'}
