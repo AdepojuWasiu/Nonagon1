@@ -214,7 +214,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex justify-between items-center mx-[15px] font-bold mt-[20px] pb-[55px]">
+        <div className="flex justify-between items-center mx-[15px] font-bold mt-[20px] pb-[5px]">
           <div className="flex">
             <div><BsFillLightningChargeFill className="w-[30px] h-[30px]" color="#EE7600" /></div>
             <div className="flex mt-[4px]">
@@ -230,13 +230,12 @@ const Home = () => {
           </Link>
           
         </div>
-        <div>
-          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px]">
+        <div className="flex justify-center items-center justify-items-center">
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px] bg-black">
             {status === 'start' && 'Start'}
             {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
             {status === 'claim' && 'Claim'}
           </button>
-          <p className="text-[20px]">dffffffff</p>
         </div>
 
     </div>
