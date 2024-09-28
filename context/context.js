@@ -33,7 +33,7 @@ export function EnergyProvider({ children }) {
 
   const [status, setStatus] = useState('start');
   const [count, setCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 1 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+  const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
 
   const initData = useTelegramInitData();
 
@@ -77,6 +77,7 @@ useEffect(() => {
                     setTapValue(data.tapValue);
                     setEnergyLimit(data.energyLimit);
                     setEnergyIncrease(data.energyIncrease);
+                    setTimeLeft(data.farmingTimeLeft)
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -147,6 +148,21 @@ const updateEnergyWithBeacon = async () => {
 useEffect(() => {
   updateEnergyWithBeacon();
 }, [energy]);
+
+const updateFarmingWithBeacon = async () => {
+  const url = "/api/farming";
+  const data = JSON.stringify({
+    userId: userid,
+    farmingTimeLeft: timeLeft,
+    lastFarmingUpdatedTime: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateFarmingWithBeacon();
+}, [count]);
 
 useEffect(() => {
   if(energy>0) {

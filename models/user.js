@@ -28,6 +28,12 @@ const UserSchema = new Schema({
     lastEnergyUpdatedTime: {
         type: Date,
     },
+    farmingTimeLeft: {
+        type:Number,
+    },
+    lastFarmingUpdatedTime:{
+        type: Date,
+    },
     tapValue: {
         type: Number,
     },
