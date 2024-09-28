@@ -37,7 +37,7 @@ const UserSchema = new Schema({
     farmingTimeLeft: {
         type:Number,
     },
-    lastFarmingUpdatedTime: {
+    lastFarmingTime: {
         type: Date,
     },
     tapValue: {

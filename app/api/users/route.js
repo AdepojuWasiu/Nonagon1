@@ -28,7 +28,7 @@ export const POST = async (request) => {
                 farming: 0,
                 status: "start",
                 farmingTimeLeft: 100,
-                lastFarmingUpdatedTime: Date.now(),
+                lastFarmingTime: Date.now() ,
                 timestamp: Date.now(),
                 availableTurbo: 3,
                 availableEnergyRefill: 3,
