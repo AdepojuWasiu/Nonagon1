@@ -47,7 +47,7 @@ const Home = () => {
 
   const [status, setStatus] = useState('start');
   const [count, setCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 5 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 1 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
@@ -138,15 +138,21 @@ const Home = () => {
     if (status === 'farming') {
       const interval = setInterval(() => {
         setCount((prevCount) => prevCount + 1);
-        setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
+        setTimeLeft((prevTimeLeft) => {
+          if (prevTimeLeft > 0) {
+            return prevTimeLeft - 1;
+          } else {
+            clearInterval(interval); // Stop the interval when time reaches 0
+            setStatus('claim'); // Switch to claim mode
+            return 0; // Ensure timeLeft doesn't go below 0
+          }
+        });
       }, 1000);
-      if(timeLeft === 0) {
-        setCount((prevCount) => {prevCount + 0});
-        setStatus('claim'); 
-      }
-      return () => clearInterval(interval);
-    } 
+  
+      return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+    }
   }, [status]);
+  
 
   const handleStart = () => {
     setStatus('farming');
