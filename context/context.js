@@ -31,6 +31,10 @@ export function EnergyProvider({ children }) {
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceFetch, setOnceFetch] = useState(true);
 
+  const [status, setStatus] = useState('start');
+  const [count, setCount] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 1 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+
   const initData = useTelegramInitData();
 
   const userId = initData.user?.id;
@@ -144,13 +148,42 @@ useEffect(() => {
   updateEnergyWithBeacon();
 }, [energy]);
 
+useEffect(() => {
+  if(energy>0) {
+    const interval = setInterval(() => {
+      setEnergy((prevEnergy) => Math.min(prevEnergy + energyIncrease, energyLimit));
+    },3000); // Restore 10 energy points every second
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }
+  
+}, [energy]);
+
+useEffect(() => {
+  if (status === 'farming') {
+    const interval = setInterval(() => {
+      setCount((prevCount) => prevCount + 1);
+      setTimeLeft((prevTimeLeft) => {
+        if (prevTimeLeft > 0) {
+          return prevTimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setStatus('claim'); // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [status]);
+
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals,
-                                     energyIncrease, setEnergyIncrease }}>
+                                     energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft }}>
       {children}
     </EnergyContext.Provider>
   );

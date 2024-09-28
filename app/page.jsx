@@ -45,12 +45,8 @@ const Home = () => {
   const [levelIndex, setLevelIndex] = useState(6);
   const [clicks, setClicks] = useState([]);
 
-  const [status, setStatus] = useState('start');
-  const [count, setCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 1 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
-
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
-         close, setClose, energyLimit, energyIncrease } = useEnergy();
+         close, setClose, energyLimit, energyIncrease, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
 
    const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
   
@@ -123,36 +119,6 @@ const Home = () => {
   const handleAnimationEnd = (id) => {
     setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
   };
-
-  useEffect(() => {
-    if(energy>0) {
-      const interval = setInterval(() => {
-        setEnergy((prevEnergy) => Math.min(prevEnergy + energyIncrease, energyLimit));
-      },3000); // Restore 10 energy points every second
-      return () => clearInterval(interval); // Clear interval on component unmount
-    }
-    
-  }, [energy]);
-
-  useEffect(() => {
-    if (status === 'farming') {
-      const interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1);
-        setTimeLeft((prevTimeLeft) => {
-          if (prevTimeLeft > 0) {
-            return prevTimeLeft - 1;
-          } else {
-            clearInterval(interval); // Stop the interval when time reaches 0
-            setStatus('claim'); // Switch to claim mode
-            return 0; // Ensure timeLeft doesn't go below 0
-          }
-        });
-      }, 1000);
-  
-      return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
-    }
-  }, [status]);
-  
 
   const handleStart = () => {
     setStatus('farming');
