@@ -134,17 +134,15 @@ const Home = () => {
     
   }, [energy]);
 
-  // useEffect(() => {
-  //   if (status === 'farming') {
-  //     interval = setInterval(() => {
-  //       setCount((prevCount) => prevCount + 1);
-  //       setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
-  //     }, 1000);
-  //   } else if (status === 'claim' || status === 'start') {
-  //     clearInterval(interval);
-  //   }
-  //   return () => clearInterval(interval);
-  // }, [status]);
+  useEffect(() => {
+    if (status === 'farming') {
+      const interval = setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+        setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
+      }, 1000);
+      return () => clearInterval(interval);
+    } 
+  }, [status]);
 
   const handleStart = () => {
     setStatus('farming');
@@ -169,10 +167,9 @@ const Home = () => {
     <div className="mt-[20px] flex-col justify-center items-center background__home">
       <div className="flex justify-between items-center mx-[15px]">
         <div><h1 className="text-[20px] font-bold">Hi,{username}</h1></div>
-        <div><h1 className="text-[20px] font-bold" onClick={() => {updatePointWithBeacon()}}>Choose Exchange</h1></div>
-      </div>
-
-         <div className="flex justify-center items-center font-bold mt-[20px]">
+        {/* <div><h1 className="text-[20px] font-bold" onClick={() => {updatePointWithBeacon()}}>Choose Exchange</h1></div> */}
+        
+        <div className="flex justify-center items-center font-bold mt-[20px]">
               <div>
                 <div className="flex justify-between gap-[50px]">
                   <p className="text-sm">{levelNames[levelIndex]}</p>
@@ -185,6 +182,7 @@ const Home = () => {
                 </div>
               </div>
          </div>
+      </div>
 
          <div className="flex-col mt-[30px]">
           <div className="flex justify-center items-center gap-[5px]">
@@ -231,7 +229,7 @@ const Home = () => {
           
         </div>
         <div className="flex justify-center items-center justify-items-center">
-          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px] bg-black">
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[10px] bg-black">
             {status === 'start' && 'Start'}
             {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
             {status === 'claim' && 'Claim'}
