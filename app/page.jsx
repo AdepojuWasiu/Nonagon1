@@ -47,7 +47,7 @@ const Home = () => {
 
   const [status, setStatus] = useState('start');
   const [count, setCount] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(3 * 60 * 60 + 40 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+  const [timeLeft, setTimeLeft] = useState(0 * 60 * 60 + 10 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
@@ -184,12 +184,12 @@ const Home = () => {
          </div>
       </div>
 
-         <div className="flex-col mt-[30px]">
+         <div className="flex-col mt-[15px]">
           <div className="flex justify-center items-center gap-[5px]">
             <Image src="/assets/coin.png" alt="coin" width={40} height={40}/>
             <p className="text-[23px] font-bold">{points.toLocaleString()}</p>
           </div>
-          <div className="flex justify-center items-center mt-[30px]" onTouchStart={handleCardClick}>
+          <div className="flex justify-center items-center mt-[15px]" onTouchStart={handleCardClick}>
             <div className="circle-outer rounded-full">
               <div className="rounded-full circle-inner w-[200px]"> <Image className="rounded-full" src="/assets/nonagon.png" alt="nonagon" width={300} height={300} /></div>
             </div>
@@ -228,8 +228,8 @@ const Home = () => {
           </Link>
           
         </div>
-        <div className="flex justify-center items-center justify-items-center">
-          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[10px] bg-black">
+        <div className="flex justify-center items-center justify-items-center mb-[20px]">
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px] bg-black">
             {status === 'start' && 'Start'}
             {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
             {status === 'claim' && 'Claim'}
