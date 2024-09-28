@@ -31,7 +31,7 @@ export function EnergyProvider({ children }) {
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceFetch, setOnceFetch] = useState(true);
 
-  const [status, setStatus] = useState('start');
+  const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
 
@@ -77,7 +77,9 @@ useEffect(() => {
                     setTapValue(data.tapValue);
                     setEnergyLimit(data.energyLimit);
                     setEnergyIncrease(data.energyIncrease);
-                    setTimeLeft(data.farmingTimeLeft)
+                    setTimeLeft(data.farmingTimeLeft);
+                    setStatus(data.status);
+                    setCount(data.farming);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -154,6 +156,8 @@ const updateFarmingWithBeacon = async () => {
   const data = JSON.stringify({
     userId: userid,
     farmingTimeLeft: timeLeft,
+    farming: count,
+    status: status,
     lastFarmingUpdatedTime: Date.now()
   });
 

@@ -7,6 +7,8 @@ export const POST = async (request) => {
     const userId = data.userId
     const farmingTimeLeft = data.farmingTimeLeft
     const lastFarmingUpdatedTime = data.lastfarmingUpdatedTime
+    const farming = data.farming
+    const status =  data.status
 
     try {
         await connectToDB();
@@ -17,6 +19,8 @@ export const POST = async (request) => {
 
             existingUser.farmingTimeLeft = farmingTimeLeft;
             existingUser.lastFarmingUpdatedTime = lastFarmingUpdatedTime;
+            existingUser.farming = farming;
+            existingUser.status = status;
 
             await existingUser.save();
 

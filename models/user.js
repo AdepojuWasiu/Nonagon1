@@ -28,6 +28,12 @@ const UserSchema = new Schema({
     lastEnergyUpdatedTime: {
         type: Date,
     },
+    farming: {
+        type: Number,
+    },
+    status: {
+        type: String,
+    },
     farmingTimeLeft: {
         type:Number,
     },
