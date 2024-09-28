@@ -238,11 +238,11 @@ const Home = () => {
           </Link>
           
         </div>
-        <div className="flex justify-center items-center justify-items-center mb-[20px]">
-          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className="p-6 text-[20px] bg-black">
-            {status === 'start' && 'Start'}
-            {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
-            {status === 'claim' && 'Claim'}
+        <div className="flex justify-center items-center justify-items-center mt-2 pb-[30px]">
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className=" p-3 px-[20px] text-[25px] bg-black rounded-xl">
+            {status === 'start' && 'Start Farming'}
+            {status === 'farming' && `Farming... ${count} | ${formatTime(timeLeft)}`}
+            {status === 'claim' && `Claim | ${count}`}
           </button>
         </div>
 
