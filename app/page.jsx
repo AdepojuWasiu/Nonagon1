@@ -236,6 +236,7 @@ const Home = () => {
             {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
             {status === 'claim' && 'Claim'}
           </button>
+          <p className="text-[20px]">dffffffff</p>
         </div>
 
     </div>
