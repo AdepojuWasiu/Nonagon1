@@ -45,6 +45,10 @@ const Home = () => {
   const [levelIndex, setLevelIndex] = useState(6);
   const [clicks, setClicks] = useState([]);
 
+  const [status, setStatus] = useState('start');
+  const [count, setCount] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(3 * 60 * 60 + 40 * 60 + 5); // in seconds (3 hours, 40 mins, 5 seconds)
+
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, energyIncrease } = useEnergy();
 
@@ -130,6 +134,36 @@ const Home = () => {
     
   }, [energy]);
 
+  useEffect(() => {
+    if (status === 'farming') {
+      interval = setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+        setTimeLeft((prevTimeLeft) => (prevTimeLeft > 0 ? prevTimeLeft - 1 : 0));
+      }, 1000);
+    } else if (status === 'claim' || status === 'start') {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [status]);
+
+  const handleStart = () => {
+    setStatus('farming');
+  };
+
+  const handleClaim = () => {
+    setPoints((prevPoints) => prevPoints + count);
+    setCount(0);
+    setTimeLeft(3 * 60 * 60 + 40 * 60 + 5); // reset timer to 3:40:05
+    setStatus('start');
+  };
+
+  const formatTime = (seconds) => {
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return `${h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
+  };
+
 
   return (
     <div className="mt-[20px] flex-col justify-center items-center background__home">
@@ -195,6 +229,13 @@ const Home = () => {
               </div>
           </Link>
           
+        </div>
+        <div>
+          <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null}>
+            {status === 'start' && 'Start'}
+            {status === 'farming' && `Farming... Count: ${count} Time Left: ${formatTime(timeLeft)}`}
+            {status === 'claim' && 'Claim'}
+          </button>
         </div>
 
     </div>
