@@ -158,7 +158,7 @@ const updateFarmingWithBeacon = async () => {
     farmingTimeLeft: timeLeft,
     farming: count,
     status: status,
-    lastFarmingUpdatedTime: Date.now()
+    lastFarmingTime: Date.now()
   });
 
   navigator.sendBeacon(url, data);
