@@ -6,7 +6,7 @@ export const POST = async (request) => {
     const data = await request.json();
     const userId = data.userId
     const farmingTimeLeft = data.farmingTimeLeft
-    const lastFarmingTime = data.lastfarmingUpdatedTime
+    const lastFarmingTime = data.lastFarmingTime
     const farming = data.farming
     const status =  data.status
 
