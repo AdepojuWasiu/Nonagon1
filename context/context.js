@@ -92,7 +92,21 @@ useEffect(() => {
                       setEnergy(data.energyLimit);
                     } else {
                       setEnergy(roundEnergy);
-                    }
+                    };
+
+                    const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
+                    const timeDifferentFarm = timeLogin - lastFarmingTime;
+                    const timeSecondsFarm = timeDifferentFarm/1000;
+                    const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
+                    const addCount = timeSecondsFarm * 1
+                    if(subtractTimeLeftout <= 0){
+                      setTimeLeft(0);
+                      setCount(5000)
+                    } else {
+                      setTimeLeft(subtractTimeLeftout);
+                      setCount(addCount)
+                    };
+
                     
                 } else {
                     console.log('Failed to save user:', response.statusText);
