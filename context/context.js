@@ -98,13 +98,15 @@ useEffect(() => {
                     const timeDifferentFarm = timeLogin - lastFarmingTime;
                     const timeSecondsFarm = timeDifferentFarm/1000;
                     const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
-                    const addCount = timeSecondsFarm * 1
-                    if(subtractTimeLeftout <= 0){
+                    const addCount = timeSecondsFarm * 1;
+                    const roundSubtractTime = Math.round(subtractTimeLeftout);
+                    const roundAddCount = Math.round(addCount);
+                    if(roundSubtractTime <= 0){
                       setTimeLeft(0);
                       setCount(5000)
                     } else {
-                      setTimeLeft(subtractTimeLeftout);
-                      setCount(addCount)
+                      setTimeLeft(roundSubtractTime);
+                      setCount(roundAddCount)
                     };
 
                     
