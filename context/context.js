@@ -99,14 +99,15 @@ useEffect(() => {
                     const timeSecondsFarm = timeDifferentFarm/1000;
                     const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
                     const addCount = timeSecondsFarm * 1;
+                    const newCount = addCount + data.count;
                     const roundSubtractTime = Math.round(subtractTimeLeftout);
-                    const roundAddCount = Math.round(addCount);
+                    const roundNewCount = Math.round(newCount);
                     if(roundSubtractTime <= 0){
                       setTimeLeft(0);
                       setCount(5000)
                     } else {
                       setTimeLeft(roundSubtractTime);
-                      setCount(roundAddCount)
+                      setCount(roundNewCount)
                     };
 
                     
