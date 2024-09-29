@@ -79,7 +79,7 @@ useEffect(() => {
                     setEnergyIncrease(data.energyIncrease);
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
-                    setCount(data.farming);
+                    setCount(data.farmng);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -99,7 +99,7 @@ useEffect(() => {
                     const timeSecondsFarm = timeDifferentFarm/1000;
                     const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
                     const addCount = timeSecondsFarm * 1;
-                    const newCount = addCount + data.count;
+                    const newCount = addCount + data.farming;
                     const roundSubtractTime = Math.round(subtractTimeLeftout);
                     const roundNewCount = Math.round(newCount);
                     if(roundSubtractTime <= 0){
