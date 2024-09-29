@@ -20,11 +20,11 @@ const Friends = () => {
        </div>
       <div className="bg-[#272727] flex justify-between rounded-md pb-8 pt-6 pr-6  mt-4 font-bold">
             <div className="flex gap-2">
-             <Image src="/assets/coin.png" alt="coin" width={50} height={50}/>
+              <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                  <div>
                     <p className="text-[18px] ">Invite Friends </p>
                     <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[15px]">50,000 for you & your friend</p>
                     </div>
                  </div>

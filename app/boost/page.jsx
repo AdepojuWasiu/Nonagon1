@@ -186,7 +186,7 @@ const noRefill = availableEnergyRefill == 0
         <h1 className="font-bold text-[15px]">Your Balance</h1>
         </div>
         <div className="flex justify-center items-center gap-[5px]">
-            <Image src="/assets/coin.png" alt="coin" width={40} height={40}/>
+            <Image src="/assets/coin.jpg" alt="coin" width={40} height={40} className="rounded-full"/>
             <p className="text-[23px] font-bold">{points.toLocaleString()}</p>
         </div>
       <div className="mt-6">
@@ -216,7 +216,7 @@ const noRefill = availableEnergyRefill == 0
                       <div>
                           <p className="text-[17px] font-bold">Multi tap</p>
                           <div className="flex gap-2">
-                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                               <p>400 000 <span className="text-gray-500">| Level {multitapLevel}</span></p>
                           </div>
                       </div>
@@ -231,7 +231,7 @@ const noRefill = availableEnergyRefill == 0
                       <div>
                           <p className="text-[17px] font-bold">Energy limit</p>
                           <div className="flex gap-2">
-                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                               <p>400 000 <span className="text-gray-500">| Level {energyLimitLevel}</span></p>
                           </div>
                       </div>
@@ -246,7 +246,7 @@ const noRefill = availableEnergyRefill == 0
                       <div>
                           <p className="text-[17px] font-bold">Recharging speed</p>
                           <div className="flex gap-2">
-                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                               <p>400 000 <span className="text-gray-500">| Level {rechargingSpeedLevel}</span></p>
                           </div>
                       </div>
@@ -261,7 +261,7 @@ const noRefill = availableEnergyRefill == 0
                       <div>
                           <p className="text-[17px] font-bold">Offline Worker </p>
                           <div className="flex gap-2">
-                              <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                              <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                               <p>400 000 </p>
                           </div>
                       </div>
@@ -278,7 +278,7 @@ const noRefill = availableEnergyRefill == 0
                   <h1 className="text-[30px] mt-[30px]">Fly Plane</h1>
                   <p className="text-[#ffffff6c]">Get 10x of tapping for 10seconds</p> 
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
@@ -295,7 +295,7 @@ const noRefill = availableEnergyRefill == 0
                   <h1 className="text-[30px] mt-[30px]">Full Energy</h1>
                   <p className="text-[#ffffff6c]">Fill your energy to the max</p> 
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
@@ -314,7 +314,7 @@ const noRefill = availableEnergyRefill == 0
                   <p className="text-[#ffffff6c] px-3">Increase amount of TAP you can earn per one tap</p> 
                   <p className="text-[#ffffff6c]">+1 per tap for each level.</p>
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
@@ -333,7 +333,7 @@ const noRefill = availableEnergyRefill == 0
                   <p className="text-[#ffffff6c]">Increase the limit of energy storage</p>
                   <p className="text-[#ffffff6c]">+500 energy limit for each level.</p>
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
@@ -353,7 +353,7 @@ const noRefill = availableEnergyRefill == 0
                   <p className="text-[#ffffff6c]">Increase your rechaeging speed</p>
                   <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"

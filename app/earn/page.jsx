@@ -20,7 +20,7 @@ const Earn = () => {
          </div>
       </div>
       <div className="flex justify-center items-center gap-[5px]">
-            <Image src="/assets/coin.png" alt="coin" width={40} height={40}/>
+            <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
             <p className="text-[23px] font-bold">{points.toLocaleString()}</p>
       </div>
 
@@ -47,7 +47,7 @@ const Earn = () => {
                     <div>
                         <p className="text-[17px] font-bold">Follow our X account</p>
                         <div className="flex gap-2">
-                            <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                            <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                             <p>+40,000</p>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ const Earn = () => {
                  <div>
                     <p className="text-[17px] font-bold">Follow our X account</p>
                     <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p>+40,000</p>
                     </div>
                  </div>
@@ -75,7 +75,7 @@ const Earn = () => {
                  <div>
                     <p className="text-[17px] font-bold">Follow our X account</p>
                     <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p>+40,000</p>
                     </div>
                  </div>
@@ -88,7 +88,7 @@ const Earn = () => {
                  <div>
                     <p className="text-[17px] font-bold">Follow our X account</p>
                     <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={20} height={20}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p>+40,000</p>
                     </div>
                  </div>
@@ -99,13 +99,13 @@ const Earn = () => {
           {xpullup && (
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
-                  <IoClose size={27} onClick ={() => setRechargingPullup(false)} className="absolute right-2 top-2"/>
+                  <IoClose size={27} onClick ={() => setXpullup(false)} className="absolute right-2 top-2"/>
                   <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
                   <h1 className="text-[30px] mt-[30px]">Recharching Speed</h1>
                   <p className="text-[#ffffff6c]">Increase your rechaeging speed</p>
                   <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
                   <div className="flex gap-2">
-                        <Image src="/assets/coin.png" alt="coin" width={30} height={30}/>
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">50000</p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
