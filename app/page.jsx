@@ -162,7 +162,7 @@ const Home = () => {
 
          <div className="flex-col mt-[15px]">
           <div className="flex justify-center items-center gap-[5px]">
-            <Image src="/assets/coin.png" alt="coin" width={40} height={40}/>
+            <Image src="/assets/coin.jpg" alt="coin" width={40} height={40} className="rounded-full"/>
             <p className="text-[23px] font-bold">{points.toLocaleString()}</p>
           </div>
           <div className="flex justify-center items-center mt-[15px]" onTouchStart={handleCardClick}>
