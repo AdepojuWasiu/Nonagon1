@@ -5,6 +5,7 @@ import {PiHandTapBold} from "react-icons/pi";
 import Image from "next/image";
 import { useEnergy } from "@/context/context";
 import {IoClose} from 'react-icons/io5';
+import Link from "next/link";
 
 const Earn = () => {
   const { points } = useEnergy();
@@ -101,12 +102,14 @@ const Earn = () => {
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setXpullup(false)} className="absolute right-2 top-2"/>
                   <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
-                  <h1 className="text-[30px] mt-[30px]">Recharching Speed</h1>
-                  <p className="text-[#ffffff6c]">Increase your rechaeging speed</p>
+                  <h1 className="text-[25px] mt-[30px]">Follow our X account</h1>
+                  <Link href= "https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09" className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
+                       Visit
+                  </Link>
                   <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">50000</p> 
+                        <p className="text-[20px]">+50000</p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
                        Claim
