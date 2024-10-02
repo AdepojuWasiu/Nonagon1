@@ -8,13 +8,12 @@ import {IoClose} from 'react-icons/io5';
 import Link from "next/link";
 
 const Earn = () => {
-  const { points, setPoints,xStatus,setXStatus, xcountDown,
-    setXCountDown, xTimeLeft, setXTimeleft } = useEnergy();
+  const { points, setPoints,xStatus,setXStatus, xTimeLeft, setXTimeleft } = useEnergy();
   const [xpullup, setXpullup] = useState(false);
 
   const openLink = (url) => {
      window.open(url, '_blank');
-     setXCountDown(true);
+     setXStatus("unclaimed");
   };
 
 
@@ -24,7 +23,7 @@ const Earn = () => {
      setXpullup(false);
   };
 
-  const unClaim = xStatus === 'unclaimed' || xStatus === 'ready';
+  const unClaim = xStatus === 'unclaimed' || xStatus === 'ready' || xStatus === "";
 
   return (
     <div className="p-4">
@@ -124,12 +123,12 @@ const Earn = () => {
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink('https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09')}>
                     Visit
                   </button>
-                  {xcountDown && (<p className="text-red-600 text-[15px]">make sure you complete the task, {xTimeLeft}</p>)}
+                  {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">make sure you complete the task, {xTimeLeft}</p>)}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50000</p> 
                   </div>
-                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed'} onClick={handleClaim}>
+                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' || xStatus === "" ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === ""} onClick={handleClaim}>
                       { unClaim ? "Claim" : "Claimed" }
                   </button>
                 </div>
