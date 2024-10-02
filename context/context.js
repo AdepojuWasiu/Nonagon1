@@ -34,6 +34,9 @@ export function EnergyProvider({ children }) {
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
+  const [xcountDown, setXCountDown] = useState(false);
+  const [xTimeLeft, setXTimeleft] = useState(60);
+  const [xStatus, setXStatus] = useState('unclaimed');
 
   const initData = useTelegramInitData();
 
@@ -195,6 +198,8 @@ useEffect(() => {
   
 }, [energy]);
 
+
+
 useEffect(() => {
   if (status === 'farming') {
     const interval = setInterval(() => {
@@ -214,13 +219,33 @@ useEffect(() => {
   }
 }, [status]);
 
+useEffect(() => {
+  if (xStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setXTimeleft((prevXtimeLeft) => {
+        if (prevXtimeLeft > 0) {
+          return prevXtimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setXStatus('ready');
+          setXCountDown(false); // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [xcountDown]);
+
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals,
-                                     energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft }}>
+                                     energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xcountDown,
+                                      setXCountDown, xTimeLeft, setXTimeleft, }}>
       {children}
     </EnergyContext.Provider>
   );
