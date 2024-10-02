@@ -11,6 +11,10 @@ const Earn = () => {
   const { points } = useEnergy();
   const [xpullup, setXpullup] = useState(false);
 
+  const openLink = (url) => {
+     window.open(url, '_blank');
+  };
+
   return (
     <div className="p-4">
       
@@ -103,9 +107,12 @@ const Earn = () => {
                   <IoClose size={27} onClick ={() => setXpullup(false)} className="absolute right-2 top-2"/>
                   <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
                   <h1 className="text-[25px] mt-[30px]">Follow our X account</h1>
-                  <Link href= "https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09" className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
+                  {/* <Link href= "https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09" className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
                        Visit
-                  </Link>
+                  </Link> */}
+                  <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink('https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09')}>
+                    Visit
+                  </button>
                   <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
