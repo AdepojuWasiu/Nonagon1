@@ -30,7 +30,7 @@ export function EnergyProvider({ children }) {
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceFetch, setOnceFetch] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
@@ -113,7 +113,7 @@ useEffect(() => {
                       setCount(roundNewCount)
                     };
 
-                    setLoading(true);
+                    setLoading(false);
 
                     
                 } else {
