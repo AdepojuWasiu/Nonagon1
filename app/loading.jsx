@@ -2,7 +2,7 @@
 
 const Loading = () => {
   return (
-    <div>
+    <div className="bg-blue-900">
        <p>loading ... </p>
     </div>
   )
