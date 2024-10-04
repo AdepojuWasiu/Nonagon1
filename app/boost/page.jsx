@@ -129,7 +129,7 @@ const Boost = () => {
      method:'PATCH',
      body: JSON.stringify({
        userId: userid,
-       energyLimit: updateEnergyLimit,
+       energyLimit: updatedEnergyLimit,
        energyLimitLevel: updatedEnergyLimitLevel
      })
    })
