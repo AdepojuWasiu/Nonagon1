@@ -14,12 +14,13 @@ const Friends = () => {
   const handleShare = () => {
     const linkToShare = "https://your-link.com";
     const message = "Check out this link!";
-    
-    tg.share({
-      url: linkToShare,
-      text: message,
-      disable_notification: false, // Optional, to disable notifications for the recipient
-    });
+    if(tg) {
+      tg.share({
+        url: linkToShare,
+        text: message,
+        disable_notification: false, // Optional, to disable notifications for the recipient
+      });
+    }
   };
 
   enableCloseConfirmation();
