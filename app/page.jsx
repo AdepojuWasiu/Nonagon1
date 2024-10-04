@@ -46,7 +46,7 @@ const Home = () => {
   const [clicks, setClicks] = useState([]);
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
-         close, setClose, energyLimit, energyIncrease, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
+         close, setClose, energyLimit, loading, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
 
    const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
   
@@ -137,6 +137,10 @@ const Home = () => {
     const s = seconds % 60;
     return `${h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
   };
+
+  if(loading) {
+    return <h1 className="text-[50px]">Loading</h1>
+  }
 
 
   return (

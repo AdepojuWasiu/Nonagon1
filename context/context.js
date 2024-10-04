@@ -30,6 +30,7 @@ export function EnergyProvider({ children }) {
   const [energyLimit, setEnergyLimit] = useState(0);
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceFetch, setOnceFetch] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
@@ -111,6 +112,8 @@ useEffect(() => {
                       setTimeLeft(roundSubtractTime);
                       setCount(roundNewCount)
                     };
+
+                    setLoading(true);
 
                     
                 } else {
@@ -241,7 +244,7 @@ useEffect(() => {
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
-                                     setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals,
+                                     setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals, loading,
                                      energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, }}>
       {children}
     </EnergyContext.Provider>
