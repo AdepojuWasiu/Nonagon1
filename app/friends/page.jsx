@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useEffect } from "react";
+import { useTelegram } from "@/hooks/useTelegram";
 
 import { IoIosCopy } from "react-icons/io";
 import { useEnergy } from "@/context/context";
@@ -8,22 +9,20 @@ import { useEnergy } from "@/context/context";
 
 const Friends = () => {
 
-  useEffect(() => {
-    if (window.Telegram) {
-      window.Telegram.WebApp.ready();
-    }
-  }, []);
+  const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
 
   const handleShare = () => {
     const linkToShare = "https://your-link.com";
     const message = "Check out this link!";
     
-    window.Telegram.WebApp.share({
+    tg.share({
       url: linkToShare,
       text: message,
       disable_notification: false, // Optional, to disable notifications for the recipient
     });
   };
+
+  enableCloseConfirmation();
         
   const { username, referals } = useEnergy();
      

@@ -60,18 +60,6 @@ export function useTelegram() {
     }
   };
 
-  const onClose = (callback) => {
-    // Check if the Telegram instance is available
-    if (tg) {
-      tg.onEvent('close', callback); // Set up the close event listener
-    }
-  };
 
-  const offClose = (callback) => {
-    if (tg) {
-      tg.offEvent('close', callback); // Clean up the close event listener
-    }
-  };
-
-  return { tg, onClose, offClose, enableCloseConfirmation, disableCloseConfirmation };
+  return { tg, enableCloseConfirmation, disableCloseConfirmation };
 }
