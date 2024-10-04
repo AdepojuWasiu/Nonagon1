@@ -2,6 +2,8 @@ import Navbar from "@/components/nav";
 import "./globals.css";
 import Script from "next/script";
 import { EnergyProvider } from "@/context/context";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 export const metadata= {
@@ -18,12 +20,14 @@ const RootLayout = ({children}) => {
           </head>
         
           <body className="text-[#ffffff]">
-            <EnergyProvider>
-                      <main className="">
-                                {children}
-                                <Navbar />
-                      </main> 
-            </EnergyProvider>
+            <Suspense fallback= {<Loading />}>
+                <EnergyProvider>
+                          <main className="">
+                                    {children}
+                                    <Navbar />
+                          </main> 
+                </EnergyProvider>
+            </Suspense>
                                  
           </body> 
 
