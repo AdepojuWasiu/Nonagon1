@@ -139,7 +139,7 @@ const Home = () => {
   };
 
   if(loading) {
-    return <div><h1 className="text-[50px]">Loading</h1><div className="animate-spin h-5 w-5"></div></div>
+    return <div className="text-[30px]">Loading... <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24"></svg></div>
   }
 
 
