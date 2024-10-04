@@ -20,7 +20,7 @@ const RootLayout = ({children}) => {
           </head>
         
           <body className="text-[#ffffff]">
-            <Suspense fallback= {<Loading />}>
+            <Suspense fallback= {<h1>Loading ...</h1>}>
                 <EnergyProvider>
                           <main className="">
                                     {children}
