@@ -1,11 +1,29 @@
 'use client'
 import Image from "next/image";
+import { useEffect } from "react";
 
 import { IoIosCopy } from "react-icons/io";
 import { useEnergy } from "@/context/context";
 
 
 const Friends = () => {
+
+  useEffect(() => {
+    if (window.Telegram) {
+      window.Telegram.WebApp.ready();
+    }
+  }, []);
+
+  const handleShare = () => {
+    const linkToShare = "https://your-link.com";
+    const message = "Check out this link!";
+    
+    window.Telegram.WebApp.share({
+      url: linkToShare,
+      text: message,
+      disable_notification: false, // Optional, to disable notifications for the recipient
+    });
+  };
         
   const { username, referals } = useEnergy();
      
@@ -32,9 +50,11 @@ const Friends = () => {
       </div>
 
       <div className="flex gap-8">
-        <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
-          <p>Invite Friend</p>
-        </div>
+        <button onClick={handleShare}>
+          <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
+            <p>Invite Friend</p>
+          </div>
+        </button>
         <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-full">
           <IoIosCopy className="h-[30px] w-[30px]"/>
         </div>
