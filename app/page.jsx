@@ -139,8 +139,14 @@ const Home = () => {
   };
 
   if(loading) {
-    return <div className="text-[30px]">Loading... <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24"></svg></div>
-  }
+    return <div className=" absolute inset-0 z-30 flex flex-col justify-center items-center justify-items-center bg-[#000000]">
+                 <div className="text-[30px] text-white">Loading ...</div>
+                 <div><svg className=" animate-spin h-[50px] w-[50px] bg-gray-600" viewBox="0 0 24 24"></svg></div>
+                 
+          </div>
+  };
+
+  
 
 
   return (

@@ -2,8 +2,6 @@ import Navbar from "@/components/nav";
 import "./globals.css";
 import Script from "next/script";
 import { EnergyProvider } from "@/context/context";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 
 export const metadata= {
