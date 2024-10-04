@@ -8,7 +8,7 @@ const nextConfig = {
     reactStrictMode: false,
     experimental: {
       serverComponentsExternalPackages: ["mongoose"],
-      missingSuspenseWithCSRBailout: false,
+      // missingSuspenseWithCSRBailout: false,
       serverComponentsExternalPackages: ['grammy']
       
     },

@@ -40,6 +40,9 @@ export const POST = async (request) => {
                 energyIncrease: 1,
                 gameLevel: 1,
                 exchange: '',
+                xStatus: '',
+                xTimeLeft: 60,
+                xLastTimeUpdate: Date.now(),
             });
     
             // Check if the referral code matches any user in the database

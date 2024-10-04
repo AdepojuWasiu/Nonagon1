@@ -91,6 +91,15 @@ const UserSchema = new Schema({
             },
         },
     ],
+    xStatus: {
+        type: String,
+    },
+    xTimeLeft: {
+        type: Number,
+    },
+    xLastTimeUpdate: {
+        type: Date,
+    }
 
 });
 
