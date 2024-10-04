@@ -113,7 +113,11 @@ useEffect(() => {
                       setCount(roundNewCount)
                     };
 
-                    setLoading(false);
+                    setTimeout(() => {
+                      setLoading(false);
+                    }, 5000);
+
+                    
 
                     
                 } else {
