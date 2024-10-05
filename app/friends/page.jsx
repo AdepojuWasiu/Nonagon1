@@ -27,6 +27,7 @@ const Friends = () => {
 
   const handleInviteFriend = () => {
     const utils = initUtils()
+    alert('hmmmm')
     const inviteLink = `${INVITE_URL}?startapp=${userid}`
     const shareText = `Join me on this awesome Telegram mini app!`
     const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`
