@@ -11,7 +11,7 @@ import { useEnergy } from "@/context/context";
 const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
-  const utils = initUtils();
+  // const utils = initUtils();
 
   // enableCloseConfirmation();
         
