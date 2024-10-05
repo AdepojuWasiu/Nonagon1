@@ -11,7 +11,7 @@ import { useEnergy } from "@/context/context";
 const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
-  // const utils = initUtils();
+  const utils = initUtils();
 
   // enableCloseConfirmation();
         
@@ -48,9 +48,11 @@ const Friends = () => {
       </div>
 
       <div className="flex gap-8">
+        <button>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
+        </button>
         <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-full">
           <IoIosCopy className="h-[30px] w-[30px]"/>
         </div>
