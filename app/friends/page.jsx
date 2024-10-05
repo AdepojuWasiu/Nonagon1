@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
-import {initUtils} from '@telegram-apps/sdk';
+import { initUtils } from '@telegram-apps/sdk';
 
 import { IoIosCopy } from "react-icons/io";
 import { useEnergy } from "@/context/context";
@@ -15,11 +15,20 @@ const Friends = () => {
   // enableCloseConfirmation();
         
   const { username, referals, userid } = useEnergy();
+  const INVITE_URL = "https://t.me/referral_showcase_bot/start"
+
+  // const handleInviteFriend = () => {
+  //   const utils = initUtils()
+  //   const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`
+  //   const shareText = `Join me on NONAGON!`
+  //   const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`
+  //   utils.openTelegramLink(fullUrl)
+  // };
 
   const handleInviteFriend = () => {
     const utils = initUtils()
-    const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`
-    const shareText = `Join me on NONAGON!`
+    const inviteLink = `${INVITE_URL}?startapp=${userid}`
+    const shareText = `Join me on this awesome Telegram mini app!`
     const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`
     utils.openTelegramLink(fullUrl)
   };
