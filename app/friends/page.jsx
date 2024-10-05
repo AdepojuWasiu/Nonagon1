@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
+import {initUtils} from '@telegram-apps/sdk';
 
 import { IoIosCopy } from "react-icons/io";
 import { useEnergy } from "@/context/context";
@@ -9,23 +10,19 @@ import { useEnergy } from "@/context/context";
 
 const Friends = () => {
 
-  const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
-
-  const handleShare = () => {
-    const linkToShare = "https://your-link.com";
-    const message = "Check out this link!";
-    if(tg) {
-      tg.share({
-        url: linkToShare,
-        text: message,
-        disable_notification: false, // Optional, to disable notifications for the recipient
-      });
-    }
-  };
+  const { tg, enableCloseConfirmation } = useTelegram();
 
   enableCloseConfirmation();
         
-  const { username, referals } = useEnergy();
+  const { username, referals, userid } = useEnergy();
+
+  const handleInviteFriend = () => {
+    const utils = initUtils()
+    const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`
+    const shareText = `Join me on NONAGON!`
+    const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`
+    utils.openTelegramLink(fullUrl)
+  };
      
   return (
     <div className="p-4">
@@ -50,7 +47,7 @@ const Friends = () => {
       </div>
 
       <div className="flex gap-8">
-        <button onClick={handleShare}>
+        <button onClick={handleInviteFriend}>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
