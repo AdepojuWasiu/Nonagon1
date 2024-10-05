@@ -18,12 +18,12 @@ const Friends = () => {
   const { username, referals, userid } = useEnergy();
   const INVITE_URL = "https://t.me/referral_showcase_bot/start"
 
-  const handleInviteFriend = () => {
-      const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
-      const shareText = `Join me on NONAGON!`;
-      const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`;
-      utils.openTelegramLink(fullUrl);
-  };
+  // const handleInviteFriend = () => {
+  //     const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
+  //     const shareText = `Join me on NONAGON!`;
+  //     const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`;
+  //     utils.openTelegramLink(fullUrl);
+  // };
      
   return (
     <div className="p-4">
@@ -48,7 +48,7 @@ const Friends = () => {
       </div>
 
       <div className="flex gap-8">
-        <button onClick={handleInviteFriend}>
+        <button>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
