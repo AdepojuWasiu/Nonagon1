@@ -19,7 +19,7 @@ const Friends = () => {
   const INVITE_URL = "https://t.me/referral_showcase_bot/start"
 
   const handleInviteFriend = () => {
-      const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`;
+      const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
       const shareText = `Join me on NONAGON!`;
       const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`;
       utils.openTelegramLink(fullUrl);
