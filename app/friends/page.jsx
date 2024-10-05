@@ -12,7 +12,7 @@ const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
 
-  enableCloseConfirmation();
+  // enableCloseConfirmation();
         
   const { username, referals, userid } = useEnergy();
 
