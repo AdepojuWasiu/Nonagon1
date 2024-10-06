@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect,useState } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
-import { initUtils } from '@telegram-apps/sdk';
 
 
 import { IoIosCopy } from "react-icons/io";
