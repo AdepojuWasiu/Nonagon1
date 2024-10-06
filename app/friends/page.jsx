@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
 import { initUtils } from '@telegram-apps/sdk';
 
+
 import { IoIosCopy } from "react-icons/io";
 import { useEnergy } from "@/context/context";
 
@@ -11,18 +12,16 @@ import { useEnergy } from "@/context/context";
 const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
-  const utils = initUtils();
 
   // enableCloseConfirmation();
         
   const { username, referals, userid } = useEnergy();
-  const INVITE_URL = "https://t.me/referral_showcase_bot/start"
+  const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
 
-  const handleInviteFriend = () => {
-      // const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
-      // const shareText = `Join me on NONAGON!`;
-      // const fullUrl = `https://t.me/share/url?url=${encodeURIComponent(inviteLink)}&text=${encodeURIComponent(shareText)}`;
-      utils.openTelegramLink('https://t.me/share/url?url=https://t.me/Nonagonbot/nonagon?startapp=1234&text=message');
+  const handleCopyLink = () => {
+    const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
+    navigator.clipboard.writeText(inviteLink);
+    alert('Invite link copied!');
   };
      
   return (
@@ -48,14 +47,17 @@ const Friends = () => {
       </div>
 
       <div className="flex gap-8">
-        <button onclick= {handleInviteFriend}>
+        {/* <button onclick= {handleInviteFriend}>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
+        </button> */}
+        <button onclick={handleCopyLink}>
+            <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-full">
+              <IoIosCopy className="h-[30px] w-[30px]"/>
+            </div>
         </button>
-        <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-full">
-          <IoIosCopy className="h-[30px] w-[30px]"/>
-        </div>
+  
       </div>
 
       
