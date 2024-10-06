@@ -21,7 +21,7 @@ bot.command('start', async (ctx) => {
 
     const url = `https://t.me/Nonagonbot/nonagon`;
     const urlX = `https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09`
-    await ctx.reply(`Hey, @${username} , NONAGON is a community-driven Dapp where you choose the future of Nonagon token. <br> Invite your friends, relatives and co-workers to join the game. The more friends you invites, the more coin you earn `,  {
+    await ctx.reply(`Hey, @${username} , NONAGON is a community-driven Dapp where you choose the future of Nonagon token. \nInvite your friends, relatives and co-workers to join the game. The more friends you invites, the more coin you earn `,  {
         reply_markup: {
             inline_keyboard: [
                 [{ text: 'Play', url }],
