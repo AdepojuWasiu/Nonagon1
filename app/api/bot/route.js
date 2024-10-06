@@ -20,13 +20,13 @@ bot.command('start', async (ctx) => {
     const username = ctx.from.username; // Get the user's username
 
     const url = `https://t.me/Nonagonbot/nonagon`;
-    // const urlX = `https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09`
+    const urlX = `https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09`
     await ctx.reply(`Hey, @${username} , NONAGON is a community-driven Dapp where you choose the future of Nonagon token. <br> Invite your friends, relatives and co-workers to join the game. The more friends you invites, the more coin you earn `,  {
         reply_markup: {
             inline_keyboard: [
                 [{ text: 'Play', url }],
                 [{ text: 'Join NONAGON Telegram Community', url }],
-                [{ text: 'Join NONAGON X Community', url }]
+                [{ text: 'Join NONAGON X Community', url: urlX }]
             ]
         },
     
