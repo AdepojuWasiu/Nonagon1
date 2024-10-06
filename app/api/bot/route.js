@@ -25,11 +25,7 @@ bot.command('start', async (ctx) => {
         reply_markup: {
             inline_keyboard: [
                 [{ text: 'Play', url }],
-            ],
-            inline_keyboard: [
-                [{ text: 'Join NONAGON Telegram Community', url }]
-            ],
-            inline_keyboard: [
+                [{ text: 'Join NONAGON Telegram Community', url }],
                 [{ text: 'Join NONAGON X Community', urlX }]
             ]
         },
