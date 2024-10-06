@@ -1,6 +1,6 @@
 'use client'
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect,useState } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
 import { initUtils } from '@telegram-apps/sdk';
 
@@ -16,10 +16,10 @@ const Friends = () => {
   // enableCloseConfirmation();
         
   const { username, referals, userid } = useEnergy();
-  const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
+
 
   const handleCopyLink = () => {
-    const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${username}`;
+    const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`;
     navigator.clipboard.writeText(inviteLink);
     alert('Invite link copied!');
   };
@@ -45,21 +45,19 @@ const Friends = () => {
                  </div>
             </div>
       </div>
-
-      <div className="flex gap-8">
+      <div className="flex justify-center items-center">
         {/* <button onclick= {handleInviteFriend}>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
         </button> */}
-        <button onclick={handleCopyLink}>
-            <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-full">
+        <button onClick = {handleCopyLink}>
+           <div  className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-xl gap-2">
+              <p>click to copy referal link</p>
               <IoIosCopy className="h-[30px] w-[30px]"/>
             </div>
         </button>
-  
       </div>
-
       
          {referals.map((referal) => (
           <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
