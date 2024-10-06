@@ -11,6 +11,7 @@ import { useEnergy } from "@/context/context";
 const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
+  const [copyClick, setCopyClick] = useState(false);
 
   // enableCloseConfirmation();
         
@@ -20,7 +21,12 @@ const Friends = () => {
   const handleCopyLink = () => {
     const inviteLink = `https://t.me/Nonagonbot/nonagon?startapp=${userid}`;
     navigator.clipboard.writeText(inviteLink);
-    alert('Invite link copied!');
+      setCopyClick(true);
+
+    setTimeout(() => {
+      setCopyClick(false);
+    }, 200);
+    
   };
      
   return (
@@ -44,15 +50,16 @@ const Friends = () => {
                  </div>
             </div>
       </div>
-      <div className="flex justify-center items-center">
+      <div className="flex-row justify-center items-center gap-5 mt-8">
         {/* <button onclick= {handleInviteFriend}>
           <div className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] px-[50px] py-4 rounded-full">
             <p>Invite Friend</p>
           </div>
         </button> */}
+        {copyClick && (<div><p>Copied</p></div>)}
         <button onClick = {handleCopyLink}>
-           <div  className="bg-[#ffff] text-[#000] mt-10 flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-xl gap-2">
-              <p>click to copy referal link</p>
+           <div  className="bg-[#ffff] text-[#000] flex justify-center justify-items-center font-bold text-[20px] p-4 rounded-xl gap-2">
+              <p>Click to copy referal link</p>
               <IoIosCopy className="h-[30px] w-[30px]"/>
             </div>
         </button>
