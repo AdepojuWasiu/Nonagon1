@@ -24,19 +24,16 @@ bot.command('start', async (ctx) => {
     await ctx.reply(`Hey, @${username} , NONAGON is a community-driven Dapp where you choose the future of Nonagon token. <br> Invite your friends, relatives and co-workers to join the game. The more friends you invites, the more coin you earn `,  {
         reply_markup: {
             inline_keyboard: [
-                [{ text: 'Play', url }]
-            ]
-        },
-        reply_markup: {
+                [{ text: 'Play', url }],
+            ],
             inline_keyboard: [
                 [{ text: 'Join NONAGON Telegram Community', url }]
-            ]
-        },
-        reply_markup: {
+            ],
             inline_keyboard: [
                 [{ text: 'Join NONAGON X Community', urlX }]
             ]
-        }
+        },
+    
     });
 });
 
