@@ -20,7 +20,7 @@ bot.command('start', async (ctx) => {
     const username = ctx.from.username; // Get the user's username
 
     const url = `https://t.me/Nonagonbot/nonagon`;
-    await ctx.replyWithPhoto('/assets/main.jpg');
+    // await ctx.replyWithPhoto('/assets/main.jpg');
     await ctx.reply(`Welcome!${username} , your id is ${userId} Click the button below to visit the web app.`,  {
         reply_markup: {
             inline_keyboard: [
