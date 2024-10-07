@@ -82,7 +82,6 @@ useEffect(() => {
                     setEnergyIncrease(data.energyIncrease);
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
-                    setCount(data.farmng);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -97,29 +96,30 @@ useEffect(() => {
                       setEnergy(roundEnergy);
                     };
 
-                    const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
-                    const timeDifferentFarm = timeLogin - lastFarmingTime;
-                    const timeSecondsFarm = timeDifferentFarm/1000;
-                    const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
-                    const addCount = timeSecondsFarm * 1;
-                    const newCount = addCount + data.farming;
-                    const roundSubtractTime = Math.round(subtractTimeLeftout);
-                    const roundNewCount = Math.round(newCount);
-                    if(roundSubtractTime <= 0){
-                      setTimeLeft(0);
-                      setCount(5000)
-                    } else {
-                      setTimeLeft(roundSubtractTime);
-                      setCount(roundNewCount)
+
+                    if(status === 'farming'){                         
+                          const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
+                          const timeDifferentFarm = timeLogin - lastFarmingTime;
+                          const timeSecondsFarm = timeDifferentFarm/1000;
+                          const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
+                          const addCount = timeSecondsFarm * 1;
+                          const newCount = addCount + data.farming;
+                          const roundSubtractTime = Math.round(subtractTimeLeftout);
+                          const roundNewCount = Math.round(newCount);
+                          if(roundSubtractTime <= 0){
+                            setTimeLeft(0);
+                            setCount(5000)
+                          } else {
+                            setTimeLeft(roundSubtractTime);
+                            setCount(roundNewCount)
+                          };
+
+                          setTimeout(() => {
+                            setLoading(false);
+                          }, 1000);
+
                     };
-
-                    setTimeout(() => {
-                      setLoading(false);
-                    }, 1000);
-
-                    
-
-                    
+   
                 } else {
                     console.log('Failed to save user:', response.statusText);
                 }
