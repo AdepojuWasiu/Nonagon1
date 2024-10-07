@@ -114,11 +114,11 @@ useEffect(() => {
                             setCount(roundNewCount)
                           };
 
-                          setTimeout(() => {
-                            setLoading(false);
-                          }, 1000);
-
                     };
+
+                    setTimeout(() => {
+                      setLoading(false);
+                    }, 1000);
    
                 } else {
                     console.log('Failed to save user:', response.statusText);
