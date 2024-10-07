@@ -97,22 +97,22 @@ useEffect(() => {
                     };
 
 
-                    if(status === 'farming'){                         
-                          const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
-                          const timeDifferentFarm = timeLogin - lastFarmingTime;
-                          const timeSecondsFarm = timeDifferentFarm/1000;
-                          const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
-                          const addCount = timeSecondsFarm * 1;
-                          const newCount = addCount + data.farming;
-                          const roundSubtractTime = Math.round(subtractTimeLeftout);
-                          const roundNewCount = Math.round(newCount);
-                          if(roundSubtractTime <= 0){
-                            setTimeLeft(0);
-                            setCount(5000)
-                          } else {
-                            setTimeLeft(roundSubtractTime);
-                            setCount(roundNewCount)
-                          };
+                    if(data.status === 'farming'){                         
+                        const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
+                        const timeDifferentFarm = timeLogin - lastFarmingTime;
+                        const timeSecondsFarm = timeDifferentFarm/1000;
+                        const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
+                        const addCount = timeSecondsFarm * 1;
+                        const newCount = addCount + data.farming;
+                        const roundSubtractTime = Math.round(subtractTimeLeftout);
+                        const roundNewCount = Math.round(newCount);
+                        if(roundSubtractTime <= 0){
+                          setTimeLeft(0);
+                          setCount(5000)
+                        } else {
+                          setTimeLeft(roundSubtractTime);
+                          setCount(roundNewCount)
+                        };
 
                     };
 
