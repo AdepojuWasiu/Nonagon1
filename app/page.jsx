@@ -95,7 +95,7 @@ const Home = () => {
         id: Date.now() + Math.random(), // Unique ID for each touch
         x: x,
         y: y,
-        transform: `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg)`
+        transform: `perspective(1000px) rotateX(${-y / 5}deg) rotateY(${x / 5}deg)`
       };
     });
   
@@ -191,8 +191,8 @@ const Home = () => {
                     key={click.id}
                     className="absolute text-[30px] font-bold text-[#fff]"
                     style={{
-                      top: `${click.y - 0}px`,
-                      left: `${click.x - 0}px`,
+                      top: `${click.y - 25}px`,
+                      left: `${click.x - 15}px`,
                       animation: `float 1s ease forwards`,
                     }}
                     onAnimationEnd={() => handleAnimationEnd(click.id)}
