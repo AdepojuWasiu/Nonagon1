@@ -191,7 +191,7 @@ const Home = () => {
                     key={click.id}
                     className="absolute text-[30px] font-bold text-[#fff]"
                     style={{
-                      top: `${click.y - 25}px`,
+                      top: `${click.y - 65}px`,
                       left: `${click.x - 15}px`,
                       animation: `float 1s ease forwards`,
                     }}
