@@ -54,6 +54,7 @@ const Home = () => {
 
    const goBack = () => {
       router.push('/');
+      tg.BackButton.hide();
    };
 
    if(tg) {
@@ -62,13 +63,8 @@ const Home = () => {
     tg.BackButton.show();
     tg.BackButton.onClick(goBack);
     tg.BackButton.offClick(goBack);
-    tg.BackButton.hide();
    };
   
-  
-
-
-
   const calculateProgress = () => {
     if (levelIndex >= levelNames.length - 1) {
       return 100;
