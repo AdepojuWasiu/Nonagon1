@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect,useState } from "react";
 import { useTelegram } from "@/hooks/useTelegram";
+import { useRouter } from "next/navigation";
 
 
 import { IoIosCopy } from "react-icons/io";
@@ -9,6 +10,7 @@ import { useEnergy } from "@/context/context";
 
 
 const Friends = () => {
+  const router = useRouter();
 
   const { tg, enableCloseConfirmation } = useTelegram();
   const [copyClick, setCopyClick] = useState(false);
@@ -18,6 +20,8 @@ if(tg){
 };
 const goBack = () => {
   tg.BackButton.hide();
+  router.push('/');
+  
 };
 if(tg){
   tg.BackButton.onClick(goBack);

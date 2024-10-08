@@ -7,7 +7,7 @@
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
 import { useTelegram } from "@/hooks/useTelegram";
-import { useRouter } from "next/navigation";
+
 
 
 
@@ -15,7 +15,7 @@ import { useRouter } from "next/navigation";
 
 const Home = () => {
    
-  const router = useRouter();
+  
   const levelNames = [
     "Bronze",    // From 0 to 4999 coins
     "Silver",    // From 5000 coins to 24,999 coins
