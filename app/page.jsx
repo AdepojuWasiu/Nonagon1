@@ -7,13 +7,15 @@
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
 import { useTelegram } from "@/hooks/useTelegram";
+import { useRouter } from "next/navigation";
 
 
 
 
 
 const Home = () => {
-
+   
+  const router = useRouter();
   const levelNames = [
     "Bronze",    // From 0 to 4999 coins
     "Silver",    // From 5000 coins to 24,999 coins
@@ -50,10 +52,17 @@ const Home = () => {
 
    const { tg } = useTelegram();
 
+   const goBack = () => {
+      router.push('/');
+   };
+
    if(tg) {
     tg.setHeaderColor('#000000');
     tg.enableClosingConfirmation();
     tg.BackButton.show();
+    tg.BackButton.onClick(goBack);
+    tg.BackButton.offClick(goBack);
+    tg.BackButton.hide();
    };
   
   
