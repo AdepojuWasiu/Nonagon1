@@ -95,7 +95,7 @@ const Home = () => {
         id: Date.now() + Math.random(), // Unique ID for each touch
         x: x,
         y: y,
-        transform: `perspective(1000px) rotateX(${-y / 5}deg) rotateY(${x / 5}deg)`
+        transform: `perspective(1000px) rotateX(${-y / 15}deg) rotateY(${x / 15}deg)`
       };
     });
   
