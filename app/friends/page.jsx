@@ -12,14 +12,16 @@ const Friends = () => {
 
   const { tg, enableCloseConfirmation } = useTelegram();
   const [copyClick, setCopyClick] = useState(false);
+if(tg){
+    tg.BackButton.show();
+    const goBack = () => {
+      router.push('/');
+      tg.BackButton.hide();
+   };
+   tg.BackButton.onClick(goBack);
+   tg.BackButton.offClick(goBack);
+};
 
-  tg.BackButton.show();
-  const goBack = () => {
-    router.push('/');
-    tg.BackButton.hide();
- };
- tg.BackButton.onClick(goBack);
- tg.BackButton.offClick(goBack);
         
   const { username, referals, userid } = useEnergy();
 
