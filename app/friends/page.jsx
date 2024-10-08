@@ -21,7 +21,6 @@ const goBack = () => {
 };
 if(tg){
   tg.BackButton.onClick(goBack);
-  tg.BackButton.offClick(goBack);
 };
 
         
