@@ -48,7 +48,13 @@ const Home = () => {
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
          close, setClose, energyLimit, loading, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
 
-   const { tg, onClose, offClose, enableCloseConfirmation } = useTelegram();
+   const { tg } = useTelegram();
+
+   if(tg) {
+    tg.setHeaderColor('#000000');
+    tg.enableClosingConfirmation();
+    tg.BackButton.show();
+   };
   
   
 
