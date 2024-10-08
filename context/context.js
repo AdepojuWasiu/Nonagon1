@@ -44,7 +44,7 @@ export function EnergyProvider({ children }) {
   const start_param = initData.start_param;
   const userNames = initData.user?.username;
   const firstName = initData.user?.first_name;
-  const userName = userNames || firstName;
+  const userName = userNames !== "" ? userNames : firstName;
 
   useEffect(() => {
     setUserid(userId);
