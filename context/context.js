@@ -42,7 +42,9 @@ export function EnergyProvider({ children }) {
 
   const userId = initData.user?.id;
   const start_param = initData.start_param;
-  const userName = initData.user?.username;
+  const userNames = initData.user?.username;
+  const firstName = initData.user?.first_name;
+  const userName = userNames || firstName;
 
   useEffect(() => {
     setUserid(userId);
