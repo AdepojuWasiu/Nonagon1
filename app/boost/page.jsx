@@ -9,6 +9,7 @@ import {BsFillLightningChargeFill} from "react-icons/bs"
 import { useEnergy } from "@/context/context";
 import {IoClose} from 'react-icons/io5';
 import { useRouter } from "next/navigation";
+import { useTelegram } from "@/hooks/useTelegram";
 
 
 import Image from "next/image";
@@ -17,6 +18,8 @@ import { useState } from "react";
 
 const Boost = () => {
   const router = useRouter();
+  const { tg, enableCloseConfirmation } = useTelegram();
+
    const [turboPullup, setTurboPullup] = useState(false);
    const [energyPullup, setEnergyPullup] = useState(false);
    const [multiTapPullup, setMultiTapPullup] = useState(false);
@@ -28,6 +31,17 @@ const Boost = () => {
                energyLimitLevel, rechargingSpeedLevel, setEnergy, setAvailableEnergyRefill, setWelcomeTurbo,
                setMultitapLevel, setEnergyLimitLevel,energyIncrease, setEnergyIncrease, setRechargingSpeedLevel,
                energyLimit, setEnergyLimit } = useEnergy();
+  
+        if(tg){
+            tg.BackButton.show(); 
+        };
+        const goBack = () => {
+          tg.BackButton.hide();
+          router.push('/'); 
+        };
+        if(tg){
+          tg.BackButton.onClick(goBack);
+        };
   
 
 

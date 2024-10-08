@@ -15,13 +15,11 @@ const Friends = () => {
   const { tg, enableCloseConfirmation } = useTelegram();
   const [copyClick, setCopyClick] = useState(false);
 if(tg){
-    tg.BackButton.show();
-   
+    tg.BackButton.show(); 
 };
 const goBack = () => {
   tg.BackButton.hide();
-  router.push('/');
-  
+  router.push('/'); 
 };
 if(tg){
   tg.BackButton.onClick(goBack);

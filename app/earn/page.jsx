@@ -6,10 +6,27 @@ import Image from "next/image";
 import { useEnergy } from "@/context/context";
 import {IoClose} from 'react-icons/io5';
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useTelegram } from "@/hooks/useTelegram";
 
 const Earn = () => {
+  const router = useRouter();
+  const { tg, enableCloseConfirmation } = useTelegram();
+
   const { points, setPoints,xStatus,setXStatus, xTimeLeft, setXTimeleft } = useEnergy();
   const [xpullup, setXpullup] = useState(false);
+
+    if(tg){
+      tg.BackButton.show(); 
+  };
+  const goBack = () => {
+    tg.BackButton.hide();
+    router.push('/'); 
+  };
+  if(tg){
+    tg.BackButton.onClick(goBack);
+  };
+
 
   const openLink = (url) => {
      window.open(url, '_blank');
