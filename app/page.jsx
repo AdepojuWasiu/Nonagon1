@@ -52,17 +52,11 @@ const Home = () => {
 
    const { tg } = useTelegram();
 
-   const goBack = () => {
-      router.push('/');
-      tg.BackButton.hide();
-   };
+
 
    if(tg) {
     tg.setHeaderColor('#000000');
     tg.enableClosingConfirmation();
-    tg.BackButton.show();
-    tg.BackButton.onClick(goBack);
-    tg.BackButton.offClick(goBack);
    };
   
   const calculateProgress = () => {
