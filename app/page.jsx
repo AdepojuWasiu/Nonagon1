@@ -57,6 +57,7 @@ const Home = () => {
    if(tg) {
     tg.setHeaderColor('#000000');
     tg.enableClosingConfirmation();
+    tg.BackButton.hide();
    };
   
   const calculateProgress = () => {
