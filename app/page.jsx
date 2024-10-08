@@ -193,7 +193,7 @@ const Home = () => {
                     style={{
                       top: `${click.y - 25}px`,
                       left: `${click.x - 15}px`,
-                      animation: `float 0.5s ease forwards`,
+                      animation: `float 1s ease forwards`,
                     }}
                     onAnimationEnd={() => handleAnimationEnd(click.id)}
                   >
