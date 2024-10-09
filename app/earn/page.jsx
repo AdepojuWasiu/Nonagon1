@@ -30,7 +30,7 @@ const Earn = () => {
 
   const openLink = (url) => {
      window.open(url, '_blank');
-     if(xStatus=''){
+     if(xStatus === ''){
        setXStatus("unclaimed");
      }
   };
