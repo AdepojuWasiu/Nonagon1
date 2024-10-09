@@ -69,7 +69,7 @@ const UserSchema = new Schema({
 
     },
     gameLevel: {
-        type:Number,
+        type:String,
     },
     exchange: {
         type:String,

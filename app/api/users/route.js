@@ -38,7 +38,7 @@ export const POST = async (request) => {
                 tapValue: 1,
                 energyLimit: 1000,
                 energyIncrease: 1,
-                gameLevel: 1,
+                gameLevel: 'Circle',
                 exchange: '',
                 xStatus: '',
                 xTimeLeft: 60,
