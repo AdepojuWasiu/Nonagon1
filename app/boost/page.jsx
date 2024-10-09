@@ -215,10 +215,10 @@ const formatTime = (seconds) => {
         <div className="grid grid-cols-2 gap-4 mt-4" >
           <button onClick={() => setTurboPullup(true)} disabled = {noTurbo}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
-                <div><p className="text-[17px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
+                <div><p className="text-[14px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
                 <div>
                   <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
-                  <p>`${formatTime(dailyTimeLeft)}`</p>
+                  <p>{`${formatTime(dailyTimeLeft)}`}</p>
                 </div>
               </div>
           </button>
