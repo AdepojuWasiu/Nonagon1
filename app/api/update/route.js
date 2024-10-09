@@ -7,6 +7,7 @@ export const POST = async (request) => {
     const userId = data.userId
     const point = data.point
     const lastPointsUpdatedTime = data.lastPointsUpdatedTime
+    const gameLevel = data.gameLevel
 
     try {
         await connectToDB();
@@ -17,6 +18,7 @@ export const POST = async (request) => {
 
             existingUser.point = point
             existingUser.lastPointsUpdatedTime = lastPointsUpdatedTime
+            existingUser.gameLevel = gameLevel
 
             await existingUser.save();
 

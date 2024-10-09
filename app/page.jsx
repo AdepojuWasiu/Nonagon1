@@ -48,7 +48,7 @@ const Home = () => {
   const [clicks, setClicks] = useState([]);
 
   const { userid, username, points, energy, setPoints, setEnergy, tapValue, welcomeTurbo,
-         close, setClose, energyLimit, loading, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
+          gameLevel, setGameLevel, energyLimit, loading, status, count, timeLeft, setStatus, setCount, setTimeLeft } = useEnergy();
 
    const { tg } = useTelegram();
 
@@ -78,6 +78,7 @@ const Home = () => {
     } else if (points < currentLevelMin && levelIndex > 0) {
       setLevelIndex(levelIndex - 1);
     }
+    setGameLevel(levelNames[levelIndex])
   }, [points, levelIndex, levelMinPoints, levelNames.length]);
 
   const handleCardClick = (e) => {
@@ -164,7 +165,7 @@ const Home = () => {
         <div className="flex justify-center items-center font-bold mt-[20px]">
               <div>
                 <div className="flex justify-between gap-[50px]">
-                  <p className="text-sm">{levelNames[levelIndex]}</p>
+                  <p className="text-sm">{gameLevel}</p>
                   <p className="text-sm">{levelIndex + 1} <span className="text-[#95908a]">/ {levelNames.length}</span></p>
                 </div>
                 <div className="flex items-center mt-1 border-2 border-[#43433b] rounded-full">

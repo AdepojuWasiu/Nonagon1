@@ -154,7 +154,8 @@ const updatePointWithBeacon = async () => {
   const data = JSON.stringify({
     userId: userid,
     point: points,
-    lastPointsUpdatedTime: Date.now()
+    lastPointsUpdatedTime: Date.now(),
+    gameLevel:gameLevel
   });
 
   navigator.sendBeacon(url, data);
