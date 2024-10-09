@@ -98,7 +98,6 @@ useEffect(() => {
                       setEnergy(roundEnergy);
                     };
 
-
                     if(data.status === 'farming'){                         
                         const lastFarmingTime = new Date(data.lastFarmingTime).getTime();
                         const timeDifferentFarm = timeLogin - lastFarmingTime;
@@ -116,7 +115,9 @@ useEffect(() => {
                           setCount(roundNewCount)
                         };
 
-                    };
+                    }else {
+                       setCount(data.farming);
+                    }
 
                     setTimeout(() => {
                       setLoading(false);
