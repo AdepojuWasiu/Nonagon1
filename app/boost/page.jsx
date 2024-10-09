@@ -30,7 +30,7 @@ const Boost = () => {
   const { userid, points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
                energyLimitLevel, rechargingSpeedLevel, setEnergy, setAvailableEnergyRefill, setWelcomeTurbo,
                setMultitapLevel, setEnergyLimitLevel,energyIncrease, setEnergyIncrease, setRechargingSpeedLevel,
-               energyLimit, setEnergyLimit } = useEnergy();
+               energyLimit, setEnergyLimit,  dailyTimeLeft } = useEnergy();
   
         if(tg){
             tg.BackButton.show(); 
@@ -191,7 +191,14 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel;
 
 
 const noTurbo = availableTurbo == 0
-const noRefill = availableEnergyRefill == 0 
+const noRefill = availableEnergyRefill == 0;
+
+const formatTime = (seconds) => {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  return `${h}:${m < 10 ? `0${m}` : m}:${s < 10 ? `0${s}` : s}`;
+};
 
 
   return (
@@ -209,7 +216,10 @@ const noRefill = availableEnergyRefill == 0
           <button onClick={() => setTurboPullup(true)} disabled = {noTurbo}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
                 <div><p className="text-[17px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
-                <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
+                <div>
+                  <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
+                  <p>`${formatTime(dailyTimeLeft)}`</p>
+                </div>
               </div>
           </button>
           <button onClick={() => setEnergyPullup(true)} disabled = {noRefill}>

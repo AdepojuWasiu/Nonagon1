@@ -37,6 +37,7 @@ export function EnergyProvider({ children }) {
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
   const [xTimeLeft, setXTimeleft] = useState(60);
   const [xStatus, setXStatus] = useState('');
+  const [dailyTimeLeft, setDailyTimeLeft] = useState(60);
 
   const initData = useTelegramInitData();
 
@@ -247,13 +248,26 @@ useEffect(() => {
   }
 }, [xStatus]);
 
+useEffect(() => {
+  if (dailyTimeLeft >0) {
+    const interval = setInterval(() => {
+      setDailyTimeLeft((prevDailyTimeLeft) => {
+         prevDailyTimeLeft - 1; 
+      });
+    }, 1000);
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [dailyTimeLeft]);
+
+
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
                                      availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals, loading,
-                                     energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, }}>
+                                     energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, 
+                                     dailyTimeLeft, setDailyTimeLeft }}>
       {children}
     </EnergyContext.Provider>
   );
