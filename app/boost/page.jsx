@@ -244,7 +244,7 @@ const formatTime = (seconds) => {
                           <p className="text-[17px] font-bold">Multi tap</p>
                           <div className="flex gap-2">
                               <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                              <p>400 000 <span className="text-gray-500">| Level {multitapLevel}</span></p>
+                              <p>{(5000*(multitapLevel**2)).toLocaleString()}  <span className="text-gray-500">| Level {multitapLevel +1}</span></p>
                           </div>
                       </div>
                   </div>
@@ -259,7 +259,7 @@ const formatTime = (seconds) => {
                           <p className="text-[17px] font-bold">Energy limit</p>
                           <div className="flex gap-2">
                               <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                              <p>400 000 <span className="text-gray-500">| Level {energyLimitLevel}</span></p>
+                              <p>{(5000*(energyLimitLevel**2)).toLocaleString()}  <span className="text-gray-500">| Level {energyLimitLevel +1}</span></p>
                           </div>
                       </div>
                   </div>
