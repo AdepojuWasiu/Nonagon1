@@ -30,7 +30,7 @@ const Boost = () => {
   const { userid, points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
                energyLimitLevel, rechargingSpeedLevel, setEnergy, setAvailableEnergyRefill, setWelcomeTurbo,
                setMultitapLevel, setEnergyLimitLevel,energyIncrease, setEnergyIncrease, setRechargingSpeedLevel,
-               energyLimit, setEnergyLimit,  dailyTimeLeft } = useEnergy();
+               energyLimit, setEnergyLimit, dailyTimeLeft } = useEnergy();
   
         if(tg){
             tg.BackButton.show(); 
@@ -218,7 +218,7 @@ const formatTime = (seconds) => {
                 <div><p className="text-[14px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
                 <div>
                   <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
-                  <p>{`${formatTime(60)}`}</p>
+                  <p>{`${formatTime(dailyTimeLeft)}`}</p>
                 </div>
               </div>
           </button>

@@ -37,7 +37,7 @@ export function EnergyProvider({ children }) {
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
   const [xTimeLeft, setXTimeleft] = useState(60);
   const [xStatus, setXStatus] = useState('');
-  const [dailyTimeLeft, setDailyTimeLeft] = useState(60);
+  const [dailyTimeLeft, setDailyTimeLeft] = useState(600);
 
   const initData = useTelegramInitData();
 
@@ -249,16 +249,20 @@ useEffect(() => {
 }, [xStatus]);
 
 useEffect(() => {
-  if (dailyTimeLeft >0) {
     const interval = setInterval(() => {
-      setDailyTimeLeft((prevDailyTimeLeft) => {
-         prevDailyTimeLeft - 1; 
+      setXTimeleft((prevDailyTimeLeft) => {
+        if (prevDailyTimeLeft > 0) {
+          return prevDailyTimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
       });
     }, 1000);
-    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
-  }
-}, [dailyTimeLeft]);
 
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  
+}, [points])
 
 
   return (
