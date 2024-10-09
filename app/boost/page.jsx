@@ -215,7 +215,7 @@ const formatTime = (seconds) => {
         <div className="grid grid-cols-2 gap-4 mt-4" >
           <button onClick={() => setTurboPullup(true)} disabled = {noTurbo}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
-                <div><p className="text-[14px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
+                <div><p className="text-[15px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
                 <div>
                   <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
                   <p>{`${formatTime(dailyTimeLeft)}`}</p>
@@ -224,8 +224,11 @@ const formatTime = (seconds) => {
           </button>
           <button onClick={() => setEnergyPullup(true)} disabled = {noRefill}>
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
-                <div><p className="text-[17px] font-bold">Full Battery</p><p>{availableEnergyRefill}/3 available</p></div>
-                <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
+                <div><p className="text-[15px] font-bold">Full Battery</p><p>{availableEnergyRefill}/3 available</p></div>
+                <div>
+                  <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
+                  <p>{`${formatTime(dailyTimeLeft)}`}</p>
+                </div>
               </div>
           </button>
         </div>
@@ -286,7 +289,7 @@ const formatTime = (seconds) => {
                           <p className="text-[17px] font-bold">Offline Worker </p>
                           <div className="flex gap-2">
                               <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                              <p>400 000 </p>
+                              <p>{(5000*(rechargingSpeedLevel**2)).toLocaleString()}</p>
                           </div>
                       </div>
                   </div>
@@ -378,7 +381,7 @@ const formatTime = (seconds) => {
                   <p className="text-[#ffffff6c]">+10 recharging speed for each level.</p>
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">{5000*rechargingSpeedLevel} | Level {rechargingSpeedLevel+1} </p> 
+                        <p className="text-[20px]">{(5000*(rechargingSpeedLevel**2)).toLocaleString()} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={ updateRecharging} disabled = {insufficientRecharging}>
