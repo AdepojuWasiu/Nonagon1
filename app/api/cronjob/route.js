@@ -7,7 +7,7 @@ export const POST = async (request) => {
         await connectToDB();
 
         // Update availableTurbo to 5 for all users
-        await User.updateMany({}, { availableTurbo: 5, availableEnergyRefill: 5});
+        await User.updateMany({}, { availableTurbo: 3, availableEnergyRefill: 3});
 
         return new Response("Turbo updated for all users", { status: 200 });
 
