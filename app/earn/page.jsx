@@ -30,7 +30,9 @@ const Earn = () => {
 
   const openLink = (url) => {
      window.open(url, '_blank');
-     setXStatus("unclaimed");
+     if(xStatus=''){
+       setXStatus("unclaimed");
+     }
   };
 
 
@@ -145,7 +147,7 @@ const Earn = () => {
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50000</p> 
                   </div>
-                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' || xStatus === "" ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === "" || xTimeLeft === 0} onClick={handleClaim}>
+                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' || xStatus === "" ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === ""} onClick={handleClaim}>
                       { unClaim ? "Claim" : "Claimed" }
                   </button>
                 </div>
