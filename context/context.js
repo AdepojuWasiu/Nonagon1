@@ -85,6 +85,7 @@ useEffect(() => {
                     setEnergyIncrease(data.energyIncrease);
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
+                    setDailyTimeLeft(20000);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -250,7 +251,7 @@ useEffect(() => {
 
 useEffect(() => {
     const interval = setInterval(() => {
-      setXTimeleft((prevDailyTimeLeft) => {
+      setDailyTimeLeft((prevDailyTimeLeft) => {
         if (prevDailyTimeLeft > 0) {
           return prevDailyTimeLeft - 1;
         } else {
@@ -262,7 +263,7 @@ useEffect(() => {
 
     return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
   
-}, [points])
+}, [dailyTimeLeft])
 
 
   return (
