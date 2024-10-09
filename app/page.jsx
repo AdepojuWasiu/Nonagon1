@@ -17,30 +17,30 @@ const Home = () => {
    
   
   const levelNames = [
-    "Bronze",    // From 0 to 4999 coins
-    "Silver",    // From 5000 coins to 24,999 coins
-    "Gold",      // From 25,000 coins to 99,999 coins
-    "Platinum",  // From 100,000 coins to 999,999 coins
-    "Diamond",   // From 1,000,000 coins to 2,000,000 coins
-    "Epic",      // From 2,000,000 coins to 10,000,000 coins
-    "Legendary", // From 10,000,000 coins to 50,000,000 coins
-    "Master",    // From 50,000,000 coins to 100,000,000 coins
-    "GrandMaster", // From 100,000,000 coins to 1,000,000,000 coins
-    "Lord"       // From 1,000,000,000 coins to ∞
+    "Circle",    // From 0 to 4999 coins
+    "Monogon",    // From 5000 coins to 24,999 coins
+    "Digon",      // From 25,000 coins to 99,999 coins
+    "Triangle",  // From 100,000 coins to 999,999 coins
+    "Quadrilateral",   // From 1,000,000 coins to 2,000,000 coins
+    "Pentagon",      // From 2,000,000 coins to 10,000,000 coins
+    "Hexagon", // From 10,000,000 coins to 50,000,000 coins
+    "Heptagon",    // From 50,000,000 coins to 100,000,000 coins
+    "Octagon", // From 100,000,000 coins to 1,000,000,000 coins
+    "Nonagon"       // From 1,000,000,000 coins to ∞
   ];
 
 
   const levelMinPoints = [
-    0,        // Bronze
-    5000,     // Silver
-    25000,    // Gold
-    100000,   // Platinum
-    1000000,  // Diamond
-    2000000,  // Epic
-    10000000, // Legendary
-    50000000, // Master
-    100000000,// GrandMaster
-    1000000000// Lord
+    0,        // Circle
+    501000,     // Monogon
+    2200000,    // Digon
+    6300000,   // Triangle
+    10400000,  // Quadrilateral
+    20500000,  // Pentagon
+    28600000, //  Hexagon
+    35700000, //  Heptagon
+    45000000, //  Octagon
+    90000000  //  Nonagon
 
   ];
 
