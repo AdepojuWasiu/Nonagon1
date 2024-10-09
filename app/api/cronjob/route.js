@@ -1,7 +1,7 @@
 import User from "@/models/user";
 import { connectToDB } from "@/utils/database";
 
-export const GET = async () => {
+export const POST = async (request) => {
     try {
         // Connect to the database
         await connectToDB();
