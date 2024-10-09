@@ -35,7 +35,7 @@ const Earn = () => {
 
 
   const handleClaim = () => {
-     setPoints(points+50000);
+     setPoints(points+500000);
      setXStatus('claimed');
      setXpullup(false);
   };
