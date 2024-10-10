@@ -242,6 +242,22 @@ useEffect(() => {
   }
 }, [status]);
 
+const updateXWithBeacon = async () => {
+  const url = "/api/farming/twiter";
+  const data = JSON.stringify({
+    userId: userid,
+    xTimeLeft: xTimeLeft,
+    xStatus: xStatus,
+    xLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateXWithBeacon();
+}, [xStatus, xTimeLeft]);
+
 useEffect(() => {
   if (xStatus === 'unclaimed') {
     const interval = setInterval(() => {
