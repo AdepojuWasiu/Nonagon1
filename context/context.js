@@ -144,7 +144,8 @@ useEffect(() => {
                       return differenceInSeconds;
                     }
                     
-                    const daily = getDifferenceInSeconds();
+                    const diff = getDifferenceInSeconds();
+                    const daily = 86400 - diff;
                     setDailyTimeLeft(daily);
    
                 } else {
