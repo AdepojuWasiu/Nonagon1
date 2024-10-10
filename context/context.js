@@ -86,6 +86,8 @@ useEffect(() => {
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
                     setDailyTimeLeft(20000);
+                    setXStatus(data.xStatus);
+                    setXTimeleft(data.xTimeLeft);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();

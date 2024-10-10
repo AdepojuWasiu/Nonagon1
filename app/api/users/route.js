@@ -43,8 +43,6 @@ export const POST = async (request) => {
                 xStatus: '',
                 xTimeLeft: 60,
                 xLastTimeUpdate: Date.now(),
-                // dailyTimeLeft: 86400,
-                // dailyLastTimeUpdate: Date.now(),
                  
             });
     

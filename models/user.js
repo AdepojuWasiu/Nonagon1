@@ -100,12 +100,6 @@ const UserSchema = new Schema({
     xLastTimeUpdate: {
         type: Date,
     },
-    // dailyTimeLeft: {
-    //     type: Number,
-    // },
-    // dailyLastTimeUpdate: {
-    //     type: Date,
-    // }
 
 });
 
