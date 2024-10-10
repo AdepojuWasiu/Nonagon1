@@ -35,9 +35,9 @@ export function EnergyProvider({ children }) {
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
-  const [xTimeLeft, setXTimeleft] = useState(60);
+  const [xTimeLeft, setXTimeleft] = useState(0);
   const [xStatus, setXStatus] = useState('');
-  const [dailyTimeLeft, setDailyTimeLeft] = useState(600);
+  const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
 
   const initData = useTelegramInitData();
 
@@ -137,20 +137,29 @@ useEffect(() => {
     }
 }, [userid, onceFetch]);  // This useEffect runs when the state variables are updated
 
+function getTodayAt1AM() {
+  const now = new Date();
+  now.setHours(1, 0, 0, 0); // Set hours to 1 AM, minutes, seconds, milliseconds to 0
+  return now;
+}
+
+function getDifferenceInSeconds() {
+  const dateAt1AM = getTodayAt1AM();
+  const now = Date.now();
+  
+  // Difference in milliseconds
+  const differenceInMs = now - dateAt1AM.getTime();
+  
+  // Convert milliseconds to seconds
+  const differenceInSeconds = Math.floor(differenceInMs / 1000);
+  
+  return differenceInSeconds;
+}
+
+daily = getDifferenceInSeconds();
+setDailyTimeLeft(daily);
 
 
- 
-
-  // setPoint(point);
-  // setTimeStamp(timeStamp);
-  // setAvailabeTurbo(availableTurbo);
-  // setAvailableEnergyRefill(availableEnergyRefill);
-  // setMultitapLevel(multitapLevel);
-  // setEnergyLimitLevel(energyLimitLevel);
-  // setRechargingSpeedLevel(rechargingSpeedLevel);
-  // setGameLevel(gameLevel);
-  // setExchange(exchange);
-  // setReferals(referals);   
 
 const updatePointWithBeacon = async () => {
   const url = "/api/update";
