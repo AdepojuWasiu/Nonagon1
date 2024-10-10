@@ -124,6 +124,28 @@ useEffect(() => {
                     setTimeout(() => {
                       setLoading(false);
                     }, 1000);
+
+                    function getTodayAt1AM() {
+                      const now = new Date();
+                      now.setHours(1, 0, 0, 0); // Set hours to 1 AM, minutes, seconds, milliseconds to 0
+                      return now;
+                    }
+                    
+                    function getDifferenceInSeconds() {
+                      const dateAt1AM = getTodayAt1AM();
+                      const now = Date.now();
+                      
+                      // Difference in milliseconds
+                      const differenceInMs = now - dateAt1AM.getTime();
+                      
+                      // Convert milliseconds to seconds
+                      const differenceInSeconds = Math.floor(differenceInMs / 1000);
+                      
+                      return differenceInSeconds;
+                    }
+                    
+                    const daily = getDifferenceInSeconds();
+                    setDailyTimeLeft(daily);
    
                 } else {
                     console.log('Failed to save user:', response.statusText);
@@ -136,29 +158,6 @@ useEffect(() => {
         sendUser();
     }
 }, [userid, onceFetch]);  // This useEffect runs when the state variables are updated
-
-function getTodayAt1AM() {
-  const now = new Date();
-  now.setHours(1, 0, 0, 0); // Set hours to 1 AM, minutes, seconds, milliseconds to 0
-  return now;
-}
-
-function getDifferenceInSeconds() {
-  const dateAt1AM = getTodayAt1AM();
-  const now = Date.now();
-  
-  // Difference in milliseconds
-  const differenceInMs = now - dateAt1AM.getTime();
-  
-  // Convert milliseconds to seconds
-  const differenceInSeconds = Math.floor(differenceInMs / 1000);
-  
-  return differenceInSeconds;
-}
-
-const daily = getDifferenceInSeconds();
-setDailyTimeLeft(daily);
-
 
 
 const updatePointWithBeacon = async () => {
