@@ -156,7 +156,7 @@ function getDifferenceInSeconds() {
   return differenceInSeconds;
 }
 
-daily = getDifferenceInSeconds();
+const daily = getDifferenceInSeconds();
 setDailyTimeLeft(daily);
 
 
