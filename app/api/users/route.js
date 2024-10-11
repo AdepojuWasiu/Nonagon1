@@ -41,7 +41,7 @@ export const POST = async (request) => {
                 gameLevel: 'Circle',
                 exchange: '',
                 xStatus: '',
-                xTimeLeft: 5000,
+                xTimeLeft: 300,
                 xLastTimeUpdate: Date.now(),
                  
             });
