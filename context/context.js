@@ -121,7 +121,7 @@ useEffect(() => {
                        setCount(data.farming);
                     }
 
-                    if(data.xStatus === 'unclaimed'){                         
+                  if(data.xStatus === 'unclaimed'){                         
                       const xLastTimeUpdated = new Date(data.xLastTimeUpdate).getTime();
                       const xtimeDifferentFarm = timeLogin - xLastTimeUpdated;
                       const xtimeSecondsFarm = xtimeDifferentFarm/1000;
@@ -130,7 +130,7 @@ useEffect(() => {
                       if(xroundSubtractTime <= 0){
                         setXTimeleft(0);
                       } else {
-                        setTimeLeft(xroundSubtractTime);
+                        setXTimeleft(xroundSubtractTime); 
                       };
 
                   }else {
@@ -276,7 +276,7 @@ useEffect(() => {
   if (xStatus === 'unclaimed') {
     const interval = setInterval(() => {
       setXTimeleft((prevXtimeLeft) => {
-        if (xTimeLeft > 0) {
+        if (prevXtimeLeft > 0) {
           return prevXtimeLeft - 1;
         } else {
           clearInterval(interval); // Stop the interval when time reaches 0
