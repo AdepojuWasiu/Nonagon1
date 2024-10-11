@@ -45,7 +45,7 @@ const Earn = () => {
   const unClaim = xStatus === 'unclaimed' || xStatus === 'ready' || xStatus === "";
 
   return (
-    <div className="p-4">
+    <div className="p-4 mb-[200px]">
       
       <div className="flex justify-center items-center justify-items-center content-center mt-5">
          <div>
@@ -77,7 +77,7 @@ const Earn = () => {
           <button className="w-full" onClick={() => setXpullup(true)}>
               <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                 <div className="flex gap-2">
-                    <Image src="/assets/twitter.png" alt="social" width={80} height={80}/>
+                    <Image src="/assets/twitter.png" alt="social" width={50} height={50}/>
                     <div>
                         <p className="text-[17px] font-bold">Follow our X account</p>
                         <div className="flex gap-2">
