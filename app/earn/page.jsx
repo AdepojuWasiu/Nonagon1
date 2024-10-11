@@ -82,7 +82,7 @@ const Earn = () => {
                         <p className="text-[17px] font-bold">Follow our X account</p>
                         <div className="flex gap-2">
                             <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                            <p>+40,000</p>
+                            <p>+50,000</p>
                         </div>
                     </div>
                 </div>
@@ -142,10 +142,10 @@ const Earn = () => {
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink('https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09')}>
                     Visit
                   </button>
-                  {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">make sure you complete the task, {xTimeLeft}</p>)}
+                  {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">+50000</p> 
+                        <p className="text-[20px]">+50,000</p> 
                   </div>
                   <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' || xStatus === "" ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === ""} onClick={handleClaim}>
                       { unClaim ? "Claim" : "Claimed" }

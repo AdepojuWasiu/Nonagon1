@@ -281,7 +281,7 @@ const formatTime = (seconds) => {
                   <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
                 </div>
          </button>
-         <button className="w-full">
+         {/* <button className="w-full">
               <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                   <div className="flex gap-2">
                       <FaRobot color="blue" className="w-[50px] h-[50px]" />
@@ -289,13 +289,13 @@ const formatTime = (seconds) => {
                           <p className="text-[17px] font-bold">Offline Worker </p>
                           <div className="flex gap-2">
                               <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                              <p>{(5000*(rechargingSpeedLevel**2)).toLocaleString()}</p>
+                              <p></p>
                           </div>
                       </div>
                   </div>
                   <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
                 </div>
-         </button>
+         </button> */}
       </div>
       {turboPullup && (
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
@@ -342,7 +342,7 @@ const formatTime = (seconds) => {
                   <p className="text-[#ffffff6c]">+1 per tap for each level.</p>
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">{5000*multitapLevel} | Level {multitapLevel+1} </p> 
+                        <p className="text-[20px]">{(5000*(multitapLevel**2)).toLocaleString()} | Level {multitapLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateMultitap} disabled = {insufficientMultitap}>
@@ -361,7 +361,7 @@ const formatTime = (seconds) => {
                   <p className="text-[#ffffff6c]">+500 energy limit for each level.</p>
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">{5000*energyLimitLevel} | Level {energyLimitLevel+1} </p> 
+                        <p className="text-[20px]">{(5000*(energyLimitLevel**2)).toLocaleString()} | Level {energyLimitLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit}>
