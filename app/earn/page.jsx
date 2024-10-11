@@ -77,7 +77,7 @@ const Earn = () => {
           <button className="w-full" onClick={() => setXpullup(true)}>
               <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                 <div className="flex gap-2">
-                    <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
+                    <Image src="/assets/twitter.png" alt="social" width={80} height={80}/>
                     <div>
                         <p className="text-[17px] font-bold">Follow our X account</p>
                         <div className="flex gap-2">
@@ -92,12 +92,12 @@ const Earn = () => {
   
           <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
             <div className="flex gap-2">
-                 <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
+                 <Image src="/assets/telegram.png" alt="social" width={50} height={50}/>
                  <div>
-                    <p className="text-[17px] font-bold">Follow our X account</p>
+                    <p className="text-[17px] font-bold">Join our Telegram channel</p>
                     <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+40,000</p>
+                        <p>+50,000</p>
                     </div>
                  </div>
             </div>
@@ -105,12 +105,12 @@ const Earn = () => {
           </div>
           <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
             <div className="flex gap-2">
-                 <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
+                 <Image src="/assets/youtube.png" alt="social" width={50} height={50}/>
                  <div>
-                    <p className="text-[17px] font-bold">Follow our X account</p>
+                    <p className="text-[17px] font-bold">Subscribe to our Youtube</p>
                     <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+40,000</p>
+                        <p>+50,000</p>
                     </div>
                  </div>
             </div>
@@ -118,12 +118,38 @@ const Earn = () => {
           </div>
           <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
             <div className="flex gap-2">
-                 <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
+                 <Image src="/assets/tiktok.png" alt="social" width={50} height={50}/>
                  <div>
-                    <p className="text-[17px] font-bold">Follow our X account</p>
+                    <p className="text-[17px] font-bold">Follow our Tiktok account</p>
                     <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+40,000</p>
+                        <p>+50,000</p>
+                    </div>
+                 </div>
+            </div>
+            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+          </div>
+          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+            <div className="flex gap-2">
+                 <Image src="/assets/instagram.png" alt="social" width={50} height={50}/>
+                 <div>
+                    <p className="text-[17px] font-bold">Follow our Instagram account</p>
+                    <div className="flex gap-2">
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
+                        <p>+50,000</p>
+                    </div>
+                 </div>
+            </div>
+            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+          </div>
+          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
+          <div className="flex gap-2">
+                 <Image src="/assets/facebook.png" alt="social" width={50} height={50}/>
+                 <div>
+                    <p className="text-[17px] font-bold">Follow our Facebook account</p>
+                    <div className="flex gap-2">
+                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
+                        <p>+50,000</p>
                     </div>
                  </div>
             </div>
