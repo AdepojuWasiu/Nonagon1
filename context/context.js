@@ -85,9 +85,7 @@ useEffect(() => {
                     setEnergyIncrease(data.energyIncrease);
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
-                    setDailyTimeLeft(20000);
                     setXStatus(data.xStatus);
-                    setXTimeleft(data.xTimeLeft);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -122,6 +120,22 @@ useEffect(() => {
                     }else {
                        setCount(data.farming);
                     }
+
+                    if(data.xStatus === 'unclaimed'){                         
+                      const xLastTimeUpdated = new Date(data.xLastTimeUpdate).getTime();
+                      const xtimeDifferentFarm = timeLogin - xLastTimeUpdated;
+                      const xtimeSecondsFarm = xtimeDifferentFarm/1000;
+                      const xsubtractTimeLeftout = data.xTimeLeft - xtimeSecondsFarm;
+                      const xroundSubtractTime = Math.round(xsubtractTimeLeftout);
+                      if(xroundSubtractTime <= 0){
+                        setXTimeleft(0);
+                      } else {
+                        setTimeLeft(xroundSubtractTime);
+                      };
+
+                  }else {
+                    setXTimeleft(data.xTimeLeft);
+                  }
 
                     setTimeout(() => {
                       setLoading(false);
