@@ -276,7 +276,7 @@ useEffect(() => {
   if (xStatus === 'unclaimed') {
     const interval = setInterval(() => {
       setXTimeleft((prevXtimeLeft) => {
-        if (prevXtimeLeft > 0) {
+        if (xTimeLeft > 0) {
           return prevXtimeLeft - 1;
         } else {
           clearInterval(interval); // Stop the interval when time reaches 0
