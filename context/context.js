@@ -96,6 +96,11 @@ useEffect(() => {
                     setTimeLeft(data.farmingTimeLeft);
                     setStatus(data.status);
                     setXStatus(data.xStatus);
+                    setTeStatus(data.teStatus);
+                    setYoStatus(data.yoStatus);
+                    setTikStatus(data.tikStatus);
+                    setInStatus(data.inStatus);
+                    setFaStatus(data.faStatus);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
