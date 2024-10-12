@@ -105,12 +105,15 @@ const Social = ({image, discription , id, url, styleDisable, unClaim}) => {
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink(url, id)}>
                     Visit
                   </button>
-                  {teStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
+                  {/* {teStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {yoStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {tikStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {inStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
-                  {faStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)} 
+                  {faStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}  */}
+                  {['teStatus', 'xStatus', 'yoStatus', 'tikStatus', 'inStatus', 'faStatus'].some(status => status === 'unclaimed') && (
+                   <p className="text-red-600 text-[15px]">Make sure you complete the task</p>
+                   )}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50,000</p> 
