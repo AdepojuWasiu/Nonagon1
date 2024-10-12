@@ -8,13 +8,15 @@ import {IoClose} from 'react-icons/io5';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useTelegram } from "@/hooks/useTelegram";
+import Social from "@/components/social";
 
 const Earn = () => {
   const router = useRouter();
   const { tg, enableCloseConfirmation } = useTelegram();
 
-  const { points, setPoints,xStatus,setXStatus, xTimeLeft, setXTimeleft } = useEnergy();
+  const { points,xStatus,teStatus, yoStatus, tikStatus, inStatus, faStatus } = useEnergy();
   const [xpullup, setXpullup] = useState(false);
+  const [socialDescription, setSocialDescription] = useState('');
 
     if(tg){
       tg.BackButton.show(); 
@@ -27,22 +29,19 @@ const Earn = () => {
     tg.BackButton.onClick(goBack);
   };
 
+  const styleDisableX = xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === "";
+  const styleDisableTe = teStatus==='unclaimed' || teStatus === 'claimed' || teStatus === "";
+  const styleDisableYo = yoStatus==='unclaimed' || yoStatus === 'claimed' || yoStatus === "";
+  const styleDisableTik = tikStatus==='unclaimed' || tikStatus === 'claimed' || tikStatus === "";
+  const styleDisableIn = inStatus==='unclaimed' || inStatus === 'claimed' || inStatus === "";
+  const styleDisableFa = faStatus==='unclaimed' || faStatus === 'claimed' || faStatus === "";
 
-  const openLink = (url) => {
-     window.open(url, '_blank');
-     if(xStatus === ''){
-       setXStatus("unclaimed");
-     }
-  };
-
-
-  const handleClaim = () => {
-     setPoints(points+500000);
-     setXStatus('claimed');
-     setXpullup(false);
-  };
-
-  const unClaim = xStatus === 'unclaimed' || xStatus === 'ready' || xStatus === "";
+  const unClaimX = xStatus === 'unclaimed' || xStatus === 'ready' || xStatus === "";
+  const unClaimTe = teStatus==='unclaimed' || teStatus === 'ready' || teStatus === "";
+  const unClaimYo = yoStatus==='unclaimed' || yoStatus === 'ready' || yoStatus === "";
+  const unClaimTik = tikStatus==='unclaimed' || tikStatus === 'ready' || tikStatus === "";
+  const unClaimIn =  inStatus==='unclaimed' || inStatus === 'ready' || inStatus === "";
+  const unClaimFa = faStatus==='unclaimed' || faStatus === 'ready' || faStatus === "";
 
   return (
     <div className="p-4 mb-[200px]">
@@ -74,110 +73,14 @@ const Earn = () => {
           </div>
 
           <h1 className="text-[20px] font-bold mt-10">Tasks List</h1>
-          <button className="w-full" onClick={() => setXpullup(true)}>
-              <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-                <div className="flex gap-2">
-                    <Image src="/assets/twitter.png" alt="social" width={50} height={50}/>
-                    <div>
-                        <p className="text-[17px] font-bold">Follow our X account</p>
-                        <div className="flex gap-2">
-                            <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                            <p>+50,000</p>
-                        </div>
-                    </div>
-                </div>
-                <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-              </div>
-          </button>
-  
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <Image src="/assets/telegram.png" alt="social" width={50} height={50}/>
-                 <div>
-                    <p className="text-[17px] font-bold">Join our Telegram channel</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+50,000</p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <Image src="/assets/youtube.png" alt="social" width={50} height={50}/>
-                 <div>
-                    <p className="text-[17px] font-bold">Subscribe to our Youtube</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+50,000</p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <Image src="/assets/tiktok.png" alt="social" width={50} height={50}/>
-                 <div>
-                    <p className="text-[17px] font-bold">Follow our Tiktok account</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+50,000</p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-            <div className="flex gap-2">
-                 <Image src="/assets/instagram.png" alt="social" width={50} height={50}/>
-                 <div>
-                    <p className="text-[17px] font-bold">Follow our Instagram account</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+50,000</p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
-          <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
-          <div className="flex gap-2">
-                 <Image src="/assets/facebook.png" alt="social" width={50} height={50}/>
-                 <div>
-                    <p className="text-[17px] font-bold">Follow our Facebook account</p>
-                    <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p>+50,000</p>
-                    </div>
-                 </div>
-            </div>
-            <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
-          </div>
+          
+          <Social discription= {'Follow  X account'} image= {'/assets/twitter.png' } id ={'twitter'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableX} unClaim= {unClaimX}/>
+          <Social discription= {'Join our Telegram channel'} image= {'/assets/telegram.png'} id={'telegram'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableTe} unClaim ={unClaimTe}/>
+          <Social discription= {'Subscribe to our Youtube'} image= {"/assets/youtube.png" } id = {'youtube'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableYo} unClaim ={unClaimYo}/>
+          <Social discription= {'Follow our Tiktok account'} image= {'/assets/tiktok.png' } id= {'tiktok'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableTik} unClaim={unClaimTik}/>
+          <Social discription= {'Follow our Instagram account'} image= {'/assets/instagram.png'} id ={'instagram'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09' } styleDisable = {styleDisableIn} unClaim ={unClaimIn}/>
+          <Social discription= {'Follow our Facebook account'} image= {'/assets/facebook.png' } id= {'facebook'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableFa} unClaim= {unClaimFa}/>
 
-          {xpullup && (
-                <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
-                               flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
-                  <IoClose size={27} onClick ={() => setXpullup(false)} className="absolute right-2 top-2"/>
-                  <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
-                  <h1 className="text-[25px] mt-[30px]">Follow our X account</h1>
-                  {/* <Link href= "https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09" className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md">
-                       Visit
-                  </Link> */}
-                  <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink('https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09')}>
-                    Visit
-                  </button>
-                  {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
-                  <div className="flex gap-2">
-                        <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">+50,000</p> 
-                  </div>
-                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${xStatus === 'unclaimed' || xStatus === 'claimed' || xStatus === "" ? 'bg-gray-500' : ' bg-green-600'}`} disabled={xStatus==='unclaimed' || xStatus === 'claimed' || xStatus === ""} onClick={handleClaim}>
-                      { unClaim ? "Claim" : "Claimed" }
-                  </button>
-                </div>
-               )}
     </div>
   )
 }

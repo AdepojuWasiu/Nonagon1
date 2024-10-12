@@ -35,8 +35,18 @@ export function EnergyProvider({ children }) {
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
   const [timeLeft, setTimeLeft] = useState(0); // in seconds (3 hours, 40 mins, 5 seconds) 0 * 60 * 60 + 1 * 60 + 5
-  const [xTimeLeft, setXTimeleft] = useState(0);
   const [xStatus, setXStatus] = useState('');
+  const [xTimeLeft, setXTimeleft] = useState(0);
+  const [teStatus, setTeStatus] = useState('');
+  const [teTimeLeft, setTeTimeleft] = useState(0);
+  const [yoStatus, setYoStatus] = useState('');
+  const [yoTimeLeft, setYoTimeleft] = useState(0);
+  const [tikStatus, setTikStatus] = useState('');
+  const [tikTimeLeft, setTikTimeleft] = useState(0);
+  const [inStatus, setInStatus] = useState('');
+  const [inTimeLeft, setInTimeleft] = useState(0);
+  const [faStatus, setFaStatus] = useState('');
+  const [faTimeLeft, setFaTimeleft] = useState(0);
   const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
 
   const initData = useTelegramInitData();
@@ -272,6 +282,86 @@ useEffect(() => {
   updateXWithBeacon();
 }, [xStatus, xTimeLeft]);
 
+const updateTeWithBeacon = async () => {
+  const url = "/api/farming/telegram";
+  const data = JSON.stringify({
+    userId: userid,
+    teTimeLeft: teTimeLeft,
+    teStatus: teStatus,
+    teLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateTeWithBeacon();
+}, [teStatus, teTimeLeft]);
+
+const updateYoWithBeacon = async () => {
+  const url = "/api/farming/youtube";
+  const data = JSON.stringify({
+    userId: userid,
+    yoTimeLeft: yoTimeLeft,
+    yoStatus: yoStatus,
+    yoLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateYoWithBeacon();
+}, [yoStatus, yoTimeLeft]);
+
+const updateTikWithBeacon = async () => {
+  const url = "/api/farming/tiktok";
+  const data = JSON.stringify({
+    userId: userid,
+    tikTimeLeft: tikTimeLeft,
+    tikStatus: tikStatus,
+    tikLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateTikWithBeacon();
+}, [tikStatus, tikTimeLeft]);
+
+const updateInWithBeacon = async () => {
+  const url = "/api/farming/instagram";
+  const data = JSON.stringify({
+    userId: userid,
+    inTimeLeft: inTimeLeft,
+    inStatus: inStatus,
+    inLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateInWithBeacon();
+}, [inStatus, inTimeLeft]);
+
+const updateFaWithBeacon = async () => {
+  const url = "/api/farming/facebook";
+  const data = JSON.stringify({
+    userId: userid,
+    faTimeLeft: faTimeLeft,
+    faStatus: faStatus,
+    faLastTimeUpdate: Date.now()
+  });
+
+  navigator.sendBeacon(url, data);
+};
+
+useEffect(() => {
+  updateFaWithBeacon();
+}, [faStatus, faTimeLeft]);
+
 useEffect(() => {
   if (xStatus === 'unclaimed') {
     const interval = setInterval(() => {
@@ -289,6 +379,96 @@ useEffect(() => {
     return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
   }
 }, [xStatus]);
+
+useEffect(() => {
+  if (teStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setTeTimeleft((prevTetimeLeft) => {
+        if (prevTetimeLeft > 0) {
+          return prevTetimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setTeStatus('ready');  // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [teStatus]);
+
+useEffect(() => {
+  if (yoStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setYoTimeleft((prevYotimeLeft) => {
+        if (prevYotimeLeft > 0) {
+          return prevYotimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setYoStatus('ready');  // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [yoStatus]);
+
+useEffect(() => {
+  if (tikStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setTikTimeleft((prevTiktimeLeft) => {
+        if (prevTiktimeLeft > 0) {
+          return prevTiktimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setTikStatus('ready');  // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [tikStatus]);
+
+useEffect(() => {
+  if (inStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setInTimeleft((prevIntimeLeft) => {
+        if (prevIntimeLeft > 0) {
+          return prevIntimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setInStatus('ready');  // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [inStatus]);
+
+useEffect(() => {
+  if (faStatus === 'unclaimed') {
+    const interval = setInterval(() => {
+      setFaTimeleft((prevFatimeLeft) => {
+        if (prevFatimeLeft > 0) {
+          return prevFatimeLeft - 1;
+        } else {
+          clearInterval(interval); // Stop the interval when time reaches 0
+          setFaStatus('ready');  // Switch to claim mode
+          return 0; // Ensure timeLeft doesn't go below 0
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
+  }
+}, [faStatus]);
 
 useEffect(() => {
     const interval = setInterval(() => {
@@ -313,7 +493,7 @@ useEffect(() => {
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals, loading,
                                      energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, 
-                                     dailyTimeLeft, setDailyTimeLeft }}>
+                                     dailyTimeLeft, setDailyTimeLeft, teStatus, yoStatus, tikStatus, inStatus, faStatus, setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus }}>
       {children}
     </EnergyContext.Provider>
   );
