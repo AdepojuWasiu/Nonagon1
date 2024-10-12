@@ -43,6 +43,21 @@ export const POST = async (request) => {
                 xStatus: '',
                 xTimeLeft: 300,
                 xLastTimeUpdate: Date.now(),
+                teStatus: '',
+                teTimeLeft: 300,
+                teLastTimeUpdate: Date.now(),
+                yoStatus: '',
+                yoTimeLeft: 300,
+                yoLastTimeUpdate: Date.now(),
+                tikStatus: '',
+                tikTimeLeft: 300,
+                tikLastTimeUpdate: Date.now(),
+                inStatus: '',
+                inTimeLeft: 300,
+                inLastTimeUpdate: Date.now(),
+                faStatus: '',
+                faTimeLeft: 300,
+                faLastTimeUpdate: Date.now(),
                  
             });
     

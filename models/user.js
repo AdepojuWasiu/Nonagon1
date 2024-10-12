@@ -100,6 +100,51 @@ const UserSchema = new Schema({
     xLastTimeUpdate: {
         type: Date,
     },
+    teStatus: {
+        type: String,
+    },
+    teTimeLeft: {
+        type: Number,
+    },
+    teLastTimeUpdate: {
+        type: Date,
+    },
+    yoStatus: {
+        type: String,
+    },
+    yoTimeLeft: {
+        type: Number,
+    },
+    yoLastTimeUpdate: {
+        type: Date,
+    },
+    tikStatus: {
+        type: String,
+    },
+    tikTimeLeft: {
+        type: Number,
+    },
+    tikLastTimeUpdate: {
+        type: Date,
+    },
+    inStatus: {
+        type: String,
+    },
+    inTimeLeft: {
+        type: Number,
+    },
+    inLastTimeUpdate: {
+        type: Date,
+    },
+    faStatus: {
+        type: String,
+    },
+    faTimeLeft: {
+        type: Number,
+    },
+    faLastTimeUpdate: {
+        type: Date,
+    },
 
 });
 

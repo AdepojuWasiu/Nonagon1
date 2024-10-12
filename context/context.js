@@ -38,15 +38,15 @@ export function EnergyProvider({ children }) {
   const [xStatus, setXStatus] = useState('');
   const [xTimeLeft, setXTimeleft] = useState(0);
   const [teStatus, setTeStatus] = useState('');
-  const [teTimeLeft, setTeTimeleft] = useState(60);
+  const [teTimeLeft, setTeTimeleft] = useState(0);
   const [yoStatus, setYoStatus] = useState('');
-  const [yoTimeLeft, setYoTimeleft] = useState(60);
+  const [yoTimeLeft, setYoTimeleft] = useState(0);
   const [tikStatus, setTikStatus] = useState('');
-  const [tikTimeLeft, setTikTimeleft] = useState(60);
+  const [tikTimeLeft, setTikTimeleft] = useState(0);
   const [inStatus, setInStatus] = useState('');
-  const [inTimeLeft, setInTimeleft] = useState(60);
+  const [inTimeLeft, setInTimeleft] = useState(0);
   const [faStatus, setFaStatus] = useState('');
-  const [faTimeLeft, setFaTimeleft] = useState(60);
+  const [faTimeLeft, setFaTimeleft] = useState(0);
   const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
 
   const initData = useTelegramInitData();
@@ -145,7 +145,87 @@ useEffect(() => {
 
                   }else {
                     setXTimeleft(data.xTimeLeft);
-                  }
+                  };
+
+                  if(data.teStatus === 'unclaimed'){                         
+                    const teLastTimeUpdated = new Date(data.teLastTimeUpdate).getTime();
+                    const tetimeDifferentFarm = timeLogin - teLastTimeUpdated;
+                    const tetimeSecondsFarm = tetimeDifferentFarm/1000;
+                    const tesubtractTimeLeftout = data.teTimeLeft - tetimeSecondsFarm;
+                    const teroundSubtractTime = Math.round(tesubtractTimeLeftout);
+                    if(teroundSubtractTime <= 0){
+                      setTeTimeleft(0);
+                    } else {
+                      setTeTimeleft(teroundSubtractTime); 
+                    };
+
+                }else {
+                  setTeTimeleft(data.teTimeLeft);
+                };
+
+                if(data.yoStatus === 'unclaimed'){                         
+                  const yoLastTimeUpdated = new Date(data.yoLastTimeUpdate).getTime();
+                  const yotimeDifferentFarm = timeLogin - yoLastTimeUpdated;
+                  const yotimeSecondsFarm = yotimeDifferentFarm/1000;
+                  const yosubtractTimeLeftout = data.yoTimeLeft - yotimeSecondsFarm;
+                  const yoroundSubtractTime = Math.round(yosubtractTimeLeftout);
+                  if(yoroundSubtractTime <= 0){
+                    setYoTimeleft(0);
+                  } else {
+                    setYoTimeleft(yoroundSubtractTime); 
+                  };
+
+              }else {
+                setYoTimeleft(data.yoTimeLeft);
+              };
+
+              if(data.tikStatus === 'unclaimed'){                         
+                const tikLastTimeUpdated = new Date(data.tikLastTimeUpdate).getTime();
+                const tiktimeDifferentFarm = timeLogin - tikLastTimeUpdated;
+                const tiktimeSecondsFarm = tiktimeDifferentFarm/1000;
+                const tiksubtractTimeLeftout = data.tikTimeLeft - tiktimeSecondsFarm;
+                const tikroundSubtractTime = Math.round(tiksubtractTimeLeftout);
+                if(tikroundSubtractTime <= 0){
+                  setTikTimeleft(0);
+                } else {
+                  setTikTimeleft(tikroundSubtractTime); 
+                };
+
+             }else {
+              setTikTimeleft(data.tikTimeLeft);
+             };
+
+            if(data.inStatus === 'unclaimed'){                         
+              const inLastTimeUpdated = new Date(data.inLastTimeUpdate).getTime();
+              const intimeDifferentFarm = timeLogin - inLastTimeUpdated;
+              const intimeSecondsFarm = intimeDifferentFarm/1000;
+              const insubtractTimeLeftout = data.inTimeLeft - intimeSecondsFarm;
+              const inroundSubtractTime = Math.round(insubtractTimeLeftout);
+              if(inroundSubtractTime <= 0){
+                setInTimeleft(0);
+              } else {
+                setInTimeleft(inroundSubtractTime); 
+              };
+
+            }else {
+            setInTimeleft(data.inTimeLeft);
+            };
+
+                if(data.faStatus === 'unclaimed'){                         
+                  const faLastTimeUpdated = new Date(data.faLastTimeUpdate).getTime();
+                  const fatimeDifferentFarm = timeLogin - faLastTimeUpdated;
+                  const fatimeSecondsFarm = fatimeDifferentFarm/1000;
+                  const fasubtractTimeLeftout = data.faTimeLeft - fatimeSecondsFarm;
+                  const faroundSubtractTime = Math.round(fasubtractTimeLeftout);
+                  if(faroundSubtractTime <= 0){
+                    setFaTimeleft(0);
+                  } else {
+                    setFaTimeleft(faroundSubtractTime); 
+                  };
+
+                }else {
+                setFaTimeleft(data.faTimeLeft);
+                };
 
                     setTimeout(() => {
                       setLoading(false);
