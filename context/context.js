@@ -38,15 +38,15 @@ export function EnergyProvider({ children }) {
   const [xStatus, setXStatus] = useState('');
   const [xTimeLeft, setXTimeleft] = useState(0);
   const [teStatus, setTeStatus] = useState('');
-  const [teTimeLeft, setTeTimeleft] = useState(0);
+  const [teTimeLeft, setTeTimeleft] = useState(60);
   const [yoStatus, setYoStatus] = useState('');
-  const [yoTimeLeft, setYoTimeleft] = useState(0);
+  const [yoTimeLeft, setYoTimeleft] = useState(60);
   const [tikStatus, setTikStatus] = useState('');
-  const [tikTimeLeft, setTikTimeleft] = useState(0);
+  const [tikTimeLeft, setTikTimeleft] = useState(60);
   const [inStatus, setInStatus] = useState('');
-  const [inTimeLeft, setInTimeleft] = useState(0);
+  const [inTimeLeft, setInTimeleft] = useState(60);
   const [faStatus, setFaStatus] = useState('');
-  const [faTimeLeft, setFaTimeleft] = useState(0);
+  const [faTimeLeft, setFaTimeleft] = useState(60);
   const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
 
   const initData = useTelegramInitData();
