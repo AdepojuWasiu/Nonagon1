@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import {IoClose} from 'react-icons/io5';
 
-const Social = ({image, discription , id, url, styleDisable, unClaim}) => {
+const Social = ({image, discription , id, url, styleDisable, unClaim, status}) => {
 
   const { points, setPoints,xStatus,setXStatus, teStatus, yoStatus, tikStatus, inStatus, faStatus, 
               setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus} = useEnergy();
@@ -20,7 +20,7 @@ const Social = ({image, discription , id, url, styleDisable, unClaim}) => {
             setTikStatus("unclaimed");
           }
     } else if (id==='telegram') {
-        if(xStatus === ''){
+        if(teStatus === ''){
             setTeStatus("unclaimed");
           }
     }  else if (id==='youtube') {
@@ -105,12 +105,12 @@ const Social = ({image, discription , id, url, styleDisable, unClaim}) => {
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink(url, id)}>
                     Visit
                   </button>
-                  {teStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
-                  {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
+                  {status === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
+                  {/* {xStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {yoStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {tikStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
                   {inStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}
-                  {faStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)} 
+                  {faStatus === 'unclaimed' && (<p className="text-red-600 text-[15px]">Make sure you complete the task</p>)}  */}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50,000</p> 
