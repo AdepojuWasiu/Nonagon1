@@ -134,7 +134,7 @@ const Home = () => {
   const handleClaim = () => {
     setPoints((prevPoints) => prevPoints + count);
     setCount(0);
-    setTimeLeft(3 * 60 * 60 + 40 * 60 + 5); // reset timer to 3:40:05
+    setTimeLeft(8 * 60 * 60 ); // reset timer to 3:40:05
     setStatus('start');
   };
 

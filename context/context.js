@@ -129,7 +129,7 @@ useEffect(() => {
                         const roundNewCount = Math.round(newCount);
                         if(roundSubtractTime <= 0){
                           setTimeLeft(0);
-                          setCount(23104)
+                          setCount(20160)
                         } else {
                           setTimeLeft(roundSubtractTime);
                           setCount(roundNewCount)
@@ -338,7 +338,7 @@ useEffect(() => {
 useEffect(() => {
   if (status === 'farming') {
     const interval = setInterval(() => {
-      setCount((prevCount) => prevCount + 0.8);
+      setCount((prevCount) => prevCount + 0.7);
       setTimeLeft((prevTimeLeft) => {
         if (prevTimeLeft > 0) {
           return prevTimeLeft - 1;
