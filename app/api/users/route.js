@@ -21,7 +21,7 @@ export const POST = async (request) => {
                 userId,
                 username,
                 refCode,
-                point: 5000,
+                point: 30000,
                 lastPointsUpdatedTime: Date.now(),
                 energy: 1000,
                 lastEnergyUpdatedTime: Date.now(),
@@ -70,7 +70,7 @@ export const POST = async (request) => {
                 referrer.referals.push({
                     userid: userId,
                     username: username,
-                    point: 5000,
+                    point: 30000,
                     
 
                 });

@@ -60,7 +60,7 @@ if(tg){
                     <p className="text-[18px] ">Invite Friends </p>
                     <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[15px]">50,000 for you & your friend</p>
+                        <p className="text-[15px]">30,000 for you & your friend</p>
                     </div>
                  </div>
             </div>

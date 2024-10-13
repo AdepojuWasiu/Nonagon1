@@ -41,7 +41,7 @@ const Earn = () => {
          })
        })
        if(response.ok) {
-          setPoints(points+50000)
+          setPoints(points+20000)
           setDailyStatus('claimed');
           setDailyPullup(false) 
        }
@@ -88,7 +88,7 @@ const Earn = () => {
                         <p className="text-[17px] font-bold">Daily Reward</p>
                         <div className="flex gap-2">
                             <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                            <p>+50,000</p>
+                            <p>+20,000</p>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ const Earn = () => {
                   {dailyStatus === 'claimed' && (<p className="text-[#ffbf00af] text-[20px] ">Come Back Tommorow</p>)}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
-                        <p className="text-[20px]">+50,000</p> 
+                        <p className="text-[20px]">+20,000</p> 
                   </div>
                   <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${dailyStatus === 'claimed' ? 'bg-gray-500' : ' bg-green-600'}`} disabled={dailyStatus === 'claimed'} onClick={handleDailyClaim}>
                       { dailyStatus === '' ? "Claim" : "Claimed" }

@@ -59,7 +59,7 @@ const Boost = () => {
           })
         })
         if(response.ok) {
-          setTapValue(prevValue => prevValue * 10);
+          setTapValue(prevValue => prevValue * 5);
           setAvailabeTurbo(updatedTurbo);
           setWelcomeTurbo(true);
           router.push('/');
@@ -67,7 +67,7 @@ const Boost = () => {
           setTimeout(() => {
             setTapValue(prevValue => prevValue/10);
             setWelcomeTurbo(false);
-          },10000);
+          },20000);
         }
         
        } catch (error) {
