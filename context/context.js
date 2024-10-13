@@ -6,6 +6,7 @@ import { createContext, useState, useContext, useEffect,useRef } from 'react';
 import useTelegramInitData from '@/components/telegram';
 import { useTelegram } from '@/hooks/useTelegram';
 
+
 const EnergyContext = createContext();
 
 
@@ -48,6 +49,7 @@ export function EnergyProvider({ children }) {
   const [faStatus, setFaStatus] = useState('');
   const [faTimeLeft, setFaTimeleft] = useState(0);
   const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
+  const [dailyStatus, setDailyStatus] = useState('');
 
   const initData = useTelegramInitData();
 
@@ -101,6 +103,7 @@ useEffect(() => {
                     setTikStatus(data.tikStatus);
                     setInStatus(data.inStatus);
                     setFaStatus(data.faStatus);
+                    setDailyStatus(data.dailyStatus)
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -574,7 +577,7 @@ useEffect(() => {
 
   return (
     <EnergyContext.Provider value={{ userid, username, refCode, points, energy, timeStamp,welcomeTurbo, setWelcomeTurbo, energyLimit, setEnergyLimit,
-                                     availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel,
+                                     availableTurbo, availableEnergyRefill, multitapLevel, energyLimitLevel, rechargingSpeedLevel, dailyStatus, setDailyStatus,
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals, loading,
                                      energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, 

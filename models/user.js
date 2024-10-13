@@ -145,6 +145,9 @@ const UserSchema = new Schema({
     faLastTimeUpdate: {
         type: Date,
     },
+    dailyStatus: {
+        type: String,
+    },
 
 });
 
