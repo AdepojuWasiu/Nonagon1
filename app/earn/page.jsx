@@ -87,7 +87,7 @@ const Earn = () => {
                     <div>
                         <p className="text-[17px] font-bold">Daily Reward</p>
                         <div className="flex gap-2">
-                            <Image src="/assets/coin.jpg" alt="coin" width={20} height={20}/>
+                            <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                             <p>+50,000</p>
                         </div>
                     </div>
