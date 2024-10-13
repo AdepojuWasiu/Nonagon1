@@ -47,9 +47,7 @@ const Boost = () => {
 
       const updateAvailableTurbo = async (e) => {
        e.preventDefault();
-       const updatedTurbo = availableTurbo - 1;  // Calculate the new value
-
-        setAvailabeTurbo(updatedTurbo); 
+       const updatedTurbo = availableTurbo - 1;  // Calculate the new value 
 
        try {
       
@@ -62,6 +60,7 @@ const Boost = () => {
         })
         if(response.ok) {
           setTapValue(prevValue => prevValue * 10);
+          setAvailabeTurbo(updatedTurbo);
           setWelcomeTurbo(true);
           router.push('/');
           
@@ -78,12 +77,9 @@ const Boost = () => {
 
     const updateAvailableEnergyRefill = async (e) => {
       e.preventDefault();
-      const updatedEnergyRefill =  availableEnergyRefill - 1; 
-
-      setAvailableEnergyRefill(updatedEnergyRefill); 
+      const updatedEnergyRefill =  availableEnergyRefill - 1;  
 
       try {
-     
        const response = await fetch("api/update/energyrefill", {
          method:'PATCH',
          body: JSON.stringify({
@@ -93,6 +89,7 @@ const Boost = () => {
        })
        if(response.ok) {
          setEnergy(energyLimit);
+         setAvailableEnergyRefill(updatedEnergyRefill);
          router.push('/'); 
        }
          
@@ -106,11 +103,7 @@ const Boost = () => {
     const updatedMultitap = multitapLevel+1;
     const updatedTapValue = tapValue+1; // Calculate the new value
 
-    setTapValue(updatedTapValue); 
-    setMultitapLevel(updatedMultitap);
-
     try {
-   
      const response = await fetch("api/update/multitap", {
        method:'PATCH',
        body: JSON.stringify({
@@ -121,6 +114,8 @@ const Boost = () => {
      })
      if(response.ok) {
        setPoints(points-5000*multitapLevel); 
+       setTapValue(updatedTapValue); 
+       setMultitapLevel(updatedMultitap);
        router.push('/')
      }
      
@@ -134,11 +129,7 @@ const Boost = () => {
   const updatedEnergyLimit =  energyLimit+500; 
   const updatedEnergyLimitLevel = energyLimitLevel+1; // Calculate the new value
 
-  setEnergyLimit(updatedEnergyLimit);
-  setEnergyLimitLevel(updatedEnergyLimitLevel);
-
   try {
- 
    const response = await fetch("api/update/energyLimit", {
      method:'PATCH',
      body: JSON.stringify({
@@ -149,6 +140,8 @@ const Boost = () => {
    })
    if(response.ok) {
     setPoints(points-5000*energyLimitLevel); 
+    setEnergyLimit(updatedEnergyLimit);
+    setEnergyLimitLevel(updatedEnergyLimitLevel);
     router.push('/');
    }
    
@@ -161,12 +154,8 @@ const Boost = () => {
   e.preventDefault();
   const updatedEnergyIncrease =  energyIncrease+1; 
   const updatedRechargingSpeedLevel = rechargingSpeedLevel+1; // Calculate the new value
-  
-  setEnergyIncrease(updatedEnergyIncrease);
-  setRechargingSpeedLevel(updatedRechargingSpeedLevel);
 
   try {
- 
    const response = await fetch("api/update/rechargingSpeed", {
      method:'PATCH',
      body: JSON.stringify({
@@ -177,6 +166,8 @@ const Boost = () => {
    })
    if(response.ok) {
      setPoints(points-5000*rechargingSpeedLevel);
+     setEnergyIncrease(updatedEnergyIncrease);
+     setRechargingSpeedLevel(updatedRechargingSpeedLevel);
      router.push('/');
    }
    
@@ -192,6 +183,9 @@ const insufficientRecharging = points < 5000*rechargingSpeedLevel;
 
 const noTurbo = availableTurbo == 0
 const noRefill = availableEnergyRefill == 0;
+const noMultitap = multitapLevel === 12;
+const noEnergyLimit = energyLimitLevel === 12;
+const noRechargeSpeed = rechargingSpeedLevel === 12;
 
 const formatTime = (seconds) => {
   const h = Math.floor(seconds / 3600);
@@ -217,7 +211,7 @@ const formatTime = (seconds) => {
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
                 <div><p className="text-[15px] font-bold">Turbo</p><p>{availableTurbo}/3 available</p></div>
                 <div>
-                  <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4" />
+                  <FaPaperPlane color="gold" className="w-[40px] h-[40px] mr-4 mt-2" />
                   <p>{`${formatTime(dailyTimeLeft)}`}</p>
                 </div>
               </div>
@@ -226,7 +220,7 @@ const formatTime = (seconds) => {
               <div className="bg-[#272727] flex justify-between pl-4 rounded-md pb-2 pt-2">
                 <div><p className="text-[15px] font-bold">Full Battery</p><p>{availableEnergyRefill}/3 available</p></div>
                 <div>
-                  <IoMdBatteryCharging color="gold" className="w-[50px] h-[50px]" />
+                  <IoMdBatteryCharging color="gold" className="w-[47px] h-[47px] " />
                   <p>{`${formatTime(dailyTimeLeft)}`}</p>
                 </div>
               </div>
@@ -236,7 +230,7 @@ const formatTime = (seconds) => {
 
       <div className="mt-8">
          <h1 className="text-[20px] font-bold">Boosters</h1>
-         <button onClick={() => setMultiTapPullup(true)} className="w-full">
+         <button onClick={() => setMultiTapPullup(true)} className="w-full" disabled = {noMultitap}>
               <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                   <div className="flex gap-2">
                       <PiHandTapBold color="gold" className="w-[50px] h-[50px]" />
@@ -251,7 +245,7 @@ const formatTime = (seconds) => {
                   <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
                 </div>
          </button>
-         <button onClick={() => setEnergyLimitPullup(true)} className="w-full">
+         <button onClick={() => setEnergyLimitPullup(true)} className="w-full" disabled = {noEnergyLimit}>
              <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                  <div className="flex gap-2">
                       <IoMdBatteryCharging color="blue" className="w-[50px] h-[50px]" />
@@ -266,7 +260,7 @@ const formatTime = (seconds) => {
                   <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
                 </div>
          </button>
-         <button className="w-full" onClick={() => setRechargingPullup(true)}>
+         <button className="w-full" onClick={() => setRechargingPullup(true)} disabled = {noRechargeSpeed}>
               <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                   <div className="flex gap-2">
                       <BsFillLightningChargeFill color="gold" className="w-[50px] h-[50px]" />
