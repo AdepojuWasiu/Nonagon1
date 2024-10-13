@@ -47,27 +47,27 @@ const Social = ({image, discription , id, url, styleDisable, unClaim, status}) =
 
  const handleClaim = (id) => {
     if(id=== 'twitter') {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setXStatus('claimed');
         setXpullup(false);
     } else if (id === 'telegram' ) {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setTeStatus('claimed');
         setXpullup(false);
     }  else if (id === 'youtube' ) {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setYoStatus('claimed');
         setXpullup(false);
     }  else if (id === 'tiktok' ) {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setTikStatus('claimed');
         setXpullup(false);
     }  else if (id === 'instagram' ) {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setInStatus('claimed');
         setXpullup(false);
     }  else if (id === 'facebook' ) {
-        setPoints(points+500000);
+        setPoints(points+50000);
         setFaStatus('claimed');
         setXpullup(false);
     }
