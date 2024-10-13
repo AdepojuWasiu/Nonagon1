@@ -83,7 +83,7 @@ const Earn = () => {
        <button className = 'w-full' onClick={() => setDailyPullup(true)}>
           <div className="bg-[#272727] flex justify-between rounded-md pb-2 pt-2 mt-4">
                 <div className="flex gap-2">
-                    <Image src='assets/calender.png' alt="social" width={50} height={50}/>
+                    <Image src='/assets/calender.png' alt="social" width={50} height={50}/>
                     <div>
                         <p className="text-[17px] font-bold">Daily Reward</p>
                         <div className="flex gap-2">
@@ -110,7 +110,7 @@ const Earn = () => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center fixed z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setDailyPullup(false)} className="absolute right-2 top-2"/>
-                  <Image src='assets/calender.png' alt="social" width={50} height={50}/>
+                  <Image src='/assets/calender.png' alt="social" width={50} height={50}/>
                   <h1 className="text-[20px] mt-[30px]">Daily Reward</h1>
                   {dailyStatus === 'claimed' && (<p className="bg-[#ffbf00af] text-[20px] ">Come Back Tommorow</p>)}
                   <div className="flex gap-2">
