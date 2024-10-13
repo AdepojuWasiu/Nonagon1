@@ -113,7 +113,7 @@ const Boost = () => {
        })
      })
      if(response.ok) {
-       setPoints(points-5000*multitapLevel); 
+       setPoints(points-(5000*(multitapLevel**2))); 
        setTapValue(updatedTapValue); 
        setMultitapLevel(updatedMultitap);
        router.push('/')
@@ -139,7 +139,7 @@ const Boost = () => {
      })
    })
    if(response.ok) {
-    setPoints(points-5000*energyLimitLevel); 
+    setPoints(points-(5000*(energyLimitLevel**2))); 
     setEnergyLimit(updatedEnergyLimit);
     setEnergyLimitLevel(updatedEnergyLimitLevel);
     router.push('/');
@@ -165,7 +165,7 @@ const Boost = () => {
      })
    })
    if(response.ok) {
-     setPoints(points-5000*rechargingSpeedLevel);
+     setPoints(points-(5000*(rechargingSpeedLevel**2)));
      setEnergyIncrease(updatedEnergyIncrease);
      setRechargingSpeedLevel(updatedRechargingSpeedLevel);
      router.push('/');

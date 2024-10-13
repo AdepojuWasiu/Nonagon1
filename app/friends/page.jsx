@@ -73,7 +73,7 @@ if(tg){
         
         <button onClick = {handleCopyLink}>
            <div  className="bg-[#ffff] text-[#000] flex justify-center justify-items-center font-bold text-[20px] p-4 px-8 rounded-xl gap-2">
-              <p>Click to copy referal link</p>
+              <p>Click to copy referral link</p>
               <IoIosCopy className="h-[30px] w-[30px]"/>
             </div>
         </button>
