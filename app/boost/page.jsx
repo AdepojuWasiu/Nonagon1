@@ -10,6 +10,7 @@ import { useEnergy } from "@/context/context";
 import {IoClose} from 'react-icons/io5';
 import { useRouter } from "next/navigation";
 import { useTelegram } from "@/hooks/useTelegram";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 
 import Image from "next/image";
@@ -241,7 +242,7 @@ const formatTime = (seconds) => {
                           </div>
                       </div>
                   </div>
-                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                  {noMultitap ? <IoIosCheckmarkCircleOutline color="green" className="w-[30px] h-[30px] mt-2" /> : <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" /> }
                 </div>
          </button>
          <button onClick={() => setEnergyLimitPullup(true)} className="w-full" disabled = {noEnergyLimit}>
@@ -256,7 +257,7 @@ const formatTime = (seconds) => {
                           </div>
                       </div>
                   </div>
-                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                  {noEnergyLimit ? <IoIosCheckmarkCircleOutline color="green" className="w-[30px] h-[30px] mt-2" /> : <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />}
                 </div>
          </button>
          <button className="w-full" onClick={() => setRechargingPullup(true)} disabled = {noRechargeSpeed}>
@@ -271,7 +272,7 @@ const formatTime = (seconds) => {
                           </div>
                       </div>
                   </div>
-                  <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                  {noRechargeSpeed ? <IoIosCheckmarkCircleOutline color="green" className="w-[30px] h-[30px] mt-2" /> : <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />}
                 </div>
          </button>
          {/* <button className="w-full">
