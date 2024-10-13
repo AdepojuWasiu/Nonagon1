@@ -117,7 +117,7 @@ const Earn = () => {
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50,000</p> 
                   </div>
-                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${dailyStatus === '' ? 'bg-gray-500' : ' bg-green-600'}`} disabled={dailyStatus === 'claimed'} onClick={() => handleDailyClaim()}>
+                  <button className={`bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md ${dailyStatus === 'claimed' ? 'bg-gray-500' : ' bg-green-600'}`} disabled={dailyStatus === 'claimed'} onClick={handleDailyClaim}>
                       { dailyStatus === '' ? "Claim" : "Claimed" }
                   </button>
                 </div>
