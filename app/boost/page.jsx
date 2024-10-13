@@ -176,9 +176,9 @@ const Boost = () => {
   }
 };
 
-const insufficientMultitap = points < 5000*multitapLevel;
-const insufficientEnergyLimit = points < 5000*energyLimitLevel;
-const insufficientRecharging = points < 5000*rechargingSpeedLevel;
+const insufficientMultitap = points < (5000*(multitapLevel**2));
+const insufficientEnergyLimit = points < (5000*(energyLimitLevel**2));
+const insufficientRecharging = points < (5000*(rechargingSpeedLevel**2));
 
 
 const noTurbo = availableTurbo == 0
