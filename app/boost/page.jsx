@@ -295,7 +295,7 @@ const formatTime = (seconds) => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setTurboPullup(false)} className="absolute right-2 top-2"/>
-                  <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
+                  <FaPaperPlane color="gold" className="w-[80px] h-[80px]" />
                   <h1 className="text-[30px] mt-[30px]">Fly Plane</h1>
                   <p className="text-[#ffffff6c]">Get 10x of tapping for 10seconds</p> 
                   <div className="flex gap-2">
@@ -312,7 +312,7 @@ const formatTime = (seconds) => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setEnergyPullup(false)} className="absolute right-2 top-2"/>
-                  <IoMdBatteryCharging color="blue" className="w-[80px] h-[80px]" />
+                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
                   <h1 className="text-[30px] mt-[30px]">Full Energy</h1>
                   <p className="text-[#ffffff6c]">Fill your energy to the max</p> 
                   <div className="flex gap-2">
@@ -330,7 +330,7 @@ const formatTime = (seconds) => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setMultiTapPullup(false)} className="absolute right-2 top-2"/>
-                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <PiHandTapBold color="gold" className="w-[80px] h-[80px]" />
                   <h1 className="text-[30px] mt-[30px]">Multitap</h1>
                   <p className="text-[#ffffff6c] px-3">Increase amount of TAP you can earn per one tap</p> 
                   <p className="text-[#ffffff6c]">+1 per tap for each level.</p>
@@ -349,7 +349,7 @@ const formatTime = (seconds) => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center absolute z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setEnergyLimitPullup(false)} className="absolute right-2 top-2"/>
-                  <IoMdBatteryCharging color="gold" className="w-[80px] h-[80px]" />
+                  <IoMdBatteryCharging color="blue" className="w-[80px] h-[80px]" />
                   <h1 className="text-[30px] mt-[30px]">Energy Limit</h1>
                   <p className="text-[#ffffff6c]">Increase the limit of energy storage</p>
                   <p className="text-[#ffffff6c]">+500 energy limit for each level.</p>
