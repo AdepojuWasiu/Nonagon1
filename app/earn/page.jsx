@@ -110,9 +110,9 @@ const Earn = () => {
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center fixed z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setDailyPullup(false)} className="absolute right-2 top-2"/>
-                  <Image src='/assets/calender.png' alt="social" width={50} height={50}/>
-                  <h1 className="text-[20px] mt-[30px]">Daily Reward</h1>
-                  {dailyStatus === 'claimed' && (<p className="bg-[#ffbf00af] text-[20px] ">Come Back Tommorow</p>)}
+                  <Image src='/assets/calender.png' alt="social" width={100} height={100}/>
+                  <h1 className="text-[20px] mt-[15px]">Daily Reward</h1>
+                  {dailyStatus === 'claimed' && (<p className="text-[#ffbf00af] text-[20px] ">Come Back Tommorow</p>)}
                   <div className="flex gap-2">
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">+50,000</p> 

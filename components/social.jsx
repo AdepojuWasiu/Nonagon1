@@ -102,8 +102,8 @@ const Social = ({image, discription , id, url, styleDisable, unClaim, status}) =
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
                                flex flex-col gap-[20px] font-bold  justify-center items-center justify-items-center fixed z-30 border-white border-[1px]">
                   <IoClose size={27} onClick ={() => setXpullup(false)} className="absolute right-2 top-2"/>
-                  <Image src={image} alt="social" width={50} height={50}/>
-                  <h1 className="text-[20px] mt-[30px]">{socialDescription}</h1>
+                  <Image src={image} alt="social" width={100} height={100}/>
+                  <h1 className="text-[20px] mt-[15px]">{socialDescription}</h1>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md" onClick={() => openLink(url, id)}>
                     Visit
                   </button>
