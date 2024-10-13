@@ -47,7 +47,7 @@ if(tg){
       <div className="flex justify-center items-center justify-items-center mt-5 gap-6 self-center">
         <div>
           <div className="flex justify-center items-center justify-items-center">
-           <h1 className="font-bold text-[25px] mb-6 pl-7">10 Friends</h1>
+           <h1 className="font-bold text-[25px] mb-6 pl-7"> {length(referals)}Friends</h1>
           </div>
         <h1 className="font-bold text-[18px]">Invite a friend and get coins</h1>
         </div>
