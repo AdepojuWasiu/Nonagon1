@@ -50,7 +50,6 @@ const Boost = () => {
        const updatedTurbo = availableTurbo - 1;  // Calculate the new value 
 
        try {
-      
         const response = await fetch("api/update/turbo", {
           method:'PATCH',
           body: JSON.stringify({

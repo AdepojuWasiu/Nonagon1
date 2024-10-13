@@ -4,6 +4,7 @@ import { useEnergy } from "@/context/context";
 import { useState, useEffect } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import {IoClose} from 'react-icons/io5';
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 
 const Social = ({image, discription , id, url, styleDisable, unClaim, status}) => {
 
@@ -93,7 +94,8 @@ const Social = ({image, discription , id, url, styleDisable, unClaim, status}) =
                         </div>
                     </div>
                 </div>
-                <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" />
+                {status === 'claimed' ? <IoIosCheckmarkCircleOutline color="green" className="w-[30px] h-[30px] mt-2" /> : <IoIosArrowForward color="gray" className="w-[30px] h-[30px] mt-2" /> }
+                
               </div>
           </button>
           {xpullup && (
