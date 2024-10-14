@@ -65,7 +65,7 @@ const Boost = () => {
           router.push('/');
           
           setTimeout(() => {
-            setTapValue(prevValue => prevValue/10);
+            setTapValue(prevValue => prevValue/5);
             setWelcomeTurbo(false);
           },20000);
         }

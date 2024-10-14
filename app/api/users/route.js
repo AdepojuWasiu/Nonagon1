@@ -70,11 +70,11 @@ export const POST = async (request) => {
                 referrer.referals.push({
                     userid: userId,
                     username: username,
-                    point: 30000,
-                    
-
+                    point: 30000,   
                 });
+                referrer.point += 5000
                 await referrer.save();
+
             }
     
             // Return the newly created user
