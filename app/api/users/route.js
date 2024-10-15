@@ -72,7 +72,7 @@ export const POST = async (request) => {
                     username: username,
                     point: 30000,   
                 });
-                referrer.point += 5000
+                referrer.point += 50000
                 await referrer.save();
 
             }
