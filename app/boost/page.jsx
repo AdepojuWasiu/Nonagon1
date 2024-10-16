@@ -26,6 +26,7 @@ const Boost = () => {
    const [multiTapPullup, setMultiTapPullup] = useState(false);
    const [energyLimitPullup, setEnergyLimitPullup] = useState(false);
    const [rechargingPullup, setRechargingPullup] = useState(false);
+   const [buttonLoading, setButtonLoading] = useState(false);
 
 
   const { userid, points, setPoints, energy, availableTurbo, availableEnergyRefill, multitapLevel,tapValue, setTapValue, setAvailabeTurbo,
@@ -152,6 +153,7 @@ const Boost = () => {
 
  const updateRecharging = async (e) => {
   e.preventDefault();
+  setButtonLoading(true);
   const updatedEnergyIncrease =  energyIncrease+1; 
   const updatedRechargingSpeedLevel = rechargingSpeedLevel+1; // Calculate the new value
 
@@ -169,9 +171,11 @@ const Boost = () => {
      setEnergyIncrease(updatedEnergyIncrease);
      setRechargingSpeedLevel(updatedRechargingSpeedLevel);
      router.push('/');
+     setButtonLoading(false);
    }
    
   } catch (error) {
+   setButtonLoading(false);
    console.log(error)
   }
 };
@@ -378,8 +382,9 @@ const formatTime = (seconds) => {
                         <p className="text-[20px]">{(5000*(rechargingSpeedLevel**2)).toLocaleString()} | Level {rechargingSpeedLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
-                                    onClick={ updateRecharging} disabled = {insufficientRecharging}>
+                                    onClick={ updateRecharging} disabled = {insufficientRecharging || buttonLoading === true}>
                     {insufficientRecharging ? "Insufficient Coin!": "Get it!"}
+                    {buttonLoading ? "Loading ..." : "Get it!"}
                   </button>
                 </div>
                )}
