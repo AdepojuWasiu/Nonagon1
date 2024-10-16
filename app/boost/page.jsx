@@ -48,6 +48,7 @@ const Boost = () => {
 
 
       const updateAvailableTurbo = async (e) => {
+        setButtonLoading(true);
        e.preventDefault();
        const updatedTurbo = availableTurbo - 1;  // Calculate the new value 
 
@@ -64,6 +65,7 @@ const Boost = () => {
           setAvailabeTurbo(updatedTurbo);
           setWelcomeTurbo(true);
           router.push('/');
+          setButtonLoading(false);
           
           setTimeout(() => {
             setTapValue(prevValue => prevValue/5);
@@ -72,12 +74,14 @@ const Boost = () => {
         }
         
        } catch (error) {
+        setButtonLoading(false);
         console.log(error)
        }
     };
 
     const updateAvailableEnergyRefill = async (e) => {
       e.preventDefault();
+      setButtonLoading(true);
       const updatedEnergyRefill =  availableEnergyRefill - 1;  
 
       try {
@@ -92,14 +96,17 @@ const Boost = () => {
          setEnergy(energyLimit);
          setAvailableEnergyRefill(updatedEnergyRefill);
          router.push('/'); 
+         setButtonLoading(false);
        }
          
       } catch (error) {
+        setButtonLoading(false);
        console.log(error)
       }
    };
    
    const updateMultitap = async (e) => {
+    setButtonLoading(true);
     e.preventDefault();
     const updatedMultitap = multitapLevel+1;
     const updatedTapValue = tapValue+1; // Calculate the new value
@@ -118,15 +125,18 @@ const Boost = () => {
        setTapValue(updatedTapValue); 
        setMultitapLevel(updatedMultitap);
        router.push('/')
+       setButtonLoading(false);
      }
      
     } catch (error) {
+      setButtonLoading(false);
      console.log(error)
     }
  };
 
  const updateEnergyLimit = async (e) => {
   e.preventDefault();
+  setButtonLoading(true);
   const updatedEnergyLimit =  energyLimit+500; 
   const updatedEnergyLimitLevel = energyLimitLevel+1; // Calculate the new value
 
@@ -144,9 +154,11 @@ const Boost = () => {
     setEnergyLimit(updatedEnergyLimit);
     setEnergyLimitLevel(updatedEnergyLimitLevel);
     router.push('/');
+    setButtonLoading(false);
    }
    
   } catch (error) {
+    setButtonLoading(false);
    console.log(error)
   }
 };
@@ -307,8 +319,8 @@ const formatTime = (seconds) => {
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={updateAvailableTurbo}>
-                    Get it!
+                                    onClick={updateAvailableTurbo} disabled={buttonLoading === true}>
+                    { buttonLoading ? "Loading ..." : "Get it!"}
                   </button>
                 </div>
                )}
@@ -324,8 +336,8 @@ const formatTime = (seconds) => {
                         <p className="text-[20px]">Free</p>
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
-                                    onClick={updateAvailableEnergyRefill}>
-                    Get it!
+                                    onClick={updateAvailableEnergyRefill} disabled={ buttonLoading === true}>
+                     { buttonLoading ? "Loading ..." : "Get it!"}
                   </button>
                 </div>
                )}
@@ -343,8 +355,8 @@ const formatTime = (seconds) => {
                         <p className="text-[20px]">{(5000*(multitapLevel**2)).toLocaleString()} | Level {multitapLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
-                                    onClick={updateMultitap} disabled = {insufficientMultitap}>
-                    {insufficientMultitap ? "Insufficient Coin!": "Get it!"}
+                                    onClick={updateMultitap} disabled = {insufficientMultitap || buttonLoading === true}>
+                     {insufficientRecharging ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
@@ -362,8 +374,8 @@ const formatTime = (seconds) => {
                         <p className="text-[20px]">{(5000*(energyLimitLevel**2)).toLocaleString()} | Level {energyLimitLevel+1} </p> 
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
-                                    onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit}>
-                    {insufficientEnergyLimit ? "Insufficient Coin!": "Get it!"}
+                                    onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit || buttonLoading === true}>
+                     {insufficientRecharging ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
