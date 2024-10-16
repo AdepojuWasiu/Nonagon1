@@ -356,7 +356,7 @@ const formatTime = (seconds) => {
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateMultitap} disabled = {insufficientMultitap || buttonLoading === true}>
-                     {insufficient ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
+                     {insufficientMultitap ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
