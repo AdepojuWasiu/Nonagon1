@@ -383,8 +383,7 @@ const formatTime = (seconds) => {
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={ updateRecharging} disabled = {insufficientRecharging || buttonLoading === true}>
-                    {insufficientRecharging ? "Insufficient Coin!": "Get it!"}
-                    {buttonLoading ? "Loading ..." : "Get it!"}
+                     {insufficientRecharging ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
