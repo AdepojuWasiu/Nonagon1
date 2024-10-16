@@ -28,7 +28,7 @@ const Navbar = () => {
           <p>Earn</p>
         </div>
       </Link>
-      <Link href="/">
+      <Link href="/wallet">
         <div>
           <FaWallet className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Wallet</p>
