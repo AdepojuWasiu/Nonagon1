@@ -318,7 +318,7 @@ const formatTime = (seconds) => {
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">Free</p>
                   </div>
-                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                  <button className={`bg-[#ffbf00af] p-4  text-[20px] rounded-md ${buttonLoading ? 'px-[30px]': 'px-[100px]'}`}
                                     onClick={updateAvailableTurbo} disabled={buttonLoading === true}>
                     { buttonLoading ? "Loading ..." : "Get it!"}
                   </button>
@@ -335,7 +335,7 @@ const formatTime = (seconds) => {
                         <Image src="/assets/coin.jpg" alt="coin" width={20} height={20} className="rounded-full"/>
                         <p className="text-[20px]">Free</p>
                   </div>
-                  <button className="bg-[#ffbf00af] p-4 px-[100px] text-[20px] rounded-md"
+                  <button className={`bg-[#ffbf00af] p-4  text-[20px] rounded-md ${buttonLoading ? 'px-[30px]': 'px-[100px]'}`}
                                     onClick={updateAvailableEnergyRefill} disabled={ buttonLoading === true}>
                      { buttonLoading ? "Loading ..." : "Get it!"}
                   </button>
@@ -356,7 +356,7 @@ const formatTime = (seconds) => {
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateMultitap} disabled = {insufficientMultitap || buttonLoading === true}>
-                     {insufficientRecharging ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
+                     {insufficient ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
@@ -375,7 +375,7 @@ const formatTime = (seconds) => {
                   </div>
                   <button className="bg-[#ffbf00af] p-4 px-[50px] text-[20px] rounded-md"
                                     onClick={updateEnergyLimit} disabled = {insufficientEnergyLimit || buttonLoading === true}>
-                     {insufficientRecharging ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
+                     {insufficientEnergyLimit ? "Insufficient Coin!" : (buttonLoading ? "Loading ..." : "Get it!")}
                   </button>
                 </div>
                )}
