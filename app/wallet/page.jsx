@@ -1,3 +1,4 @@
+'use client'
 import { useEnergy } from "@/context/context";
 
 const Wallet = () => {
