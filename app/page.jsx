@@ -167,7 +167,7 @@ const Home = () => {
         <div className="flex justify-center items-center font-bold mt-[20px]">
               <div>
                 <div className="flex justify-between gap-[50px]">
-                  <div>
+                  <div className="flex">
                     <p className="text-sm">{gameLevel}</p>
                     <IoIosArrowForward color="gray" className="w-[15px] h-[15px]" />
                   </div>
