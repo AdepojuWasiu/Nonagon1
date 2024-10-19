@@ -7,6 +7,7 @@
 import Link from "next/link";
 import { useEnergy } from "@/context/context";
 import { useTelegram } from "@/hooks/useTelegram";
+import { IoIosArrowForward } from "react-icons/io";
 
 
 
@@ -166,7 +167,10 @@ const Home = () => {
         <div className="flex justify-center items-center font-bold mt-[20px]">
               <div>
                 <div className="flex justify-between gap-[50px]">
-                  <p className="text-sm">{gameLevel}</p>
+                  <div>
+                    <p className="text-sm">{gameLevel}</p>
+                    <IoIosArrowForward color="gray" className="w-[15px] h-[15px]" />
+                  </div>
                   <p className="text-sm">{levelIndex + 1} <span className="text-[#95908a]">/ {levelNames.length}</span></p>
                 </div>
                 <div className="flex items-center mt-1 border-2 border-[#43433b] rounded-full">
