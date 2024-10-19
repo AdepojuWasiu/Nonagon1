@@ -306,7 +306,9 @@ const updateEnergyWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateEnergyWithBeacon();
+  if(waiting === true) {
+    updateEnergyWithBeacon(); 
+  }
 }, [energy]);
 
 const updateFarmingWithBeacon = async () => {
@@ -323,7 +325,9 @@ const updateFarmingWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateFarmingWithBeacon();
+  if(waiting === true) {
+    updateFarmingWithBeacon();
+  }
 }, [count]);
 
 useEffect(() => {
@@ -370,7 +374,9 @@ const updateXWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateXWithBeacon();
+  if(waiting === true) {
+    updateXWithBeacon();
+  }
 }, [xStatus, xTimeLeft]);
 
 const updateTeWithBeacon = async () => {
@@ -386,7 +392,9 @@ const updateTeWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateTeWithBeacon();
+  if(waiting === true) {
+    updateTeWithBeacon();
+  }
 }, [teStatus, teTimeLeft]);
 
 const updateYoWithBeacon = async () => {
@@ -402,7 +410,9 @@ const updateYoWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateYoWithBeacon();
+  if(waiting === true) {
+    updateYoWithBeacon();
+  }
 }, [yoStatus, yoTimeLeft]);
 
 const updateTikWithBeacon = async () => {
@@ -418,7 +428,9 @@ const updateTikWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateTikWithBeacon();
+  if(waiting === true) {
+    updateTikWithBeacon();
+  }
 }, [tikStatus, tikTimeLeft]);
 
 const updateInWithBeacon = async () => {
@@ -434,7 +446,9 @@ const updateInWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateInWithBeacon();
+  if(waiting === true) {
+    updateInWithBeacon();
+  }
 }, [inStatus, inTimeLeft]);
 
 const updateFaWithBeacon = async () => {
@@ -450,7 +464,9 @@ const updateFaWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updateFaWithBeacon();
+  if(waiting === true) {
+    updateFaWithBeacon();
+  }
 }, [faStatus, faTimeLeft]);
 
 useEffect(() => {
