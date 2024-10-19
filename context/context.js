@@ -50,6 +50,7 @@ export function EnergyProvider({ children }) {
   const [faTimeLeft, setFaTimeleft] = useState(0);
   const [dailyTimeLeft, setDailyTimeLeft] = useState(0);
   const [dailyStatus, setDailyStatus] = useState('');
+  const [waiting, setWaiting] = useState(false);
 
   const initData = useTelegramInitData();
 
@@ -269,8 +270,8 @@ useEffect(() => {
                 console.log(error);
             }
         };
-
         sendUser();
+        setWaiting(true);
     }
 }, [userid, onceFetch]);  // This useEffect runs when the state variables are updated
 
@@ -289,7 +290,7 @@ const updatePointWithBeacon = async () => {
 
 useEffect(() => {
   updatePointWithBeacon();
-}, [points]);
+}, [points, waiting]);
 
 const updateEnergyWithBeacon = async () => {
   const url = "/api/energy";
@@ -304,7 +305,7 @@ const updateEnergyWithBeacon = async () => {
 
 useEffect(() => {
   updateEnergyWithBeacon();
-}, [energy]);
+}, [energy, waiting]);
 
 const updateFarmingWithBeacon = async () => {
   const url = "/api/farming";
@@ -321,7 +322,7 @@ const updateFarmingWithBeacon = async () => {
 
 useEffect(() => {
   updateFarmingWithBeacon();
-}, [count]);
+}, [count, waiting]);
 
 useEffect(() => {
   if(energy>0) {
