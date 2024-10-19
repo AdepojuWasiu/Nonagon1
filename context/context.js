@@ -289,7 +289,9 @@ const updatePointWithBeacon = async () => {
 };
 
 useEffect(() => {
-  updatePointWithBeacon();
+  if(waiting === true) {
+    updatePointWithBeacon();  
+  }
 }, [points]);
 
 const updateEnergyWithBeacon = async () => {
