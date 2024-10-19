@@ -271,7 +271,9 @@ useEffect(() => {
             }
         };
         sendUser();
-        setWaiting(true);
+        setTimeout(() => {
+          setWaiting(true);
+        }, 1000);
     }
 }, [userid, onceFetch]);  // This useEffect runs when the state variables are updated
 

@@ -165,6 +165,7 @@ const Home = () => {
         {/* <div><h1 className="text-[20px] font-bold" onClick={() => {updatePointWithBeacon()}}>Choose Exchange</h1></div> */}
         
         <div className="flex justify-center items-center font-bold mt-[20px]">
+          <Link href="/level">
               <div>
                 <div className="flex justify-between gap-[50px]">
                   <div className="flex">
@@ -179,6 +180,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+          </Link>
          </div>
       </div>
 
