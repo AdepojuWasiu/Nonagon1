@@ -327,7 +327,7 @@ useEffect(() => {
   if(energy>0) {
     const interval = setInterval(() => {
       setEnergy((prevEnergy) => Math.min(prevEnergy + energyIncrease, energyLimit));
-    },3000); // Restore 10 energy points every second
+    },10000); // Restore 10 energy points every second
     return () => clearInterval(interval); // Clear interval on component unmount
   }
   
@@ -348,7 +348,7 @@ useEffect(() => {
           return 0; // Ensure timeLeft doesn't go below 0
         }
       });
-    }, 1000);
+    }, 10000);
 
     return () => clearInterval(interval); // Clean up the interval when the component unmounts or status changes
   }
