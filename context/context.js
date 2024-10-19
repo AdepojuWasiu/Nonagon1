@@ -290,7 +290,7 @@ const updatePointWithBeacon = async () => {
 
 useEffect(() => {
   updatePointWithBeacon();
-}, [points, waiting]);
+}, [points]);
 
 const updateEnergyWithBeacon = async () => {
   const url = "/api/energy";
@@ -305,7 +305,7 @@ const updateEnergyWithBeacon = async () => {
 
 useEffect(() => {
   updateEnergyWithBeacon();
-}, [energy, waiting]);
+}, [energy]);
 
 const updateFarmingWithBeacon = async () => {
   const url = "/api/farming";
@@ -322,7 +322,7 @@ const updateFarmingWithBeacon = async () => {
 
 useEffect(() => {
   updateFarmingWithBeacon();
-}, [count, waiting]);
+}, [count]);
 
 useEffect(() => {
   if(energy>0) {
