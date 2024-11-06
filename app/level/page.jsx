@@ -7,7 +7,7 @@ const Level = () => {
 
   const {gameLevel} = useEnergy();
   return (
-    <div className='mb-10'>
+    <div className='mb-[100px]'>
           <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
                 <div className="flex gap-4">
                   <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>10</p></div>
