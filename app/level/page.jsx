@@ -1,11 +1,13 @@
 
-import React from 'react'
-import { FaHandshake } from "react-icons/fa";
-import {GiDiamondTrophy} from "react-icons/gi"
+import React from 'react';
+import {GiDiamondTrophy} from "react-icons/gi";
+import { useEnergy } from "@/context/context";
 
 const Level = () => {
+
+  const {gameLevel} = useEnergy();
   return (
-    <div>
+    <div className='mb-10'>
           <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
                 <div className="flex gap-4">
                   <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>10</p></div>
@@ -132,7 +134,7 @@ const Level = () => {
                  <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
               </div>
          </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+         <div className={`${gameLevel === 'Circle' ? 'bg-[#88E788]' : 'bg-[#272727]'} flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between`}>
                 <div className="flex gap-4">
                   <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
                   <div>
