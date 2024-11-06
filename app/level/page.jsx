@@ -1,11 +1,138 @@
 
 import React from 'react'
 import { FaHandshake } from "react-icons/fa";
+import {GiDiamondTrophy} from "react-icons/gi"
 
 const Level = () => {
   return (
     <div>
           <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>10</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Nonagon</p>
+                  <div className="flex gap-2">
+                      <p>90,000,000 - &#x221e</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>9</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Heptagon</p>
+                  <div className="flex gap-2">
+                      <p>45,000,000 - 89,999,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>8</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Heptagon</p>
+                  <div className="flex gap-2">
+                      <p>35,700,000 - 44,999,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>7</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Hexagon</p>
+                  <div className="flex gap-2">
+                      <p>28,600,000 - 35,699,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>6</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Pentagon</p>
+                  <div className="flex gap-2">
+                      <p> 20,500,000 - 28,599,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>5</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Quadrilateral</p>
+                  <div className="flex gap-2">
+                      <p>10,400,000 - 20,499,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>4</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Triangle</p>
+                  <div className="flex gap-2">
+                      <p>6,300,000 - 10,399,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>3</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Digon</p>
+                  <div className="flex gap-2">
+                      <p>2,200,000 - 6,299,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
+                <div className="flex gap-4">
+                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>2</p></div>
+                  <div>
+                  <p className="text-[17px] font-bold">Monogon</p>
+                  <div className="flex gap-2">
+                      <p>501,000 - 2,199,999</p>
+                  </div>
+                  </div>
+               </div>
+               <div className="flex mt-3">
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
+              </div>
+         </div>
+         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
                 <div className="flex gap-4">
                   <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
                   <div>
@@ -16,133 +143,7 @@ const Level = () => {
                   </div>
                </div>
                <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Monogon</p>
-                  <div className="flex gap-2">
-                      <p>501,000 - 2,199,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Digon</p>
-                  <div className="flex gap-2">
-                      <p>2,200,000 - 6,299,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Triangle</p>
-                  <div className="flex gap-2">
-                      <p>6,300,000 - 10,399,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Quadrilateral</p>
-                  <div className="flex gap-2">
-                      <p>10,400,000 - 20,499,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Pentagon</p>
-                  <div className="flex gap-2">
-                      <p>20,500,000 - 28,599,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Hexagon</p>
-                  <div className="flex gap-2">
-                      <p>28,600,000 - 35,699,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Heptagon</p>
-                  <div className="flex gap-2">
-                      <p>35,700,000 - 44,999,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Octagon</p>
-                  <div className="flex gap-2">
-                      <p>45,000,000 - 89,999,999</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
-              </div>
-         </div>
-         <div className="bg-[#272727] flex  rounded-md pb-2 pt-2 pl-4 pr-4 mt-4 justify-between ">
-                <div className="flex gap-4">
-                  <div className="bg-[#000] py-3 px-5 rounded-full font-bold text-[15px] text-[#ffbf00]"><p>1</p></div>
-                  <div>
-                  <p className="text-[17px] font-bold">Decagon</p>
-                  <div className="flex gap-2">
-                      <p>90,000,000 - infinix</p>
-                  </div>
-                  </div>
-               </div>
-               <div className="flex mt-3">
-                 <FaHandshake className="w-[30px] h-[30px]" color="gold" />
+                 <GiDiamondTrophy className="w-[30px] h-[30px]" color="gold" />
               </div>
          </div>
     </div>
