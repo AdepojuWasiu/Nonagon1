@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEnergy } from "@/context/context";
 import { useTelegram } from "@/hooks/useTelegram";
+import { FaWallet } from "react-icons/fa";
 
 const Wallet = () => {
 
@@ -29,6 +30,7 @@ const Wallet = () => {
             <Image src="/assets/coin.jpg" alt="coin" width={40} height={40} className="rounded-full"/>
             <p className="text-[30px] font-bold">{points.toLocaleString()}</p>
         </div>
+        <FaWallet className=" w-[50px] h-[50px]" color="gold"/>
         <div  className="bg-[#ffff] text-[#000] flex justify-center justify-items-center font-bold text-[20px] p-4 px-14 rounded-xl gap-6 mt-[190px]">
               <p>Connect Wallet </p>
               <p className="text-[15px] text-gray-600">soon</p>
