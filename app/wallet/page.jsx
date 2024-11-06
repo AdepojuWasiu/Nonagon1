@@ -2,10 +2,23 @@
 
 import Image from "next/image";
 import { useEnergy } from "@/context/context";
+import { useTelegram } from "@/hooks/useTelegram";
 
 const Wallet = () => {
 
-    const {points} = useEnergy();
+  const { tg, enableCloseConfirmation } = useTelegram();
+  const {points} = useEnergy();
+
+    if(tg){
+      tg.BackButton.show(); 
+  };
+  const goBack = () => {
+    tg.BackButton.hide();
+    router.push('/'); 
+  };
+  if(tg){
+    tg.BackButton.onClick(goBack);
+  };
 
   return (
     <div className="flex-col justify-center items-center justify-items-center p-3">
