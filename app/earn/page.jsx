@@ -41,7 +41,7 @@ const Earn = () => {
          })
        })
        if(response.ok) {
-          setPoints(points+500000)
+          setPoints(points+20000)
           setDailyStatus('claimed');
           setDailyPullup(false) 
        }
