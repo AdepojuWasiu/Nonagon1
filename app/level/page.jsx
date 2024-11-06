@@ -1,5 +1,5 @@
 
-import React from 'react';
+'use client'
 import {GiDiamondTrophy} from "react-icons/gi";
 import { useEnergy } from "@/context/context";
 
