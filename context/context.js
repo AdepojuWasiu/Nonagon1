@@ -347,10 +347,10 @@ useEffect(() => {
 useEffect(() => {
   if (status === 'farming') {
     const interval = setInterval(() => {
-      setCount((prevCount) => prevCount + 0.7);
+      setCount((prevCount) => prevCount + 6.95);
       setTimeLeft((prevTimeLeft) => {
         if (prevTimeLeft > 0) {
-          return prevTimeLeft - 1;
+          return prevTimeLeft - 10;
         } else {
           clearInterval(interval); // Stop the interval when time reaches 0
           setStatus('claim'); // Switch to claim mode
