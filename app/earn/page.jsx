@@ -37,14 +37,15 @@ const Earn = () => {
          method:'PATCH',
          body: JSON.stringify({
            userId: userid,
-           dailyStatus: 'claimed'
+           dailyStatus: 'claimed',
+           dailyTaskLeft: dailyTaskLeft-1
          })
        })
        if(response.ok) {
           setPoints(points+20000)
           setDailyStatus('claimed');
-          setDailyPullup(false) 
           setDailyTaskLeft(dailyTaskLeft-1)
+          setDailyPullup(false) 
        }
          
       } catch (error) {
