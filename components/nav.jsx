@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="relative">
           <FaCoins className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Earn</p>
-          <div className="bg-[#e92828] absolute top-[-2px] right-[-2px] z-30 py-1 px-2 rounded-full font-bold text-[10px] text-[#ffff]"><p>5</p></div>
+          <div className="bg-[#e92828] absolute top-[-4px] right-[-4px] z-30 py-1 px-2 rounded-full font-bold text-[10px] text-[#ffff]"><p>5</p></div>
         </div>
       </Link>
       <Link href="/wallet">

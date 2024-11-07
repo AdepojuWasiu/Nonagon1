@@ -231,7 +231,7 @@ const Home = () => {
         <div className="flex justify-center items-center justify-items-center mt-2 pb-[30px]">
           <button onClick={status === 'start' ? handleStart : status === 'claim' ? handleClaim : null} className=" p-3 px-[20px] text-[25px] bg-black rounded-xl">
             {status === 'start' && 'Start Farming'}
-            {status === 'farming' && `Farming... ${Math.round(count)} | ${formatTime(timeLeft)}`}
+            {status === 'farming' && <div>Farming... ${Math.round(count)} | <p className="text-[10px]">${formatTime(timeLeft)}</p></div>}
             {status === 'claim' && `Claim | ${Math.round(count)}`}
           </button>
         </div>
