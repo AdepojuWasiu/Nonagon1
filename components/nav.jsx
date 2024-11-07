@@ -1,12 +1,15 @@
-
+'use client'
 import Link from "next/link";
 
 import {FaHome} from "react-icons/fa"
 import {FaUserFriends} from "react-icons/fa"
 import { FaCoins } from "react-icons/fa";
 import { FaWallet } from "react-icons/fa";
+import { useEnergy } from "@/context/context";
 
 const Navbar = () => {
+  const {dailyTaskLeft,socialTaskLeft} = useEnergy();
+
   return (
     
       <div className="fixed bottom-0 left-0 right-0 h-[80px] bg-[#202020] grid grid-cols-4 justify-center justify-items-center items-center text-gray-400 font-bold ">
@@ -26,7 +29,7 @@ const Navbar = () => {
         <div className="relative">
           <FaCoins className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Earn</p>
-          <div className="bg-[#e92828] absolute top-[-6px] right-[-4px] z-30 py-1 px-2 rounded-full font-bold text-[10px] text-[#ffff]"><p>5</p></div>
+          <div className="bg-[#e92828] absolute top-[-6px] right-[-4px] z-30 py-1 px-2 rounded-full font-bold text-[10px] text-[#ffff]"><p>{dailyTaskLeft+socialTaskLeft}</p></div>
         </div>
       </Link>
       <Link href="/wallet">

@@ -8,6 +8,7 @@ export const POST = async (request) => {
     const tikTimeLeft = data.tikTimeLeft
     const tikLastTimeUpdate = data.tikLastTimeUpdate
     const tikStatus =  data.tikStatus
+    const socialTaskLeft = data.socialTaskLeft
 
     try {
         await connectToDB();
@@ -19,6 +20,7 @@ export const POST = async (request) => {
             existingUser.tikTimeLeft = tikTimeLeft
             existingUser.tikLastTimeUpdate = tikLastTimeUpdate
             existingUser.tikStatus = tikStatus
+            existingUser.socialTaskLeft = socialTaskLeft
 
             await existingUser.save();
 

@@ -16,7 +16,7 @@ const Earn = () => {
   const { tg, enableCloseConfirmation } = useTelegram();
 
   const { userid,points,setPoints, xStatus,teStatus, yoStatus, tikStatus, inStatus, faStatus, dailyStatus, setDailyStatus } = useEnergy();
-  const [dailyPullup, setDailyPullup] = useState(false);
+  const [dailyPullup, setDailyPullup, dailyTaskLeft, setDailyTaskLeft] = useState(false);
  
 
     if(tg){
@@ -43,6 +43,7 @@ const Earn = () => {
        if(response.ok) {
           setPoints(points+20000)
           setDailyStatus('claimed');
+          setDailyTaskLeft(dailyTaskLeft-1);
           setDailyPullup(false) 
        }
          

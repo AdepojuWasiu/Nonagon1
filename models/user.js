@@ -148,6 +148,12 @@ const UserSchema = new Schema({
     dailyStatus: {
         type: String,
     },
+    dailyTaskLeft: {
+        type: Number,
+    },
+    socialTaskLeft: {
+        type: Number,
+    },
 
 });
 

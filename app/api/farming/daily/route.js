@@ -3,7 +3,7 @@ import { connectToDB } from "@/utils/database";
 
 
 export const PATCH = async (request) => {
-    const {userId, dailyStatus} = await request.json();
+    const {userId, dailyStatus, dailyTaskLeft} = await request.json();
 
     try {
         await connectToDB();
@@ -14,6 +14,7 @@ export const PATCH = async (request) => {
         }else{
 
             existingUser.dailyStatus = dailyStatus;
+            existingUser.dailyTaskLeft = dailyTaskLeft;
             await existingUser.save();
             return new Response(true, {status:200})
         }

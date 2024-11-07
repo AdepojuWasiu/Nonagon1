@@ -32,6 +32,8 @@ export function EnergyProvider({ children }) {
   const [energyIncrease, setEnergyIncrease] = useState(0);
   const [onceFetch, setOnceFetch] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [dailyTaskLeft, setDailyTaskLeft] = useState(0);
+  const [socialTaskLeft, setSocialTaskLeft] = useState(0);
 
   const [status, setStatus] = useState('');
   const [count, setCount] = useState(0);
@@ -104,7 +106,9 @@ useEffect(() => {
                     setTikStatus(data.tikStatus);
                     setInStatus(data.inStatus);
                     setFaStatus(data.faStatus);
-                    setDailyStatus(data.dailyStatus)
+                    setDailyStatus(data.dailyStatus);
+                    setDailyTaskLeft(data.dailyTaskLeft);
+                    setSocialTaskLeft(data.socialTaskLeft);
                     
                     const timeLogin = Date.now();
                     const lastEnergyTime = new Date(data.lastEnergyUpdatedTime).getTime();
@@ -369,7 +373,8 @@ const updateXWithBeacon = async () => {
     userId: userid,
     xTimeLeft: xTimeLeft,
     xStatus: xStatus,
-    xLastTimeUpdate: Date.now()
+    xLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
   });
 
   navigator.sendBeacon(url, data);
@@ -387,7 +392,8 @@ const updateTeWithBeacon = async () => {
     userId: userid,
     teTimeLeft: teTimeLeft,
     teStatus: teStatus,
-    teLastTimeUpdate: Date.now()
+    teLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
   });
 
   navigator.sendBeacon(url, data);
@@ -405,7 +411,8 @@ const updateYoWithBeacon = async () => {
     userId: userid,
     yoTimeLeft: yoTimeLeft,
     yoStatus: yoStatus,
-    yoLastTimeUpdate: Date.now()
+    yoLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
   });
 
   navigator.sendBeacon(url, data);
@@ -423,7 +430,8 @@ const updateTikWithBeacon = async () => {
     userId: userid,
     tikTimeLeft: tikTimeLeft,
     tikStatus: tikStatus,
-    tikLastTimeUpdate: Date.now()
+    tikLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
   });
 
   navigator.sendBeacon(url, data);
@@ -441,7 +449,8 @@ const updateInWithBeacon = async () => {
     userId: userid,
     inTimeLeft: inTimeLeft,
     inStatus: inStatus,
-    inLastTimeUpdate: Date.now()
+    inLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
   });
 
   navigator.sendBeacon(url, data);
@@ -459,7 +468,9 @@ const updateFaWithBeacon = async () => {
     userId: userid,
     faTimeLeft: faTimeLeft,
     faStatus: faStatus,
-    faLastTimeUpdate: Date.now()
+    faLastTimeUpdate: Date.now(),
+    socialTaskLeft: socialTaskLeft
+    
   });
 
   navigator.sendBeacon(url, data);
@@ -602,7 +613,8 @@ useEffect(() => {
                                      gameLevel, exchange, referals,tapValue,setTapValue, setPoints, setEnergy, setTimeStamp, setAvailabeTurbo, setAvailableEnergyRefill,
                                      setMultitapLevel, setEnergyLimitLevel, setRechargingSpeedLevel, setGameLevel, setExchange, setReferals, loading,
                                      energyIncrease, setEnergyIncrease, status, setStatus, count, setCount, timeLeft, setTimeLeft, xStatus,setXStatus, xTimeLeft, setXTimeleft, 
-                                     dailyTimeLeft, setDailyTimeLeft, teStatus, yoStatus, tikStatus, inStatus, faStatus, setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus }}>
+                                     dailyTimeLeft, setDailyTimeLeft, teStatus, yoStatus, tikStatus, inStatus, faStatus, setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus,
+                                     dailyTaskLeft, setDailyTaskLeft,socialTaskLeft, setSocialTaskLeft }}>
       {children}
     </EnergyContext.Provider>
   );

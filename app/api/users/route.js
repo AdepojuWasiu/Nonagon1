@@ -59,6 +59,8 @@ export const POST = async (request) => {
                 faTimeLeft: 300,
                 faLastTimeUpdate: Date.now(),
                 dailyStatus: '',
+                socialTaskLeft: 6,
+                dailyTaskLeft: 1,
                  
             });
     

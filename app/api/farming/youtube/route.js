@@ -8,6 +8,7 @@ export const POST = async (request) => {
     const yoTimeLeft = data.yoTimeLeft
     const yoLastTimeUpdate = data.yoLastTimeUpdate
     const yoStatus =  data.yoStatus
+    const socialTaskLeft = data.socialTaskLeft
 
     try {
         await connectToDB();
@@ -19,6 +20,7 @@ export const POST = async (request) => {
             existingUser.yoTimeLeft = yoTimeLeft
             existingUser.yoLastTimeUpdate = yoLastTimeUpdate
             existingUser.yoStatus = yoStatus
+            existingUser.socialTaskLeft = socialTaskLeft
 
             await existingUser.save();
 

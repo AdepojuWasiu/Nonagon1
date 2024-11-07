@@ -9,7 +9,8 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 const Social = ({image, discription , id, url, styleDisable, unClaim, status}) => {
 
   const { points, setPoints,xStatus,setXStatus, teStatus, yoStatus, tikStatus, inStatus, faStatus, 
-              setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus} = useEnergy();
+              setTeStatus,setYoStatus,setTikStatus,setInStatus, setFaStatus,
+              dailyTaskLeft, setDailyTaskLeft,socialTaskLeft, setSocialTaskLeft} = useEnergy();
   const [xpullup, setXpullup] = useState(false);
   const [socialDescription, setSocialDescription] = useState('');
 
@@ -50,26 +51,32 @@ const Social = ({image, discription , id, url, styleDisable, unClaim, status}) =
         setPoints(points+50000);
         setXStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     } else if (id === 'telegram' ) {
         setPoints(points+50000);
         setTeStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     }  else if (id === 'youtube' ) {
         setPoints(points+50000);
         setYoStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     }  else if (id === 'tiktok' ) {
         setPoints(points+50000);
         setTikStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     }  else if (id === 'instagram' ) {
         setPoints(points+50000);
         setInStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     }  else if (id === 'facebook' ) {
         setPoints(points+50000);
         setFaStatus('claimed');
         setXpullup(false);
+        setSocialTaskLeft(socialTaskLeft-1);
     }
 
  };
