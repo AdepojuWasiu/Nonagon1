@@ -23,9 +23,10 @@ const Navbar = () => {
         </div>
       </Link>
       <Link href="/earn">
-        <div>
+        <div className="relative">
           <FaCoins className=" w-[25px] h-[25px] ml-1.5" color="gray"/>
           <p>Earn</p>
+          <div className="bg-[#000] absolute top-0 right-0 z-30 py-1 px-2 rounded-full font-bold text-[10px] text-[#ffbf00]"><p>5</p></div>
         </div>
       </Link>
       <Link href="/wallet">
