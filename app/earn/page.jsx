@@ -43,8 +43,8 @@ const Earn = () => {
        if(response.ok) {
           setPoints(points+20000)
           setDailyStatus('claimed');
-          setDailyTaskLeft(dailyTaskLeft-1);
           setDailyPullup(false) 
+          setDailyTaskLeft(dailyTaskLeft-1)
        }
          
       } catch (error) {
