@@ -15,11 +15,12 @@ const Earn = () => {
   const router = useRouter();
   const { tg, enableCloseConfirmation } = useTelegram();
 
-  const { userid,points,setPoints, xStatus,teStatus, yoStatus, tikStatus, inStatus, faStatus, dailyStatus, setDailyStatus } = useEnergy();
-  const [dailyPullup, setDailyPullup, dailyTaskLeft, setDailyTaskLeft] = useState(false);
+  const { userid,points,setPoints, xStatus,teStatus, yoStatus, tikStatus, inStatus, faStatus,
+           dailyTaskLeft, setDailyTaskLeft, dailyStatus, setDailyStatus } = useEnergy();
+  const [dailyPullup, setDailyPullup] = useState(false);
  
 
-    if(tg){
+  if(tg){
       tg.BackButton.show(); 
   };
   const goBack = () => {
