@@ -128,13 +128,13 @@ useEffect(() => {
                         const timeDifferentFarm = timeLogin - lastFarmingTime;
                         const timeSecondsFarm = timeDifferentFarm/1000;
                         const subtractTimeLeftout = data.farmingTimeLeft - timeSecondsFarm;
-                        const addCount = timeSecondsFarm * 1;
+                        const addCount = timeSecondsFarm * 0.695;
                         const newCount = addCount + data.farming;
                         const roundSubtractTime = Math.round(subtractTimeLeftout);
                         const roundNewCount = Math.round(newCount);
                         if(roundSubtractTime <= 0){
                           setTimeLeft(0);
-                          setCount(20160)
+                          setCount(20016)
                         } else {
                           setTimeLeft(roundSubtractTime);
                           setCount(roundNewCount)
