@@ -7,7 +7,7 @@ export const GET = async (request) => {
         await connectToDB();
 
         // Update availableTurbo to 5 for all users
-        await User.updateMany({}, { availableTurbo: 3, availableEnergyRefill: 3, dailyStatus: ""});
+        await User.updateMany({}, { availableTurbo: 3, availableEnergyRefill: 3, dailyStatus: "", dailyTaskLeft: 1});
 
         return new Response("Turbo updated for all users", { status: 200 });
 
