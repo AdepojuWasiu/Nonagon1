@@ -103,11 +103,11 @@ const Earn = () => {
           <h1 className="text-[20px] font-bold mt-10">Tasks List</h1>
           
           <Social discription= {'Follow  X account'} image= {'/assets/twitter.png' } id ={'twitter'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableX} unClaim= {unClaimX} status={xStatus}/>
-          <Social discription= {'Join our Telegram channel'} image= {'/assets/telegram.png'} id={'telegram'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableTe} unClaim ={unClaimTe} status={teStatus}/>
-          <Social discription= {'Subscribe to our Youtube'} image= {"/assets/youtube.png" } id = {'youtube'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableYo} unClaim ={unClaimYo} status={yoStatus}/>
+          <Social discription= {'Join our Telegram channel'} image= {'/assets/telegram.png'} id={'telegram'} url = {'https://t.me/nonagonai'} styleDisable = {styleDisableTe} unClaim ={unClaimTe} status={teStatus}/>
+          <Social discription= {'Subscribe to our Youtube'} image= {"/assets/youtube.png" } id = {'youtube'} url = {'https://www.youtube.com/@NonagonAI'} styleDisable = {styleDisableYo} unClaim ={unClaimYo} status={yoStatus}/>
           <Social discription= {'Follow our Tiktok account'} image= {'/assets/tiktok.png' } id= {'tiktok'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableTik} unClaim={unClaimTik} status={tikStatus}/>
-          <Social discription= {'Follow our Instagram account'} image= {'/assets/instagram.png'} id ={'instagram'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09' } styleDisable = {styleDisableIn} unClaim ={unClaimIn} status={inStatus}/>
-          <Social discription= {'Follow our Facebook account'} image= {'/assets/facebook.png' } id= {'facebook'} url = {'https://x.com/NonagonAI?t=vMrC8N3pNR4S1bZu1W5I-A&s=09'} styleDisable = {styleDisableFa} unClaim= {unClaimFa} status={faStatus}/>
+          <Social discription= {'Follow our Instagram account'} image= {'/assets/instagram.png'} id ={'instagram'} url = {'https://www.instagram.com/nonagonai?igsh=MTVxdDNzaTYxdHRmag==' } styleDisable = {styleDisableIn} unClaim ={unClaimIn} status={inStatus}/>
+          <Social discription= {'Follow our Facebook account'} image= {'/assets/facebook.png' } id= {'facebook'} url = {'https://www.facebook.com/profile.php?id=61568435549593'} styleDisable = {styleDisableFa} unClaim= {unClaimFa} status={faStatus}/>
 
           {dailyPullup && (
                 <div className="bg-black bottom-[10vw] right-[10vw] left-[10vw] top-[100px] 
